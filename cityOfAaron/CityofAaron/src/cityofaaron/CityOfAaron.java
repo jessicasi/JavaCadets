@@ -3,7 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package byui.cit260.JavaCadets.model;
+package cityofaaron;
+
+import byui.cit260.JavaCadets.model.Player;
 
 /**
  *
@@ -15,7 +17,13 @@ public class CityOfAaron {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player playerOne = new Player();
+        
+        playerOne.setName("Fred Flinstone");
+        
+        String playerOneName = playerOne.getName();
+        
+        System.out.println(playerOne.toString());
     }
     
 }

@@ -11,16 +11,24 @@ package byui.cit260.JavaCadets.model;
  */
 public enum ItemType {
     
-    Animal(Math.random()*((1-20)+1))+20, Good)
-
+    Animal("Animal"),
+    Tool("Tool"),
+    Provision("Provision");
     
-    private int age;
-    private Condition condition;
-   
-ItemType(String age, String condition){
-    this.animal = animal;
-    this.condition = condition;
+    private String item;
     
+    ItemType(String item){
+        this.item = item;
 }
+
+    public String getItem() {
+        return item;
+    }
+
+    @Override
+    public String toString() {
+        return "ItemType{" + "item=" + item + '}';
+    }
+    
     
 }

@@ -5,10 +5,12 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Steven
  */
-public class Animal {
+public class Animal implements Serializable{
     
 }

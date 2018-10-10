@@ -5,10 +5,12 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Steven
  */
-public class Provision {
+public class Provision implements Serializable{
     
 }

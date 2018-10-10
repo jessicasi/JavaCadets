@@ -5,30 +5,15 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Steven
  */
-public enum ItemType {
+public enum ItemType implements Serializable{
     
-    Animal("Animal"),
-    Tool("Tool"),
-    Provision("Provision");
-    
-    private String item;
-    
-    ItemType(String item){
-        this.item = item;
-}
-
-    public String getItem() {
-        return item;
-    }
-
-    @Override
-    public String toString() {
-        return "ItemType{" + "item=" + item + '}';
-    }
+   Animal, Tool, Provision;
     
     
 }

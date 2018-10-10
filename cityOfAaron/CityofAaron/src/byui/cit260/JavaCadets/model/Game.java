@@ -5,13 +5,14 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author Steven
  */
-public class Game {
+public class Game implements Serializable{
     
     private Player thePlayer;
     private Map theMap;

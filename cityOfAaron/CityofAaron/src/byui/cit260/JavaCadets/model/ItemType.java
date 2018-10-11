@@ -5,22 +5,15 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Steven
  */
-public enum ItemType {
+public enum ItemType implements Serializable{
     
-    Animal(Math.random()*((1-20)+1))+20, Good)
-
+   Animal, Tool, Provision;
     
-    private int age;
-    private Condition condition;
-   
-ItemType(String age, String condition){
-    this.animal = animal;
-    this.condition = condition;
-    
-}
     
 }

@@ -3,19 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package cityofaaron;
+package byui.cit260.JavaCadets.model;
 
 /**
  *
  * @author jessicasi
  */
-public class CityOfAaron {
+public enum Condition {
+    Good, Bad, Broken, Dead;
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
-    
 }

@@ -15,7 +15,7 @@ import java.util.Objects;
 public class Location implements Serializable {
     
     private Scene scene;
-    private boolean visted;
+    private boolean visited;
 
     public Location() {
     }
@@ -30,19 +30,19 @@ public class Location implements Serializable {
         this.scene = scene;
     }
 
-    public boolean isVisted() {
-        return visted;
+    public boolean isVisited() {
+        return visited;
     }
 
-    public void setVisted(boolean visted) {
-        this.visted = visted;
+    public void setVisited(boolean visted) {
+        this.visited = visted;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
         hash = 67 * hash + Objects.hashCode(this.scene);
-        hash = 67 * hash + (this.visted ? 1 : 0);
+        hash = 67 * hash + (this.visited ? 1 : 0);
         return hash;
     }
 
@@ -58,7 +58,7 @@ public class Location implements Serializable {
             return false;
         }
         final Location other = (Location) obj;
-        if (this.visted != other.visted) {
+        if (this.visited != other.visited) {
             return false;
         }
         if (!Objects.equals(this.scene, other.scene)) {
@@ -69,7 +69,7 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "scene=" + scene + ", visted=" + visted + '}';
+        return "Location{" + "scene=" + scene + ", visted=" + visited + '}';
     }
     
     

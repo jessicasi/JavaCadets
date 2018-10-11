@@ -70,6 +70,4 @@ public class Animal implements Serializable {
         return "Animal{" + "name=" + name + ", age=" + age + '}';
     }
     
-    
-    
 }

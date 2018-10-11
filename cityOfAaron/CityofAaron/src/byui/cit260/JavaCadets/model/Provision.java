@@ -8,10 +8,12 @@ package byui.cit260.JavaCadets.model;
 import java.io.Serializable;
 import java.util.Objects;
 
+
 /**
  *
  * @author Skyler
  */
+
 public class Provision implements Serializable {
     
     private String name;
@@ -64,8 +66,5 @@ public class Provision implements Serializable {
         }
         return true;
     }
-    
-    
-    
     
 }

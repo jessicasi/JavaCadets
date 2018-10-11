@@ -10,6 +10,8 @@ import java.io.Serializable;
 /**
  *
  * @author Steven
+ * 
+ * Test test
  */
 public class Point implements Serializable{
     private int row;

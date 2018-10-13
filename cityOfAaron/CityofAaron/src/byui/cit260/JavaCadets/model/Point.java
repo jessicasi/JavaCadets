@@ -19,6 +19,11 @@ public class Point implements Serializable{
 
     public Point() {
     }
+    
+    public Point (int row, int column) {
+        this.column = column;
+        this.row = row;
+    }
 
     @Override
     public int hashCode() {

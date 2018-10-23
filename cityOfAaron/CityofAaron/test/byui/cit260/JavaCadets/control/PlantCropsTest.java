@@ -31,7 +31,7 @@ public class PlantCropsTest {
         int expResult = 9;
         int result = instance.plantCrops(acres, wheat, userAcres);
         assertEquals(expResult, result);
-        assertEquals(expResult, result);
+        
         // TODO review the generated test code and remove the default call to fail.
         // fail("The test case is a prototype.");
     
@@ -43,7 +43,6 @@ public class PlantCropsTest {
         expResult = -1;
         result = instance.plantCrops(acres, wheat, userAcres);
         assertEquals(expResult, result);
-        assertEquals(expResult, result);
         
         System.out.println("Test Case 3");
         acres = 10;
@@ -52,7 +51,6 @@ public class PlantCropsTest {
         // PlantCrops instance = new PlantCrops();
         expResult = -2;
         result = instance.plantCrops(acres, wheat, userAcres);
-        assertEquals(expResult, result);
         assertEquals(expResult, result);
         
         System.out.println("Test Case 4");
@@ -63,7 +61,6 @@ public class PlantCropsTest {
         expResult = -3;
         result = instance.plantCrops(acres, wheat, userAcres);
         assertEquals(expResult, result);
-        assertEquals(expResult, result);
         
         System.out.println("Test Case 5");
         acres = 1;
@@ -72,7 +69,6 @@ public class PlantCropsTest {
         // PlantCrops instance = new PlantCrops();
         expResult = 9;
         result = instance.plantCrops(acres, wheat, userAcres);
-        assertEquals(expResult, result);
         assertEquals(expResult, result);
         
         System.out.println("Test Case 6");
@@ -83,7 +79,6 @@ public class PlantCropsTest {
         expResult = 0;
         result = instance.plantCrops(acres, wheat, userAcres);
         assertEquals(expResult, result);
-        assertEquals(expResult, result);
         
         System.out.println("Test Case 7");
         acres = 10;
@@ -92,7 +87,6 @@ public class PlantCropsTest {
         // PlantCrops instance = new PlantCrops();
         expResult = 4;
         result = instance.plantCrops(acres, wheat, userAcres);
-        assertEquals(expResult, result);
         assertEquals(expResult, result);
         
         // TODO review the generated test code and remove the default call to fail.

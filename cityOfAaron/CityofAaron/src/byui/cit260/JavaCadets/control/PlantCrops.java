@@ -7,7 +7,7 @@ package byui.cit260.JavaCadets.control;
 
 /**
  *
- * @author skylerfoxx
+ * @author skylerfoxx, Jessica, Steven
  */
 public class PlantCrops {
     

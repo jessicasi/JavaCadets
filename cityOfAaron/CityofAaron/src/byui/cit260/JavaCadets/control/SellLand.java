@@ -11,16 +11,20 @@ package byui.cit260.JavaCadets.control;
  */
 public class SellLand {
     
-    public int sellland (int userAcers, int price, int wheat, int acresSold){
-        if (userAcers <= 0);{
+    public int sellland (int userAcers, int acresSold, int landPrice, int wheat){
+        if (userAcers <= 0) {
             return -3;
     }
         if (acresSold <= 0) {
             return -2;
     }
-        int wheatPerAcre = rnd(2-12);
-    }
-        wheat = wheatPerAcre * acres;
-                return wheat
-                        
+        if (landPrice <= 0) {
+            return -1;
+        }
+        
+                
+        int wheat = landPrice * userAcers;
+            return wheat;
+        
+            
 }

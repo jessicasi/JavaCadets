@@ -1,0 +1,17 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package byui.cit260.JavaCadets.control;
+
+/**
+ *
+ * @author Steven
+ */
+public class CalculatetheAmountofWheatEatenbyRats {
+    
+    public int calculateTheAmountOfWheatEatenByRats ()
+    
+            int r = (int) (Math.random() * (100 - 0)) + 0;
+}

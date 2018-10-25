@@ -11,6 +11,8 @@ import static org.junit.Assert.*;
 /**
  *
  * @author skylerfoxx
+ * @author steven
+ * @author jessica
  */
 public class PlantCropsTest {
     

@@ -8,6 +8,8 @@ package byui.cit260.JavaCadets.control;
 /**
  *
  * @author skylerfoxx
+ * @author steven
+ * @author jessica
  */
 public class PlantCrops {
     

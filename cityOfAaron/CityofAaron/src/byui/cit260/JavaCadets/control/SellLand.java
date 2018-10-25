@@ -11,20 +11,21 @@ package byui.cit260.JavaCadets.control;
  */
 public class SellLand {
     
-    public int sellland (int userAcers, int acresSold, int landPrice, int wheat){
+    public int sellland (int userAcers, int acresSold, int landPrice){
+        
         if (userAcers <= 0) {
             return -3;
-    }
+        }
         if (acresSold <= 0) {
             return -2;
-    }
+        }
+       //Will eventually be a random number
         if (landPrice <= 0) {
             return -1;
         }
         
-                
-        int wheat = landPrice * userAcers;
+       int soldLand =  acresSold;         
+       int wheat = landPrice * soldLand;
             return wheat;
-        
-            
+}
 }

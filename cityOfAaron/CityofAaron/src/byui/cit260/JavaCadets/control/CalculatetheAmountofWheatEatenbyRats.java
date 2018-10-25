@@ -11,7 +11,20 @@ package byui.cit260.JavaCadets.control;
  */
 public class CalculatetheAmountofWheatEatenbyRats {
     
-    public int calculateTheAmountOfWheatEatenByRats ()
+    public int calculateTheAmountOfWheatEatenByRats (int wheat, )
     
-            int r = (int) (Math.random() * (100 - 0)) + 0;
+            //int r = (int) (Math.random() * (100 - 0)) + 0;
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
 }

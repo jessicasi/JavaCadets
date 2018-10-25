@@ -18,19 +18,24 @@ public class HarvestCrops {
         int cropYield = 0;
         int percent = tithesAndOfferings;
        
+        
         if(userAcres <=0){
             return -1;
         }
+        if (tithesAndOfferings <=0){
+            return -2;
+        }
+        
         if (percent > 12) {
-             bushelsPerAcre = (int) (Math.random() * (5 - 2)) + 0;
+             bushelsPerAcre = 4; //(int) (Math.random() * (5 - 2)) + 0;
             wheat = bushelsPerAcre * userAcres; 
         }
         else if (percent >= 8 && percent <12) {
-             bushelsPerAcre = (int) (Math.random() * (4 - 2)) + 0;
+             bushelsPerAcre = 3; //(int) (Math.random() * (4 - 2)) + 0;
             wheat = bushelsPerAcre * userAcres; 
         }
         else {
-             bushelsPerAcre = (int) (Math.random() * (3 - 1)) + 0;
+             bushelsPerAcre = 2; //(int) (Math.random() * (3 - 1)) + 0;
             wheat = bushelsPerAcre * userAcres; 
         }
         

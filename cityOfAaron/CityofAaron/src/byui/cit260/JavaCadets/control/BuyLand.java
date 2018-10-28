@@ -13,9 +13,6 @@ public class BuyLand {
     
     public int buyLand (int userAcres, int wheat, int acresBought, int landPrice){
         
-        //Price of land is multiplied by land selected
-        landPrice *= acresBought;
-        
         if (wheat < landPrice) {
             return -1;
         }
@@ -23,6 +20,9 @@ public class BuyLand {
             return -2;
         }
        
+        //Price of land is multiplied by land selected
+        landPrice *= acresBought;
+        
         userAcres += acresBought;
         
         wheat = landPrice - acresBought;

@@ -55,10 +55,10 @@ public class BuyLandTest {
         System.out.println("Test Case 4");
         userAcres = 4;
         wheat = 40;
-        acresBought = 2;
+        acresBought = 3;
         landPrice = 20;
         // BuyLand instance = new BuyLand();
-        expResult = 0;
+        expResult = -1;
         result = instance.buyLand(userAcres, wheat, acresBought, landPrice);
         assertEquals(expResult, result);
         

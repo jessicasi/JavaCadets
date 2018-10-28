@@ -25,7 +25,7 @@ public class BuyLand {
         
         userAcres += acresBought;
         
-        wheat = landPrice - acresBought;
+        wheat -= landPrice;
         
         return wheat;
             

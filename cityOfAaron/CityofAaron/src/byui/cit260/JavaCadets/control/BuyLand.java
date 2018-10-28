@@ -17,7 +17,7 @@ public class BuyLand {
         landPrice *= acresBought;
         
         if (wheat < landPrice) {
-            return -3;
+            return -1;
         }
         if (acresBought <= 0) {
             return -2;

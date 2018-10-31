@@ -74,6 +74,10 @@ public class StartProgramView {
         System.out.println("**** doAction() called ***");
         System.out.println("\tinputs = " + inputs[0]);
         
+        
+        //TODO: This is a test call to run Main Menu - eventually delete
+        MainMenuView mainMenuView = new MainMenuView();
+        mainMenuView.displayMainMenuView();
         return true;
         
         //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

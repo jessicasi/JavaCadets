@@ -64,11 +64,11 @@ public class Game implements Serializable{
         this.acresOwned = acresOwned;
     }
 
-    public int getWheatInstorage() {
+    public int getWheatInStorage() {
         return wheatInstorage;
     }
 
-    public void setWheatInstorage(int wheatInstorage) {
+    public void setWheatInStorage(int wheatInstorage) {
         this.wheatInstorage = wheatInstorage;
     }
 

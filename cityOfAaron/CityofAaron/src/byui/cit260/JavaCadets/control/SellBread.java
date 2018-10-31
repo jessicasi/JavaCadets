@@ -7,7 +7,7 @@ package byui.cit260.JavaCadets.control;
 
 /**
  *
- * @author jessicasi
+ * @author skylerfoxx
  */
 public class SellBread {
     
@@ -39,7 +39,8 @@ public class SellBread {
         if (profit <=0) {
             return 0;
         }
-       
+        
+        
         return  profit;
     }
     

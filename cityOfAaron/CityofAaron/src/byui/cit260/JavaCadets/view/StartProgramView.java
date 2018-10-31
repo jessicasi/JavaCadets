@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package byui.cit260.JavaCadets.view;
+import byui.cit260.JavaCadets.control.GameControl;
+import byui.cit260.JavaCadets.model.Player;
 import java.util.Scanner;
 /**
  *
@@ -23,8 +25,7 @@ public class StartProgramView {
                         System.out.println("Progam end"); 
                         endOfView = true;
                     }
-            //RETURN
-            //ENDIF
+
                         endOfView = doAction(inputs);
                     }
                         while (endOfView != true);
@@ -36,50 +37,59 @@ public class StartProgramView {
         String[] inputs = new String[1];
         
         //Display a description of the view
-                System.out.println("Welcome To The Game!");
-        
+                System.out.println("*********************************");
+                System.out.println("* WELCOME TO THE CITY OF AARON  *");
+                System.out.println("* In this game you will be the  *");
+                System.out.println("* ruler of a city for 7 years.  *");
+                System.out.println("* Learn to care for your people *");
+                System.out.println("* to win the Game!              *");
+                System.out.println("*********************************");
+                
                 boolean valid = false;
                     while (valid == false){
                          //Display the prompt message
-                        System.out.println("Enter Players Name");
+                        System.out.println("Enter Players Name Below:");
                         
                         //Get the value entered from the keyboard
                         Scanner inFile;
                         inFile = new Scanner (System.in);
                         inputs[0] = inFile.nextLine();
                         
-                        //IF length of the value < 1 then
-                        // Display "You must enter a non-blank value”
-                        if (inputs[0].equals("")){
-                            System.out.println("You must enter a non-blank value");
-                            continue;
-                        }
                         // Trim off leading and trailing blanks from the value
                         inputs[0] = inputs[0].trim();
                         
                         //IF length of the value < 1 then
                         // Display "You must enter a non-blank value”
-                        
-                        
+                        if (inputs[0].equals("")){
+                            System.out.println("Please enter a name:");
+                            continue;
+                        }
                         valid = true;
                     }                        
         
                         return inputs;
         
-        
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     private boolean doAction(String[] inputs) {
-        System.out.println("**** doAction() called ***");
-        System.out.println("\tinputs = " + inputs[0]);
+       
+        String playersName = inputs[0];
+        Player player = GameControl.savePlayer(playersName);
         
+        if(player == null){
+            System.out.println("Could not create the player. " +
+                                "Enter a different name.");
+            return false;
+        }
         
-        //TODO: This is a test call to run Main Menu - eventually delete
+        System.out.println("************************************************");
+        System.out.println("* Welcome to the game " + playersName +       "*");
+        System.out.println("* We hope you enjoy it!                        *");
+        System.out.println("************************************************");
+        
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.displayMainMenuView();
         return true;
         
-        //throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

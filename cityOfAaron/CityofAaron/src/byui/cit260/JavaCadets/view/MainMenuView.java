@@ -5,6 +5,7 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import byui.cit260.JavaCadets.control.GameControl;
 import java.util.Scanner;
 /**
  *
@@ -99,13 +100,18 @@ public class MainMenuView {
 
     private void startNewGame() {
         //Create a new Game
-        //GameControl.createNewGame()
-   //gameMenuView =  create a new GameMenuView object
-   //gameMenuView.displayGameMenuView();
+         GameControl.createNewGame(byui.cit260.JavaCadets.getPlayer());
+         
+        public GameControl.createNewGame()
+        //gameMenuView =  create a new GameMenuView object
+        //gameMenuView.displayGameMenuView();
     }
 
     private void restartGame() {
-         System.out.println("**** restartGame() called ***");
+        restartNewGame() {
+        startExistingGameView = Create a new StartExistingGameView;
+        startExistingGameView.displayStartExistingGameView();
+        } 
     }
 
     private void getHelp() {

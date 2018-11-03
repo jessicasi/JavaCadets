@@ -5,11 +5,13 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.GameControl;
 import java.util.Scanner;
+
 /**
  *
- * @authors jessicasi, Steven, Skyler
+ * @authors Jessica, Steven, Skyler
  */
 public class MainMenuView {
 
@@ -100,21 +102,21 @@ public class MainMenuView {
 
     private void startNewGame() {
         //Create a new Game
-         GameControl.createNewGame(byui.cit260.JavaCadets.getPlayer());
-         
-        public GameControl.createNewGame()
-        //gameMenuView =  create a new GameMenuView object
-        //gameMenuView.displayGameMenuView();
+        GameControl.createNewGame(CityofAaron.getPlayer());
+           
+            GameMenuView gameMenuView = new GameMenuView();
+            gameMenuView.displayGameMenuView();
+        
     }
 
-    private void restartGame() {
-        restartNewGame() {
-        startExistingGameView = Create a new StartExistingGameView;
-        startExistingGameView.displayStartExistingGameView();
+    private void restartGame(){
+            StartExistingGameView startExistingGameView = new StartExistingGameView();
+            startExistingGameView.displayStartExistingGameView();
         } 
-    }
-
+    
     private void getHelp() {
-         System.out.println("**** getHelp() called ***");
+        
+        HelpMenuView helpMenuView = new HelpMenuView();
+        helpMenuView.displayHelpMenuView();
     }
 }

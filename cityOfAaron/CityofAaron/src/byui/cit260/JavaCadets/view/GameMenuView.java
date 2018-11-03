@@ -9,10 +9,10 @@ package byui.cit260.JavaCadets.view;
  *
  * @author Steven
  */
-public class StartExistingGameView {
+public class GameMenuView {
     
-    public void displayStartExistingGameView(){
-        System.out.println("It was called");
+    public void displayGameMenuView(){
+        System.out.println("Game Menu");
     }
     
 }

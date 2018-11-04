@@ -28,7 +28,7 @@ public class HelpMenuView {
                     while (endOfView != true);
 
         }
-
+        
     private String[] getInputs() {
         String[] inputs = new String[1];
 
@@ -37,10 +37,10 @@ public class HelpMenuView {
         System.out.println(" ************** ");
         System.out.println();
         System.out.println("G - What is the goal of the game?");
-        System.out.println("M - How to Move");
-        System.out.println("E - Estimate the number of resources");
-        System.out.println("H - Harvest Resources");
-        System.out.println("D - Delivering resources to warehouse");
+        System.out.println("M - How do I move?");
+        System.out.println("E - How do I estimate the number of resources?");
+        System.out.println("H - How do I Harvest Resources?");
+        System.out.println("D - How to Deliver resources to the warehouse?");
         System.out.println("Q - Quit");
 
         boolean valid = false;

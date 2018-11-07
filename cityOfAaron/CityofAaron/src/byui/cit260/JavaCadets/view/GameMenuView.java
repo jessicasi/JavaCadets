@@ -47,6 +47,7 @@ public class GameMenuView {
         System.out.println("R - Reports Menu");
         System.out.println("S - Save Game");
         System.out.println("T - Test Tithing Menu");
+        System.out.println("B - Test Make Bread");
         System.out.println("Q - Return to Main Menu");
 
         boolean valid = false;
@@ -106,7 +107,10 @@ public class GameMenuView {
                 testTithes();
             }
              break;
-            
+             case "B": {
+                 testMakeBread();
+             }
+            break;
             case "Q":
                 return true;
 
@@ -146,6 +150,11 @@ public class GameMenuView {
     private void testTithes() {
         TithesView tithesview = new TithesView();
         tithesview.displayTithesView();
+    }
+
+    private void testMakeBread() {
+        MakeAndSellBreadView bread = new MakeAndSellBreadView();
+        bread.displayMakeAndSellBreadView();
     }
 
     

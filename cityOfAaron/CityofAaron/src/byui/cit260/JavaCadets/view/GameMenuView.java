@@ -101,6 +101,7 @@ public class GameMenuView {
             case "S": {
                 saveGame();
             }
+            break;
              case "T": {
                 testTithes();
             }
@@ -134,7 +135,8 @@ public class GameMenuView {
     }
 
     private void saveGame() {
-         System.out.println("Save Game View Called");
+        SaveGameMenuView saveGame = new SaveGameMenuView();
+        saveGame.displaySaveGameMenuView();
     }
 
     private void reportsMenu() {

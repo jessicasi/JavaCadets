@@ -131,7 +131,8 @@ public class GameMenuView {
     }
 
     private void manageCrops() {
-         System.out.println("Manage Crop View Called");
+        ManageTheCrops manageCrops = new ManageTheCrops();
+        manageCrops.displayManageTheCrops();
     }
 
     private void liveTheYear() {

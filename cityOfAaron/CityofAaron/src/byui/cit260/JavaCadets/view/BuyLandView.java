@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.JavaCadets.view;
+
 import byui.cit260.JavaCadets.control.GameControl;
 import byui.cit260.JavaCadets.control.BuyLand;
 import byui.cit260.JavaCadets.model.Player;
@@ -14,40 +15,38 @@ import java.util.Scanner;
  * @author skylerfoxx
  */
 public class BuyLandView {
-    
+
     public void displayBuyLandView() {
         boolean endOfView = false;
         do {
-        String[] inputs = getInputs();
-        //no inputs were entered OR the first input is Q
-        if (inputs.length < 1 || inputs[0].equals("Q")) {
-            return;
-        }
+            String[] inputs = getInputs();
+            //no inputs were entered OR the first input is Q
+            if (inputs.length < 1 || inputs[0].equals("Q")) {
+                System.out.println("Progam end");
+                endOfView = true;
+            }
             endOfView = doAction(inputs);
-        } 
-            while (endOfView != true);
-        
-            BuyLand buyLand = new BuyLand();
-            int landPrice = 5;
-        
-            System.out.println(" ********************** ");
-            System.out.println(" ***   Buy Land   *** ");
-            System.out.println(" ********************** ");
-            System.out.println();
-            System.out.println("You have " + "" + "wheat");
-            System.out.println("1 Land costs" + "" + "wheat");
-            System.out.println("How much land do you want to buy?");
-            System.out.println();
-            System.out.println("(Press Q to Return)");
-
+        } while (endOfView != true);
 
     }
-    
+
     private String[] getInputs() {
+        BuyLand buyLand = new BuyLand();
+        int landPrice = 5;
 
         String[] inputs = new String[1];
-        boolean valid = false;
+        
+        System.out.println(" ********************** ");
+        System.out.println(" ***   Buy Land   *** ");
+        System.out.println(" ********************** ");
+        System.out.println();
+         System.out.println("B - Buy Land");
+        System.out.println("Q - Quit");
+
+         boolean valid = false;
+
         while (valid == false) {
+            System.out.println("Make a selection from the menu");
             //Get the value entered from the keyboard
             Scanner inFile;
             inFile = new Scanner(System.in);
@@ -56,15 +55,41 @@ public class BuyLandView {
             inputs[0] = inputs[0].trim();
             //Make sure user entered a value
 
-            buyLand();
+            if (inputs[0].equals("")) {
+                System.out.println("Please enter a non-blank value");
+                continue;
+            }
+            valid = true;
         }
 
         return inputs;
     }
     
+    private boolean doAction(String[] inputs) {
+        String menuItem = inputs[0].toUpperCase();
+
+        switch (menuItem) {
+
+            case "B": {
+                buyLand();
+            }
+            return true;
+
+            case "Q":
+                return true;
+
+            default: {
+                System.out.println("Invalid menu item");
+            }
+            break;
+        }
+        return false;
+    }
+
+
     private void buyLand() {
-        
+
         BuyLand buyland = new BuyLand();
-        buyland.displayBuyLand();
+        buyland.BuyLand();
     }
 }

@@ -44,7 +44,7 @@ private String[] getInputs(){
 
         boolean valid = false;
                 
-        while(valid == false); {
+        while(valid == false) {
             System.out.println("Make a selection from the menu");
             //Get the value entered from the keyboard
             Scanner inFile;
@@ -56,8 +56,7 @@ private String[] getInputs(){
 
             if (inputs[0].equals("")) {
                 System.out.println("Please enter a non-blank value");
-                continue;
-                
+                continue;  
             }
             valid = true;
         }

@@ -1,4 +1,4 @@
-/*
+    /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -13,51 +13,69 @@ import java.util.Scanner;
  */
 public class BuyLand {
     
-    public void displayBuyLand() {
-    }
-    
-    public int buyLand (int userAcres, int wheat, int acresBought, int landPrice){
+    public int BuyLand (){
         
-        boolean endOfView = false;
-        
-        //Sets price for each land
-        landPrice = 10;
-        
-        System.out.println("1 Land costs" + "" + landPrice);
-        System.out.println("How much land do you want to buy?");
-        System.out.println();
-        
-        do {
-            //Get User Input
+         int price = (int) (Math.random() * (27 - 17) + 17);
+
+        //Bread will be sold for 4-10 wheat
+        if (price < 17 || price > 27) {
+            return -3;
+        }
+       System.out.println("The cost of 1 acre of land right now is" + price);
+      
+        boolean enoughWheat = false;
+        boolean enoughPeople = false;   
+        int landToBuy = 0;
+        do{   
+        //Get User Input
+            int wheatAvailable = 300;
+            System.out.println("You have " + wheatAvailable + " much wheat to buy land with.");
+            System.out.println("How many acres do you want to buy?");
             Scanner inFile;
             inFile = new Scanner(System.in);
-            acresBought = inFile.nextInt();
+            landToBuy = inFile.nextInt();
 
             //TODO: Change this to call getWheatAvailable() from the Game class
-            int wheatAvailable = 30;
-            //Total Price is multiplied by land selection
-            int totalPrice = landPrice * acresBought;
+            int wheatNeeded = price * landToBuy;
             System.out.println();
-            System.out.println("The total price for " + acresBought + " land is " + totalPrice);
+            System.out.println("It will take " + wheatNeeded + " wheat to buy that much land.");
 
-            if (wheat < totalPrice) {
-                System.out.println("You don't have enough wheat to purchase this land.");
+            if (wheatAvailable < wheatNeeded) {
+                System.out.println("You don't have enough wheat to buy that much land. Enter a lower number");
+            } else {
+                wheatAvailable -= wheatNeeded;
+                enoughPeople=calculatePeople(landToBuy);
+                    if(enoughPeople == false) continue;
+                
+                enoughWheat = true;
             }
-            if (acresBought <= 0) {
-                return -2;
-            }
-            
-            else {
-                userAcres += acresBought;
-                wheat -= totalPrice;
+               //TODO: Call setWheatAvailable() from the Game class
+            } while (enoughWheat == false);
 
-            }
-        }
-        
-        while (endOfView == false);
-        
-        return wheat & acresBought;
-            
+        //Should never reach this point
+        return landToBuy;
     }
+
+        
+
+    private boolean calculatePeople(int landToBuy) {
+                
+        //TODO: get number of people from Game class
+        int people = 75;
+        //TODO: get land already owned from Game Class
+        int land = 20;
+        
+        int peopleLeft = people - (land/10);
+        int peopleNeeded = landToBuy / 10;
+        
+        if (peopleLeft > peopleNeeded) {
+            System.out.println("You don't have enough people to tend the land. Enter a lower number");
+            return false;
+        }
+        return true;
+        
+    }
+            
+    
         
 }

@@ -48,6 +48,7 @@ public class GameMenuView {
         System.out.println("S - Save Game");
         System.out.println("T - Test Tithing Menu");
         System.out.println("B - Test Make Bread");
+        System.out.println("N - Test Buy Land");
         System.out.println("Q - Return to Main Menu");
 
         boolean valid = false;
@@ -107,6 +108,10 @@ public class GameMenuView {
                 testTithes();
             }
              break;
+               case "N": {
+                testBuyLand();
+            }
+             break;
              case "B": {
                  testMakeBread();
              }
@@ -156,6 +161,11 @@ public class GameMenuView {
     private void testMakeBread() {
         MakeAndSellBreadView bread = new MakeAndSellBreadView();
         bread.displayMakeAndSellBreadView();
+    }
+
+    private void testBuyLand() {
+        BuyLandView buyLand = new BuyLandView();
+        buyLand.displayBuyLandView();
     }
 
     

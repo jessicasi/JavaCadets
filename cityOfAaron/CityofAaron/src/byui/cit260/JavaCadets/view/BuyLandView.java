@@ -41,7 +41,7 @@ public class BuyLandView {
         System.out.println(" ********************** ");
         System.out.println();
          System.out.println("B - Buy Land");
-        System.out.println("Q - Quit");
+        System.out.println("Q - Quit Buying Land");
 
          boolean valid = false;
 

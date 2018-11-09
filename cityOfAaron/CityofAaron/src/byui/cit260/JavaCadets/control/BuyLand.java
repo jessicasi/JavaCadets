@@ -15,21 +15,25 @@ public class BuyLand {
     
     public int BuyLand (){
         
-         int price = (int) (Math.random() * (27 - 17) + 17);
+       // int price = (int) (Math.random() * (27 - 17) + 17);
 
-        //Bread will be sold for 4-10 wheat
+       int price = 10;
+       
+       /*Acres will be sold for 17-27 wheat
         if (price < 17 || price > 27) {
             return -3;
         }
-       System.out.println("The cost of 1 acre of land right now is" + price);
+       */
+       
+       System.out.println("1 acre of land costs " + price + " wheat.");
       
         boolean enoughWheat = false;
-        boolean enoughPeople = false;   
+        boolean enoughPeople = false;
         int landToBuy = 0;
         do{   
         //Get User Input
             int wheatAvailable = 300;
-            System.out.println("You have " + wheatAvailable + " much wheat to buy land with.");
+            System.out.println("You currently have " + wheatAvailable + " wheat.");
             System.out.println("How many acres do you want to buy?");
             Scanner inFile;
             inFile = new Scanner(System.in);
@@ -38,10 +42,10 @@ public class BuyLand {
             //TODO: Change this to call getWheatAvailable() from the Game class
             int wheatNeeded = price * landToBuy;
             System.out.println();
-            System.out.println("It will take " + wheatNeeded + " wheat to buy that much land.");
+            System.out.println("The total price is " + wheatNeeded + " wheat.");
 
             if (wheatAvailable < wheatNeeded) {
-                System.out.println("You don't have enough wheat to buy that much land. Enter a lower number");
+                System.out.println("You don't have enough wheat to buy that much land. Enter a lower number or quit.");
             } else {
                 wheatAvailable -= wheatNeeded;
                 enoughPeople=calculatePeople(landToBuy);
@@ -68,7 +72,7 @@ public class BuyLand {
         int peopleLeft = people - (land/10);
         int peopleNeeded = landToBuy / 10;
         
-        if (peopleLeft > peopleNeeded) {
+        if (peopleLeft < peopleNeeded) {
             System.out.println("You don't have enough people to tend the land. Enter a lower number");
             return false;
         }

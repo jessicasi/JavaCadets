@@ -26,70 +26,70 @@ public class BuyLandTest {
         int userAcres = 2;
         int wheat = 15;
         int acresBought = 2;
-        int landPrice = 5;
+        int price = 5;
         BuyLand instance = new BuyLand();
         int expResult = 5;
-        int result = instance.buyLand(userAcres, wheat, acresBought, landPrice);
+        int result = instance.BuyLand();
         assertEquals(expResult, result);
         
         System.out.println("Test Case 2");
         userAcres = 1;
         wheat = 5;
         acresBought = 2;
-        landPrice = 15;
+        price = 15;
         // BuyLand instance = new BuyLand();
         expResult = -1;
-        result = instance.buyLand(userAcres, wheat, acresBought, landPrice);
+        result = instance.BuyLand();
         assertEquals(expResult, result);
         
         System.out.println("Test Case 3");
         userAcres = 3;
         wheat = 30;
         acresBought = 0;
-        landPrice = 10;
+        price = 10;
         // BuyLand instance = new BuyLand();
         expResult = -2;
-        result = instance.buyLand(userAcres, wheat, acresBought, landPrice);
+        result = instance.BuyLand();
         assertEquals(expResult, result);
         
         System.out.println("Test Case 4");
         userAcres = 4;
         wheat = 40;
         acresBought = 3;
-        landPrice = 20;
+        price = 20;
         // BuyLand instance = new BuyLand();
         expResult = -1;
-        result = instance.buyLand(userAcres, wheat, acresBought, landPrice);
+        result = instance.BuyLand();
         assertEquals(expResult, result);
         
         System.out.println("Test Case 5");
         userAcres = 0;
         wheat = 30;
         acresBought = 2;
-        landPrice = 9;
+        price = 9;
         // BuyLand instance = new BuyLand();
         expResult = 12;
-        result = instance.buyLand(userAcres, wheat, acresBought, landPrice);
+        result = instance.BuyLand();
         assertEquals(expResult, result);
         
         System.out.println("Test Case 6");
         userAcres = 10;
         wheat = 5;
         acresBought = 4;
-        landPrice = 1;
+        price = 1;
         // BuyLand instance = new BuyLand();
         expResult = 1;
-        result = instance.buyLand(userAcres, wheat, acresBought, landPrice);
+        result = instance.BuyLand();
         assertEquals(expResult, result);
         
         System.out.println("Test Case 7");
         userAcres = 3;
         wheat = 25;
         acresBought = 3;
-        landPrice = 7;
+        price = 7;
         // BuyLand instance = new BuyLand();
         expResult = 4;
-        result = instance.buyLand(userAcres, wheat, acresBought, landPrice);
+        result = instance.BuyLand();
         assertEquals(expResult, result);
         
         // TODO review the generated test code and remove the default call to fail.

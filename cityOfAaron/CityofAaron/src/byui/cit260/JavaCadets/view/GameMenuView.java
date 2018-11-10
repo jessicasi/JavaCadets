@@ -151,7 +151,7 @@ public class GameMenuView {
 
     private void reportsMenu() {
        ReportsMenuView reportsMenu = new ReportsMenuView();
-       reportsMenu.displayReportsMenuView();
+       //reportsMenu.displayReportsMenuView();  No Idea whats wrong
     }
 
     private void testTithes() {

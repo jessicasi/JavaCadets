@@ -109,7 +109,7 @@ public class GameMenuView {
             }
              break;
                case "N": {
-                testBuyLand();
+                BuyLand();
             }
              break;
              case "B": {
@@ -150,7 +150,8 @@ public class GameMenuView {
     }
 
     private void reportsMenu() {
-         System.out.println("Reports Menu Called");
+       ReportsMenuView reportsMenu = new ReportsMenuView();
+       reportsMenu.displayReportsMenuView();
     }
 
     private void testTithes() {
@@ -163,7 +164,7 @@ public class GameMenuView {
         bread.displayMakeAndSellBreadView();
     }
 
-    private void testBuyLand() {
+    private void BuyLand() {
         BuyLandView buyLand = new BuyLandView();
         buyLand.displayBuyLandView();
     }

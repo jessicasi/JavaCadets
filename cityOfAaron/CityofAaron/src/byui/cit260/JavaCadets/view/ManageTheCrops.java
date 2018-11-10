@@ -106,7 +106,8 @@ private String[] getInputs(){
     }
 
     private void BuyLand() {
-        System.out.println("Buy Land was Succesfully Called");
+        BuyLandView buyLand = new BuyLandView();
+        buyLand.displayBuyLandView();
     }
 
     private void SellLand() {
@@ -122,7 +123,8 @@ private String[] getInputs(){
     }
 
     private void PayTithesAndOfferings() {
-        System.out.println("Pay Tihes And Offerings has been Called");
+        TithesView payTithesAndOfferings = new TithesView();
+        payTithesAndOfferings.displayTithesView();
     }
 
 

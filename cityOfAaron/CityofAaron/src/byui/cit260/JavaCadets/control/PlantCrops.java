@@ -13,7 +13,7 @@ import java.util.Scanner;
  */
 public class PlantCrops {
     
-    public int plantCrops(int acres) {
+    public int plantCrops() {
         
         //TODO: Change this to GetWheatAvailable and GetAcresAvailable from the Game Class
         int userWheat = 200;

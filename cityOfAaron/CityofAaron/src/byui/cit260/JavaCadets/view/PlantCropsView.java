@@ -40,7 +40,7 @@ public class PlantCropsView {
         System.out.println(" ********************** ");
         System.out.println();
         System.out.println("P - Plant Crops");
-        System.out.println("Q - Quit Buying Land");
+        System.out.println("Q - Quit Plant Crops");
 
          boolean valid = false;
 
@@ -69,8 +69,8 @@ public class PlantCropsView {
 
         switch (menuItem) {
 
-            case "B": {
-                buyLand();
+            case "P": {
+                plantCrops();
             }
                 return true;
 
@@ -86,9 +86,9 @@ public class PlantCropsView {
     }
 
 
-    private void buyLand() {
+    private void plantCrops() {
 
         PlantCrops PlantCrops = new PlantCrops();
-        PlantCrops.plantCrops(0, 0, 0);
+        PlantCrops.plantCrops();
     }
 }

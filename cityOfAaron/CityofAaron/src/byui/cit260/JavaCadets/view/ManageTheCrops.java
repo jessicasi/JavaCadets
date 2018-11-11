@@ -35,11 +35,11 @@ private String[] getInputs(){
         System.out.println(" * Manage Your Crops * ");
         System.out.println(" ********************** ");
         System.out.println();
-        System.out.println("A - Buy Land ");
-        System.out.println("B - Sell Land ");
-        System.out.println("C - Feed the People ");
-        System.out.println("D - Plant Crops ");
-        System.out.println("E - Pay Tithes and Offerings ");
+        System.out.println("A - Buy Land");
+        System.out.println("B - Sell Land");
+        System.out.println("C - Feed Population");
+        System.out.println("D - Plant Crops");
+        System.out.println("E - Pay Tithes and Offerings");
         System.out.println("Q - Quit");
 
         boolean valid = false;

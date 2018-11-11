@@ -47,7 +47,7 @@ public class GameMenuView {
         System.out.println("R - Reports Menu");
         System.out.println("S - Save Game");
         System.out.println("B - Test Make Bread");
-        System.out.println("N - Test Buy Land");
+        System.out.println("BL - Test Buy Land");
         System.out.println("SL - Test Sell Land");
         System.out.println("P - Test Plant Crops");
         System.out.println("F - Test Feed Population");
@@ -111,7 +111,7 @@ public class GameMenuView {
                 testTithes();
             }
              break;
-               case "N": {
+               case "BL": {
                 BuyLand();
             }
              break;

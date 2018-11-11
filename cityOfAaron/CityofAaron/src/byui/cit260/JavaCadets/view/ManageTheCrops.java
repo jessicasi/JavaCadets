@@ -130,7 +130,4 @@ private String[] getInputs(){
         payTithesAndOfferings.displayTithesView();
     }
 
-
-
-
 }

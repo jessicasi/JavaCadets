@@ -39,7 +39,6 @@ public class GameMenuView {
         System.out.println(" *************** ");
         System.out.println(" *  Game Menu  * ");
         System.out.println(" *************** ");
-        System.out.println();
         System.out.println("V - View the Map ");
         System.out.println("M - Move to a new Location");
         System.out.println("C - Manage the Crops");
@@ -57,7 +56,7 @@ public class GameMenuView {
         boolean valid = false;
 
         while (valid == false) {
-            System.out.println("Make a selection from the menu");
+            System.out.println("* Make a selection from the menu *");
             //Get the value entered from the keyboard
             Scanner inFile;
             inFile = new Scanner(System.in);

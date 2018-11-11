@@ -49,6 +49,7 @@ public class GameMenuView {
         System.out.println("T - Test Tithing Menu");
         System.out.println("B - Test Make Bread");
         System.out.println("N - Test Buy Land");
+        System.out.println("SL - Test Sell Land");
         System.out.println("Q - Return to Main Menu");
 
         boolean valid = false;
@@ -112,6 +113,10 @@ public class GameMenuView {
                 BuyLand();
             }
              break;
+            case "SL": {
+                SellBread();
+             }
+            break;
              case "B": {
                  testMakeBread();
              }
@@ -167,6 +172,11 @@ public class GameMenuView {
     private void BuyLand() {
         BuyLandView buyLand = new BuyLandView();
         buyLand.displayBuyLandView();
+    }
+    
+    private void SellLand() {
+        SellLandView sellLand = new SellLandView();
+        sellLand.displaySellLandView();
     }
 
     

@@ -114,7 +114,7 @@ public class GameMenuView {
             }
              break;
             case "SL": {
-                SellBread();
+                SellLand();
              }
             break;
              case "B": {

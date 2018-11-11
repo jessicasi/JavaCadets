@@ -9,7 +9,7 @@ import java.util.Scanner;
 
 /**
  *
- * @author Steven Weber
+ * @author Steven Weber, skylerfoxx
  */
 public class SellLand {
     

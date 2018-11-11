@@ -16,12 +16,13 @@ public class PlantCrops {
     public int plantCrops() {
         
         //TODO: Change this to GetWheatAvailable and GetAcresAvailable from the Game Class
-        int userWheat = 200;
-        int userAcres = 4;
+        int userWheat = 40;
+        int userAcres = 5;
         
         int acresPlanted = 0;
         
         System.out.println("You have " + userAcres + " acre(s) of land and " + userWheat + " bushels of wheat.");
+        System.out.println("One acre of land requires 10 wheat to plant.");
         System.out.println();
         
         boolean enoughAcres = false;
@@ -66,7 +67,7 @@ public class PlantCrops {
                 
                 System.out.println();
                 System.out.println("You used " + wheatNeeded + " wheat to plant crops on " + acresPlant + " acres of land.");
-                System.out.println("You now have " + userWheat + "wheat remaining.");
+                System.out.println("You now have " + userWheat + " wheat remaining.");
                 System.out.println();
                 
                 enoughAcres = true;

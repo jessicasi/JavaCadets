@@ -15,9 +15,9 @@ public class BuyLand {
     
     public int BuyLand (){
         
-         int price = (int) (Math.random() * (27 - 17) + 17);
-
-        //Bread will be sold for 4-10 wheat
+       int price = (int) (Math.random() * (27 - 17) + 17);
+       
+       //Acres will be sold for 17-27 wheat
         if (price < 17 || price > 27) {
             return -3;
         }
@@ -25,7 +25,7 @@ public class BuyLand {
        System.out.println();
       
         boolean enoughWheat = false;
-        boolean enoughPeople = false;   
+        boolean enoughPeople = false;
         int landToBuy = 0;
         
         do{   
@@ -43,10 +43,14 @@ public class BuyLand {
             System.out.println("It will take " + wheatNeeded + " wheat to buy that much land.");
             System.out.println();
 
-            if (wheatAvailable < wheatNeeded) {
-                System.out.println("You don't have enough wheat to buy that much land. Enter a lower number");
+            if (userWheat < wheatNeeded) {
+                System.out.println("You don't have enough wheat to buy that much land. Enter a lower number.");
             } else {
-                wheatAvailable -= wheatNeeded;
+                userWheat -= wheatNeeded;
+                userAcres += landToBuy;
+                System.out.println("You now have " + userAcres + " total acres.");
+                System.out.println("You have " + userWheat + " wheat remaining.");
+                
                 enoughPeople=calculatePeople(landToBuy);
                     if(enoughPeople == false) continue;
                 

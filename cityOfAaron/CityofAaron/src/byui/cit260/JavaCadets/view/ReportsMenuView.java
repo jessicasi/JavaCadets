@@ -7,14 +7,13 @@ package byui.cit260.JavaCadets.view;
 
 import java.util.Scanner;
 
-
 /**
  *
  * @author Steven
  */
-public class ManageTheCrops {
+public class ReportsMenuView {
     
-   public void displayManageTheCrops() {
+    public void ReportsMenuView() {
         boolean endOfView = false;
             do{
             String[] inputs = getInputs();
@@ -25,23 +24,21 @@ public class ManageTheCrops {
             }
                 endOfView = doAction(inputs);
         } while (endOfView != true);
-}
-    
-private String[] getInputs(){
+    }
+    private String[] getInputs(){
     
     String[] inputs = new String[1];
     
      System.out.println(" ********************** ");
-        System.out.println(" * Manage Your Crops * ");
+        System.out.println(" * Reports Menu * ");
         System.out.println(" ********************** ");
         System.out.println();
-        System.out.println("A - Buy Land ");
-        System.out.println("B - Sell Land ");
-        System.out.println("C - Feed the People ");
-        System.out.println("D - Plant Crops ");
-        System.out.println("E - Pay Tithes and Offerings ");
+        System.out.println("A - View the Animals in the StoreHouse ");
+        System.out.println("B - View the Tools in the StoreHouse ");
+        System.out.println("C - View the Provisions in the StoreHouse ");
+        System.out.println("D - View the Authors of the Game ");
         System.out.println("Q - Quit");
-
+        
         boolean valid = false;
                 
         while(valid == false) {
@@ -62,38 +59,33 @@ private String[] getInputs(){
         }
 
         return inputs;
-    }
-
+    }    
+            
     private boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
 
         switch (menuItem) {
 
             case "A": {
-                BuyLand();
+                Animals();
             }
             return true;
             
             case "B":{
-                SellLand();
+                Tools();
             }
             return true;
             
             case "C":{
-                FeedThePeople();
+                Provisions();
             }
             return true;
             
             case "D":{
-                PlantCrops();
+                Authors();
             }
             return true;
-            
-            case "E":{
-                PayTithesAndOfferings();
-            }
-            return true;
-            
+                                   
             case "Q":
                 return true;
 
@@ -103,31 +95,22 @@ private String[] getInputs(){
             break;
         }
         return false;
+    }        
+
+    private void Animals() {
+        System.out.println("Aminals in StoreHouse Was Called");
     }
 
-    private void BuyLand() {
-        BuyLandView buyLand = new BuyLandView();
-        buyLand.displayBuyLandView();
+    private void Tools() {
+        System.out.println("Tools in StoreHouse Was Called");
     }
 
-    private void SellLand() {
-        System.out.println("Sell Land was SuccessFully Called");
+    private void Provisions() {
+        System.out.println("Provisions in StoreHouse Was Called");
     }
 
-    private void FeedThePeople() {
-        System.out.println("Feed The People");
+    private void Authors() {
+        System.out.println("Authors Was Called");
     }
 
-    private void PlantCrops() {
-       System.out.println("Plant Crops was Sucessuflly Called");
     }
-
-    private void PayTithesAndOfferings() {
-        TithesView payTithesAndOfferings = new TithesView();
-        payTithesAndOfferings.displayTithesView();
-    }
-
-
-
-
-}

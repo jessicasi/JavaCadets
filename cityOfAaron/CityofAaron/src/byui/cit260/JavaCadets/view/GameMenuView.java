@@ -49,6 +49,7 @@ public class GameMenuView {
         System.out.println("T - Test Tithing Menu");
         System.out.println("B - Test Make Bread");
         System.out.println("N - Test Buy Land");
+        System.out.println("SL - Test Sell Land");
         System.out.println("Q - Return to Main Menu");
 
         boolean valid = false;
@@ -109,9 +110,13 @@ public class GameMenuView {
             }
              break;
                case "N": {
-                testBuyLand();
+                BuyLand();
             }
              break;
+            case "SL": {
+                SellLand();
+             }
+            break;
              case "B": {
                  testMakeBread();
              }
@@ -150,7 +155,8 @@ public class GameMenuView {
     }
 
     private void reportsMenu() {
-         System.out.println("Reports Menu Called");
+       ReportsMenuView reportsMenu = new ReportsMenuView();
+       //reportsMenu.displayReportsMenuView();  No Idea whats wrong
     }
 
     private void testTithes() {
@@ -163,9 +169,14 @@ public class GameMenuView {
         bread.displayMakeAndSellBreadView();
     }
 
-    private void testBuyLand() {
+    private void BuyLand() {
         BuyLandView buyLand = new BuyLandView();
         buyLand.displayBuyLandView();
+    }
+    
+    private void SellLand() {
+        SellLandView sellLand = new SellLandView();
+        sellLand.displaySellLandView();
     }
 
     

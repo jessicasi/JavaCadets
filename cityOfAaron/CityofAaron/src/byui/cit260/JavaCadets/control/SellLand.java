@@ -5,27 +5,63 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import java.util.Scanner;
+
 /**
  *
  * @author Steven Weber
  */
 public class SellLand {
     
-    public int sellland (int userAcers, int acresSold, int landPrice){
+    public int SellLand (){
         
-        if (userAcers <= 0) {
+        //Selling price at a random price between 15 and 19
+        int price = (int) (Math.random() * (19 - 15) + 15);
+       
+       //Acres can sell for 15-19 wheat
+        if (price < 15 || price > 19) {
             return -3;
         }
-        if (acresSold <= 0) {
-            return -2;
-        }
-       //Will eventually be a random number
-        if (landPrice <= 0) {
-            return -1;
-        }
         
-       int soldLand =  acresSold;         
-       int wheat = landPrice * soldLand;
-            return wheat;
-}
+        //TODO: Change this to call getWheatAvailable and getAcresAvailable() from the Game class
+        int userWheat = 4;
+        int userAcres = 4;
+        
+        System.out.println("1 acre of land sells for " + price + " wheat.");
+        
+        boolean enoughAcres = false;
+        boolean enoughPeople = false;
+        int acresSold = 0;
+        
+        do{   
+        //Get User Input
+            System.out.println("You currently have " + userAcres + " acre(s) of land.");
+            System.out.println("How many acres do you want to sell?");
+            Scanner inFile;
+            inFile = new Scanner(System.in);
+            acresSold = inFile.nextInt();
+            
+            System.out.println();
+            
+            price *= acresSold;
+            System.out.println(acresSold + " acre(s) of land sells for " + price + " wheat.");
+            
+            if (userAcres < acresSold) {
+                System.out.println("You don't have that many acres of land to sell. Enter a lower number.");
+            } else {
+                
+                System.out.println("You earned " + price + " wheat for " + acresSold + " acre(s) of land.");
+                userAcres -= acresSold;
+                userWheat += price; 
+                
+                enoughAcres = true;
+            }
+            
+            //TODO: Call setAcresAvailable() from the Game class
+            }while (enoughAcres == false);
+        
+            //Should never reach this point
+            return userAcres;
+        
+    }
 }

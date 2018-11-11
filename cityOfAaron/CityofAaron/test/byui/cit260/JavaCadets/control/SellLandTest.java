@@ -18,7 +18,7 @@ public class SellLandTest {
     }
 
     /**
-     * Test of sellland method, of class SellLand.
+     * Test of sellLand method, of class SellLand.
      */
     @Test
     public void testSellland() {
@@ -28,7 +28,7 @@ public class SellLandTest {
         int landPrice = 10;
         SellLand instance = new SellLand();
         int expResult = 30;
-        int result = instance.sellland(userAcers, acresSold, landPrice);
+        int result = instance.SellLand();
         assertEquals(expResult, result);
         // TODO review the generated test code and remove the default call to fail.
         //fail("The test case is a prototype.");
@@ -38,7 +38,7 @@ public class SellLandTest {
          acresSold = 2;
          landPrice = 0;
          expResult = -1;
-         result = instance.sellland(userAcers, acresSold, landPrice);
+         result = instance.SellLand();
         assertEquals(expResult, result);
     
     System.out.println("sellland 3");
@@ -46,7 +46,7 @@ public class SellLandTest {
          acresSold = 0;
          landPrice = 4;
          expResult = -2;
-         result = instance.sellland(userAcers, acresSold, landPrice);
+         result = instance.SellLand();
         assertEquals(expResult, result);
     
     System.out.println("sellland 4");
@@ -54,7 +54,7 @@ public class SellLandTest {
          acresSold = 1;
          landPrice = 8;
          expResult = -3;
-         result = instance.sellland(userAcers, acresSold, landPrice);
+         result = instance.SellLand();
         assertEquals(expResult, result);   
     
     System.out.println("sellland 5");
@@ -62,7 +62,7 @@ public class SellLandTest {
          acresSold = 1;
          landPrice = 2;
          expResult = 2;
-         result = instance.sellland(userAcers, acresSold, landPrice);
+         result = instance.SellLand();
         assertEquals(expResult, result);
     
         System.out.println("sellland 6");
@@ -70,7 +70,7 @@ public class SellLandTest {
          acresSold = 0;
          landPrice = 12;
          expResult = -2;
-         result = instance.sellland(userAcers, acresSold, landPrice);
+         result = instance.SellLand();
         assertEquals(expResult, result);
     
     System.out.println("sellland 7");
@@ -78,7 +78,7 @@ public class SellLandTest {
          acresSold = 1;
          landPrice = 3;
          expResult = 3;
-         result = instance.sellland(userAcers, acresSold, landPrice);
+         result = instance.SellLand();
         assertEquals(expResult, result);
     }
     

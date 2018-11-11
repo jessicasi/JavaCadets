@@ -6,7 +6,7 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.control.GameControl;
-import byui.cit260.JavaCadets.control.BuyLand;
+import byui.cit260.JavaCadets.control.SellLand;
 import byui.cit260.JavaCadets.model.Player;
 import java.util.Scanner;
 
@@ -14,9 +14,9 @@ import java.util.Scanner;
  *
  * @author skylerfoxx
  */
-public class BuyLandView {
+public class SellLandView {
 
-    public void displayBuyLandView() {
+    public void displaySellLandView() {
         boolean endOfView = false;
         do {
             String[] inputs = getInputs();
@@ -31,15 +31,15 @@ public class BuyLandView {
     }
 
     private String[] getInputs() {
-        BuyLand buyLand = new BuyLand();
+        SellLand sellLand = new SellLand();
 
         String[] inputs = new String[1];
         
         System.out.println(" ********************** ");
-        System.out.println(" ***   Buy Land   *** ");
+        System.out.println(" ***   Sell Land   *** ");
         System.out.println(" ********************** ");
         System.out.println();
-        System.out.println("B - Buy Land");
+        System.out.println("S - Sell Land");
         System.out.println("Q - Quit Buying Land");
 
          boolean valid = false;
@@ -69,8 +69,8 @@ public class BuyLandView {
 
         switch (menuItem) {
 
-            case "B": {
-                buyLand();
+            case "S": {
+                sellLand();
             }
                 return true;
 
@@ -86,9 +86,9 @@ public class BuyLandView {
     }
 
 
-    private void buyLand() {
+    private void sellLand() {
 
-        BuyLand buyland = new BuyLand();
-        buyland.BuyLand();
+        SellLand sellLand = new SellLand();
+        sellLand.SellLand();
     }
 }

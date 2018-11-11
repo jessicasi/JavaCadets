@@ -43,7 +43,8 @@ public class FeedThePeople {
             Scanner inFile;
             inFile = new Scanner(System.in);
             wheatFeed = inFile.nextInt();
-
+            
+            //Checks to see if user entered 0 or a negative number
             if (wheatFeed <= 0) {
                 System.out.println();
                 System.out.println("You neglected to feed your people!");
@@ -52,6 +53,28 @@ public class FeedThePeople {
                 continue;
             }
             
+            //Checks to see if user gave more wheat than what was required
+            if (wheatFeed >= wheatNeeded) {
+                userWheat -= wheatFeed;
+                peopleFed = wheatFeed / 2;
+                
+                //Checks to see if user gave up 100% of their wheat
+                    if (userWheat <= 0) {
+                        System.out.println("For some reason, you decided to give up all your wheat to the people all at once.");
+                        System.out.println();
+
+                        enoughWheat = true;
+                        continue;
+                    }
+                    
+                System.out.println("You generously gave more than what your people needed.");
+                System.out.println();
+                
+                enoughWheat = true;
+                continue;
+            }
+            
+            //Checks to see if the user has enough wheat to give what they entered
             if (userWheat < wheatNeeded) {
                 System.out.println("Unfortunately, you don't have that much wheat. Enter a lower number.");
                 System.out.println();

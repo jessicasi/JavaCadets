@@ -40,7 +40,7 @@ public class FeedThePeopleView {
         System.out.println(" *********************** ");
         System.out.println();
         System.out.println("F - Feed the People");
-        System.out.println("Q - Quit Buying Land");
+        System.out.println("Q - Quit Feed Population");
 
          boolean valid = false;
 

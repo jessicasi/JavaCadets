@@ -43,9 +43,13 @@ public class SellLand {
             
             System.out.println();
             
+            price *= acresSold;
+            System.out.println(acresSold + " acre(s) of land sells for " + price + " wheat.");
+            
             if (userAcres < acresSold) {
                 System.out.println("You don't have that many acres of land to sell. Enter a lower number.");
             } else {
+                
                 System.out.println("You earned " + price + " wheat for " + acresSold + " acre(s) of land.");
                 userAcres -= acresSold;
                 userWheat += price; 

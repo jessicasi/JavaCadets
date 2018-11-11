@@ -45,7 +45,7 @@ public class BuyLand {
             System.out.println("The total price is " + wheatNeeded + " wheat.");
 
             if (userWheat < wheatNeeded) {
-                System.out.println("You don't have enough wheat to buy that much land. Enter a lower number or quit.");
+                System.out.println("You don't have enough wheat to buy that much land. Enter a lower number.");
             } else {
                 userWheat -= wheatNeeded;
                 userAcres += landToBuy;

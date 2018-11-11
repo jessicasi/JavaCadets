@@ -46,10 +46,11 @@ public class GameMenuView {
         System.out.println("L - Live the year");
         System.out.println("R - Reports Menu");
         System.out.println("S - Save Game");
-        System.out.println("T - Test Tithing Menu");
         System.out.println("B - Test Make Bread");
         System.out.println("N - Test Buy Land");
         System.out.println("SL - Test Sell Land");
+        System.out.println("F - Test Feed Population");
+        System.out.println("T - Test Tithing Menu");
         System.out.println("Q - Return to Main Menu");
 
         boolean valid = false;
@@ -117,6 +118,10 @@ public class GameMenuView {
                 SellLand();
              }
             break;
+            case "F": {
+                feedPopulation();
+            }
+            break;
              case "B": {
                  testMakeBread();
              }
@@ -177,6 +182,11 @@ public class GameMenuView {
     private void SellLand() {
         SellLandView sellLand = new SellLandView();
         sellLand.displaySellLandView();
+    }
+    
+    private void feedPopulation() {
+        FeedThePeopleView FeedThePeopleView = new FeedThePeopleView();
+        FeedThePeopleView.displayFeedThePeopleView();
     }
 
     

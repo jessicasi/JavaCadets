@@ -23,7 +23,8 @@ public class SellLand {
             return -3;
         }
         
-        //TODO: Change this to call getWheatAvailable() from the Game class
+        //TODO: Change this to call getWheatAvailable and getAcresAvailable() from the Game class
+        int userWheat = 4;
         int userAcres = 4;
         
         System.out.println("1 acre of land sells for " + price + " wheat.");
@@ -40,15 +41,15 @@ public class SellLand {
             inFile = new Scanner(System.in);
             acresSold = inFile.nextInt();
 
-            //TODO: Change this to call getWheatAvailable() from the Game class
-            int wheatNeeded = price * acresSold;
             System.out.println();
-            System.out.println("You earned " + price + " wheat for " + acresSold + " acre(s) of land.");
 
             if (userAcres < acresSold) {
                 System.out.println("You don't have that many acres of land to sell. Enter a lower number.");
             } else {
                 System.out.println("You earned " + price + " wheat for " + acresSold + " acre(s) of land.");
+                userAcres -= acresSold;
+                userWheat += price;
+                
             }
             //TODO: Call setAcresAvailable() from the Game class
             }while (enoughAcres == false);

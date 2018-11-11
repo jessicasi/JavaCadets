@@ -80,7 +80,7 @@ private String[] getInputs(){
             return true;
             
             case "C":{
-                FeedThePeople();
+                feedPopulation();
             }
             return true;
             
@@ -111,15 +111,18 @@ private String[] getInputs(){
     }
 
     private void SellLand() {
-        System.out.println("Sell Land was SuccessFully Called");
+        SellLandView sellLand = new SellLandView();
+        sellLand.displaySellLandView();
     }
 
-    private void FeedThePeople() {
-        System.out.println("Feed The People");
+    private void feedPopulation() {
+        FeedThePeopleView FeedThePeopleView = new FeedThePeopleView();
+        FeedThePeopleView.displayFeedThePeopleView();
     }
 
-    private void PlantCrops() {
-       System.out.println("Plant Crops was Sucessuflly Called");
+    private void plantCrops() {
+        PlantCropsView PlantCropsView = new PlantCropsView();
+        PlantCropsView.displayPlantCropsView();
     }
 
     private void PayTithesAndOfferings() {

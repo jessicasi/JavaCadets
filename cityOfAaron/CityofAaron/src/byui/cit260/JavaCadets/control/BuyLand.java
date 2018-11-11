@@ -22,6 +22,10 @@ public class BuyLand {
             return -3;
         }
        
+       //TODO: Change this to call getAcresAvailable() and getWheatAvailable() from the Game class
+        int userAcres = 5;
+        int userWheat = 300;
+        
        System.out.println("1 acre of land costs " + price + " wheat.");
       
         boolean enoughWheat = false;
@@ -29,8 +33,7 @@ public class BuyLand {
         int landToBuy = 0;
         do{   
         //Get User Input
-            int wheatAvailable = 300;
-            System.out.println("You currently have " + wheatAvailable + " wheat.");
+            System.out.println("You currently have " + userWheat + " wheat.");
             System.out.println("How many acres do you want to buy?");
             Scanner inFile;
             inFile = new Scanner(System.in);
@@ -41,10 +44,14 @@ public class BuyLand {
             System.out.println();
             System.out.println("The total price is " + wheatNeeded + " wheat.");
 
-            if (wheatAvailable < wheatNeeded) {
+            if (userWheat < wheatNeeded) {
                 System.out.println("You don't have enough wheat to buy that much land. Enter a lower number or quit.");
             } else {
-                wheatAvailable -= wheatNeeded;
+                userWheat -= wheatNeeded;
+                userAcres += landToBuy;
+                System.out.println("You now have " + userAcres + " total acres.");
+                System.out.println("You have " + userWheat + " wheat remaining.");
+                
                 enoughPeople=calculatePeople(landToBuy);
                     if(enoughPeople == false) continue;
                 

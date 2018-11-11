@@ -40,17 +40,19 @@ public class SellLand {
             Scanner inFile;
             inFile = new Scanner(System.in);
             acresSold = inFile.nextInt();
-
+            
             System.out.println();
-
+            
             if (userAcres < acresSold) {
                 System.out.println("You don't have that many acres of land to sell. Enter a lower number.");
             } else {
                 System.out.println("You earned " + price + " wheat for " + acresSold + " acre(s) of land.");
                 userAcres -= acresSold;
-                userWheat += price;
+                userWheat += price; 
                 
+                enoughAcres = true;
             }
+            
             //TODO: Call setAcresAvailable() from the Game class
             }while (enoughAcres == false);
         

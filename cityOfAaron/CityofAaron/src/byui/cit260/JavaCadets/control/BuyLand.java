@@ -27,6 +27,7 @@ public class BuyLand {
         boolean enoughWheat = false;
         boolean enoughPeople = false;
         int landToBuy = 0;
+        int acresOwned = 20;
         
         do{   
             //TODO: Change this to call getWheatAvailable() from the Game class
@@ -43,20 +44,22 @@ public class BuyLand {
             System.out.println("It will take " + wheatNeeded + " wheat to buy that much land.");
             System.out.println();
 
-            if (userWheat < wheatNeeded) {
+            if (wheatNeeded > wheatAvailable) {
                 System.out.println("You don't have enough wheat to buy that much land. Enter a lower number.");
             } else {
-                userWheat -= wheatNeeded;
-                userAcres += landToBuy;
-                System.out.println("You now have " + userAcres + " total acres.");
-                System.out.println("You have " + userWheat + " wheat remaining.");
-                
                 enoughPeople=calculatePeople(landToBuy);
                     if(enoughPeople == false) continue;
+                    
+                wheatAvailable -= wheatNeeded;
+                //TO DO: Initial with getAcresOwned
+                acresOwned += landToBuy;
+                System.out.println("You now have " + acresOwned + " total acres.");
+                System.out.println("You have " + wheatAvailable + " wheat remaining.");
+            
                 
                 enoughWheat = true;
             }
-               //TODO: Call setWheatAvailable() from the Game class
+              
             } while (enoughWheat == false);
 
         //Should never reach this point
@@ -70,9 +73,9 @@ public class BuyLand {
         //TODO: get number of people from Game class
         int people = 60;
         //TODO: get land already owned from Game Class
-        int land = 20;
+        int acresOwned = 20;
         
-        int peopleLeft = people - (land/10);
+        int peopleLeft = people - (acresOwned/10);
         int peopleNeeded = landToBuy / 10;
         
         if (peopleLeft < peopleNeeded) {

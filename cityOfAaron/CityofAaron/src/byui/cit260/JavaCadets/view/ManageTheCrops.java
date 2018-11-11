@@ -85,7 +85,7 @@ private String[] getInputs(){
             return true;
             
             case "D":{
-                PlantCrops();
+                plantCrops();
             }
             return true;
             

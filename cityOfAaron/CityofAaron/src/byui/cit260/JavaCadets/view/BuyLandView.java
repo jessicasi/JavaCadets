@@ -32,7 +32,6 @@ public class BuyLandView {
 
     private String[] getInputs() {
         BuyLand buyLand = new BuyLand();
-        int landPrice = 5;
 
         String[] inputs = new String[1];
         
@@ -40,7 +39,7 @@ public class BuyLandView {
         System.out.println(" ***   Buy Land   *** ");
         System.out.println(" ********************** ");
         System.out.println();
-         System.out.println("B - Buy Land");
+        System.out.println("B - Buy Land");
         System.out.println("Q - Quit Buying Land");
 
          boolean valid = false;
@@ -73,7 +72,7 @@ public class BuyLandView {
             case "B": {
                 buyLand();
             }
-            return true;
+                return true;
 
             case "Q":
                 return true;

@@ -15,15 +15,12 @@ public class BuyLand {
     
     public int BuyLand (){
         
-       // int price = (int) (Math.random() * (27 - 17) + 17);
-
-       int price = 10;
+       int price = (int) (Math.random() * (27 - 17) + 17);
        
-       /*Acres will be sold for 17-27 wheat
+       //Acres will be sold for 17-27 wheat
         if (price < 17 || price > 27) {
             return -3;
         }
-       */
        
        System.out.println("1 acre of land costs " + price + " wheat.");
       

@@ -43,16 +43,33 @@ public class SellLand {
             
             System.out.println();
             
-            price *= acresSold;
-            System.out.println(acresSold + " acre(s) of land sells for " + price + " wheat.");
+            if (acresSold <= 0) {
+                System.out.println();
+                System.out.println("You chose not to sell any land.");
+                System.out.println();
+                enoughAcres = true;
+                continue;
+            }
             
             if (userAcres < acresSold) {
-                System.out.println("You don't have that many acres of land to sell. Enter a lower number.");
-            } else {
+                //Total Price is current price times acres Sold
+                int totalPrice = price * acresSold;
                 
-                System.out.println("You earned " + price + " wheat for " + acresSold + " acre(s) of land.");
+                System.out.println();
+                System.out.println(acresSold + " acre(s) of land sells for " + totalPrice + " wheat.");
+                System.out.println("You don't have that many acres of land to sell. Enter a lower number.");
+                
+            } else {
+                //Total Price is current price times acres Sold
+                int totalPrice = price * acresSold;
+                
+                System.out.println();
+                System.out.println(acresSold + " acre(s) of land sells for " + totalPrice + " wheat.");
+                System.out.println("You earned " + totalPrice + " wheat for " + acresSold + " acre(s) of land.");
+                System.out.println();
+                
                 userAcres -= acresSold;
-                userWheat += price; 
+                userWheat += totalPrice; 
                 
                 enoughAcres = true;
             }

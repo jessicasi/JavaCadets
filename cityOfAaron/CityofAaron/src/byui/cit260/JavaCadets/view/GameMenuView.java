@@ -49,6 +49,7 @@ public class GameMenuView {
         System.out.println("B - Test Make Bread");
         System.out.println("N - Test Buy Land");
         System.out.println("SL - Test Sell Land");
+        System.out.println("P - Test Plant Crops");
         System.out.println("F - Test Feed Population");
         System.out.println("T - Test Tithing Menu");
         System.out.println("Q - Return to Main Menu");
@@ -117,6 +118,10 @@ public class GameMenuView {
             case "SL": {
                 SellLand();
              }
+            break;
+            case "P": {
+                plantCrops();
+            }
             break;
             case "F": {
                 feedPopulation();
@@ -187,6 +192,11 @@ public class GameMenuView {
     private void feedPopulation() {
         FeedThePeopleView FeedThePeopleView = new FeedThePeopleView();
         FeedThePeopleView.displayFeedThePeopleView();
+    }
+    
+    private void plantCrops() {
+        PlantCropsView PlantCropsView = new PlantCropsView();
+        PlantCropsView.displayPlantCropsView();
     }
 
     

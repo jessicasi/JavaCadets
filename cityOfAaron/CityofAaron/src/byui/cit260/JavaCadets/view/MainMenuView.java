@@ -13,27 +13,11 @@ import java.util.Scanner;
  *
  * @authors Jessica, Steven, Skyler
  */
-public class MainMenuView {
+public class MainMenuView extends View{
 
-    public void displayMainMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs.length < 1) {
-                endView = true;
-                continue;
-            }
-            inputs[0] = inputs[0].toUpperCase();
-            if (inputs.length < 1 || inputs[0].equals("E")) {
-                endView = true;
-                break;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-
-    }
-
-    private String[] getInputs() {
+  
+    @Override
+    public String[] getInputs() {
         String[] inputs = new String[1];
 
         System.out.println(" ************** ");
@@ -44,8 +28,12 @@ public class MainMenuView {
         System.out.println("R - Restart exisiting game");
         System.out.println("H - Get help on how to play the game");
         System.out.println("E - Exit");
+        
+        String MainMenuInput = this.getInput("\nMake a selection from the Main Menu");
+            inputs[0] = MainMenuInput;
 
-        boolean valid = false;
+
+      /*  boolean valid = false;
 
         while (valid == false) {
             System.out.println("Make a selection from the menu");
@@ -62,14 +50,15 @@ public class MainMenuView {
                 continue;
             }
             valid = true;
-              }
+              }*/
               
 
         return inputs;
 
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
        
         switch (menuItem) {
@@ -117,6 +106,6 @@ public class MainMenuView {
     private void getHelp() {
         
         HelpMenuView helpMenuView = new HelpMenuView();
-        helpMenuView.displayHelpMenuView();
+        helpMenuView.display();
     }
 }

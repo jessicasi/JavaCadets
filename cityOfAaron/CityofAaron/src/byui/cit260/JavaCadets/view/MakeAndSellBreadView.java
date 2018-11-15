@@ -7,30 +7,16 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.control.MakeBread;
 import byui.cit260.JavaCadets.control.SellBread;
-import byui.cit260.JavaCadets.model.Game;
 import java.util.Scanner;
 
 /**
  *
  * @author Jessica
  */
-public class MakeAndSellBreadView {
+public class MakeAndSellBreadView extends View{
 
-    public void displayMakeAndSellBreadView() {
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            //no inputs were entered OR the first input is Q
-            if (inputs.length < 1 || inputs[0].equals("Q")) {
-                System.out.println("Progam end");
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
-
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 
@@ -40,30 +26,15 @@ public class MakeAndSellBreadView {
         System.out.println();
         System.out.println("M - Make Bread");
         System.out.println("Q - Quit");
-
-        boolean valid = false;
-
-        while (valid == false) {
-            System.out.println("Make a selection from the menu");
-            //Get the value entered from the keyboard
-            Scanner inFile;
-            inFile = new Scanner(System.in);
-            inputs[0] = inFile.nextLine();
-            // Trim off leading and trailing blanks from the value
-            inputs[0] = inputs[0].trim();
-            //Make sure user entered a value
-
-            if (inputs[0].equals("")) {
-                System.out.println("Please enter a non-blank value");
-                continue;
-            }
-            valid = true;
-        }
-
+        
+        String breadInput = this.getInput("\nMake your selection");
+        inputs[0] = breadInput;
+       
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
 
         switch (menuItem) {

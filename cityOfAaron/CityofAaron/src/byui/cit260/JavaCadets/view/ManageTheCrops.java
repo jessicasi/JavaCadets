@@ -127,7 +127,7 @@ private String[] getInputs(){
 
     private void PayTithesAndOfferings() {
         TithesView payTithesAndOfferings = new TithesView();
-        payTithesAndOfferings.displayTithesView();
+        payTithesAndOfferings.display();
     }
 
 }

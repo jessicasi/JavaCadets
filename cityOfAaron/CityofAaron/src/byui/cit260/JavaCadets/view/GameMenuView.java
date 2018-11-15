@@ -5,35 +5,15 @@
  */
 package byui.cit260.JavaCadets.view;
 
-import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
-import byui.cit260.JavaCadets.control.GameControl;
-import java.util.Scanner;
 
 /**
  *
  * @author Jessica
  */
-public class GameMenuView {
+public class GameMenuView extends View{
 
-    public void displayGameMenuView() {
-        boolean endView = false;
-        do {
-            String[] inputs = getInputs();
-            if (inputs.length < 1) {
-                endView = true;
-                continue;
-            }
-            inputs[0] = inputs[0].toUpperCase();
-            if (inputs.length < 1 || inputs[0].equals("E")) {
-                endView = true;
-                break;
-            }
-            endView = doAction(inputs);
-        } while (endView != true);
-
-    }
-
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
         String[] inputs = new String[1];
 
         System.out.println(" *************** ");
@@ -52,31 +32,16 @@ public class GameMenuView {
         System.out.println("F - Test Feed Population");
         System.out.println("T - Test Tithing Menu");
         System.out.println("Q - Return to Main Menu");
-
-        boolean valid = false;
-
-        while (valid == false) {
-            System.out.println("* Make a selection from the menu *");
-            //Get the value entered from the keyboard
-            Scanner inFile;
-            inFile = new Scanner(System.in);
-            inputs[0] = inFile.nextLine();
-            // Trim off leading and trailing blanks from the value
-            inputs[0] = inputs[0].trim();
-            //Make sure user entered a value
-
-            if (inputs[0].equals("")) {
-                System.out.println("Please enter a non-blank value");
-                continue;
-            }
-            valid = true;
-        }
+        
+        String gameInput = this.getInput("\nMake a selection from the Game Menu");
+        inputs[0] = gameInput;
 
         return inputs;
 
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
 
         switch (menuItem) {
@@ -160,7 +125,7 @@ public class GameMenuView {
 
     private void saveGame() {
         SaveGameMenuView saveGame = new SaveGameMenuView();
-        saveGame.displaySaveGameMenuView();
+        saveGame.display();
     }
 
     private void reportsMenu() {
@@ -170,12 +135,12 @@ public class GameMenuView {
 
     private void testTithes() {
         TithesView tithesview = new TithesView();
-        tithesview.displayTithesView();
+        tithesview.display();
     }
 
     private void testMakeBread() {
         MakeAndSellBreadView bread = new MakeAndSellBreadView();
-        bread.displayMakeAndSellBreadView();
+        bread.display();
     }
 
     private void BuyLand() {

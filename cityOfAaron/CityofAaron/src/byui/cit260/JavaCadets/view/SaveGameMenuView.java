@@ -11,24 +11,10 @@ import java.util.Scanner;
  *
  * @author Jessica
  */
-public class SaveGameMenuView {
+public class SaveGameMenuView extends View{
 
-    public void displaySaveGameMenuView() {
-
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            //no inputs were entered OR the first input is Q
-            if (inputs.length < 1 || inputs[0].equals("Q")) {
-                System.out.println("Progam end");
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
-
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 
@@ -38,6 +24,9 @@ public class SaveGameMenuView {
         System.out.println();
         System.out.println("S - Save Game");
         System.out.println("Q - Quit without saving");
+        
+        String saveGameInput = this.getInput("\nMake a selection from the Save Game Menu");
+        inputs[0] = saveGameInput;
 
         boolean valid = false;
 
@@ -61,7 +50,8 @@ public class SaveGameMenuView {
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
 
         switch (menuItem) {

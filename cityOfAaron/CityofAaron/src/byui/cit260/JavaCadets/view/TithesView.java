@@ -11,24 +11,11 @@ import java.util.Scanner;
  *
  * @author Jessica
  */
-public class TithesView {
+public class TithesView extends View{
 
-    public void displayTithesView() {
 
-        boolean endOfView = false;
-        do {
-            String[] inputs = getInputs();
-            //no inputs were entered OR the first input is Q
-            if (inputs.length < 1 || inputs[0].equals("Q")) {
-                System.out.println("Progam end");
-                endOfView = true;
-            }
-            endOfView = doAction(inputs);
-        } while (endOfView != true);
-
-    }
-
-    private String[] getInputs() {
+    @Override
+    public String[] getInputs() {
 
         String[] inputs = new String[1];
 
@@ -38,30 +25,16 @@ public class TithesView {
         System.out.println();
         System.out.println("T - Pay Tithes & Offerings");
         System.out.println("Q - Quit");
+        
+        String tithesInput = this.getInput("\nMake a selection from the Tithes Menu");
+        inputs[0] = tithesInput;
 
-        boolean valid = false;
-
-        while (valid == false) {
-            System.out.println("Make a selection from the menu");
-            //Get the value entered from the keyboard
-            Scanner inFile;
-            inFile = new Scanner(System.in);
-            inputs[0] = inFile.nextLine();
-            // Trim off leading and trailing blanks from the value
-            inputs[0] = inputs[0].trim();
-            //Make sure user entered a value
-
-            if (inputs[0].equals("")) {
-                System.out.println("Please enter a non-blank value");
-                continue;
-            }
-            valid = true;
-        }
 
         return inputs;
     }
 
-    private boolean doAction(String[] inputs) {
+    @Override
+    public boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
 
         switch (menuItem) {

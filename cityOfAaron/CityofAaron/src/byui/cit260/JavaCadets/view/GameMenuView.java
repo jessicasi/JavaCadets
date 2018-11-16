@@ -116,7 +116,7 @@ public class GameMenuView extends View{
 
     private void manageCrops() {
         ManageTheCrops manageCrops = new ManageTheCrops();
-        manageCrops.displayManageTheCrops();
+        manageCrops.display();
     }
 
     private void liveTheYear() {
@@ -130,7 +130,7 @@ public class GameMenuView extends View{
 
     private void reportsMenu() {
        ReportsMenuView reportsMenu = new ReportsMenuView();
-       //reportsMenu.displayReportsMenuView();  No Idea whats wrong
+       reportsMenu.display();
     }
 
     private void testTithes() {

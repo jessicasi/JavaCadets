@@ -155,7 +155,7 @@ public class GameMenuView extends View{
     
     private void feedPopulation() {
         FeedThePeopleView FeedThePeopleView = new FeedThePeopleView();
-        FeedThePeopleView.displayFeedThePeopleView();
+        FeedThePeopleView.display();
     }
     
     private void plantCrops() {

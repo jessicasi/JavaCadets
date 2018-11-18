@@ -49,7 +49,7 @@ public class PlantCrops {
             }
             
             //Checks if user has enough wheat for the acres of land they want to plant
-            if (wheatNeeded >= userWheat) {
+            if (wheatNeeded > userWheat) {
                 System.out.println();
                 System.out.println(acresPlant + " acres of land requires " + wheatNeeded + " wheat.");
                 System.out.println("You only have " + userWheat + " wheat. Please enter a lower number.");

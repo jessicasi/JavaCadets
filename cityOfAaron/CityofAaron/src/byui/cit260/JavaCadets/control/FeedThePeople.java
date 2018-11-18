@@ -73,13 +73,19 @@ public class FeedThePeople {
                 enoughWheat = true;
                 continue;
             }
-            
             //Checks to see if the user has enough wheat to give what they entered
             if (userWheat < wheatNeeded) {
                 System.out.println("Unfortunately, you don't have that much wheat. Enter a lower number.");
                 System.out.println();
-                
-            } else {
+            }
+            if (wheatFeed == 1) {
+                System.out.println("You tossed 1 wheat into the air for the people to share.");
+                System.out.println("Your people look at you with disgust.");
+                System.out.println();
+                enoughWheat = true;
+                continue;
+            } 
+            else {
                 userWheat -= wheatFeed;
                 System.out.println("You gave " + wheatFeed + " wheat to the people. You now have " + userWheat + " wheat remaining.");
                 

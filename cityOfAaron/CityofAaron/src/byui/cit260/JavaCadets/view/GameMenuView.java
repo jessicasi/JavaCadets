@@ -160,7 +160,7 @@ public class GameMenuView extends View{
     
     private void plantCrops() {
         PlantCropsView PlantCropsView = new PlantCropsView();
-        PlantCropsView.displayPlantCropsView();
+        PlantCropsView.display();
     }
 
     

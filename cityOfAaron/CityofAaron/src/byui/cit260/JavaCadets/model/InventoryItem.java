@@ -14,7 +14,7 @@ import java.util.Objects;
 public class InventoryItem {
     
         private String name;
-        private ItemType itemType;
+        private String itemType;
         private int quantity;
         private Condition condition;
         private double pricePerUnit;
@@ -66,7 +66,7 @@ public class InventoryItem {
      *
      * @return the value of quantity
      */
-    public int getQuantity() {
+    public int getQuantityInStock() {
         return quantity;
     }
 
@@ -75,7 +75,7 @@ public class InventoryItem {
      *
      * @param quantity new value of quantity
      */
-    public void setQuantity(int quantity) {
+    public void setQuantityInStock(int quantity) {
         this.quantity = quantity;
     }
 
@@ -85,7 +85,7 @@ public class InventoryItem {
      *
      * @return the value of itemType
      */
-    public ItemType getItemType() {
+    public String getItemType() {
         return itemType;
     }
 
@@ -94,7 +94,7 @@ public class InventoryItem {
      *
      * @param itemType new value of itemType
      */
-    public void setItemType(ItemType itemType) {
+    public void setItemType(String itemType) {
         this.itemType = itemType;
     }
 
@@ -162,7 +162,5 @@ public class InventoryItem {
     public String toString() {
         return "InventoryItem{" + "name=" + name + ", itemType=" + itemType + ", quantity=" + quantity + ", condition=" + condition + ", pricePerUnit=" + pricePerUnit + '}';
     }
-    
-    
 
 }

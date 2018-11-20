@@ -5,24 +5,16 @@
  */
 package byui.cit260.JavaCadets.model;
 
-import java.io.Serializable;
-
 /**
  *
  * @author Steven
  */
-public enum ItemType implements Serializable{
+public enum Actor {
+    moses, 
+    Aaron, 
+    Father, 
+    mother, 
+    sister, 
+    brother;
     
-   pig,
-   chicken,
-   horse,
-   goat,
-   donkey,  
-   scyth,
-   hoe,
-   pickaxe,
-   bow,
-   feed,
-   cart;
-
 }

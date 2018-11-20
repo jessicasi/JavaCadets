@@ -20,11 +20,22 @@ public class Map implements Serializable{
     private int currentRow;
     private int currentColumn;
     private int rowCount;
+    private Location[] locations;
     
         public Map(int rowCount, int columnCount) {
         this.rowCount = rowCount;
         this.columnCount = columnCount;
      }
+    public Map(){}
+
+    public Location[] getLocations() {
+        return locations;
+    }
+
+    public void setLocations(Location[] locations) {
+        this.locations = locations;
+    }
+          
     public String getDescription() {
         return description;
     }

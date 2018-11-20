@@ -20,7 +20,32 @@ public class Game implements Serializable{
     private int currentPopulaiton;
     private int acresOwned;
     private int wheatInstorage;       
+    private InventoryItem[] inventory;
+    private Question[] question;
 
+    public Question[] getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question[] question) {
+        this.question = question;
+    }
+    public int getWheatInstorage() {
+        return wheatInstorage;
+    }
+
+    public void setWheatInstorage(int wheatInstorage) {
+        this.wheatInstorage = wheatInstorage;
+    }
+
+    public InventoryItem[] getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(InventoryItem[] inventory) {
+        this.inventory = inventory;
+    }
+    
     public Game() {
     }
 
@@ -119,8 +144,9 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulaiton=" + currentPopulaiton + ", acresOwned=" + acresOwned + ", wheatInstorage=" + wheatInstorage + '}';
+        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulaiton=" + currentPopulaiton + ", acresOwned=" + acresOwned + ", wheatInstorage=" + wheatInstorage + ", inventory=" + inventory + ", question=" + question + '}';
     }
+
     
     
 }

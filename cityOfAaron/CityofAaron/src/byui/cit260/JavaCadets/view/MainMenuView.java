@@ -67,7 +67,7 @@ public class MainMenuView extends View {
     private void startNewGame() {
         //Create a new Game
         GameControl.createNewGame(CityofAaron.getPlayer());
-
+       
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
 

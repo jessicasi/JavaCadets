@@ -104,6 +104,8 @@ public class GameControl {
         items[ItemType.scyth.ordinal()] = item;
         
         return items;
+        
+        
     }
 
     public static Question[] createQuestion() {
@@ -112,9 +114,10 @@ public class GameControl {
     }
 
     public static Map createMap(Game game, int noOfRows, int noOfColumns) {
-       System.out.println("Lovely Map");
-       Map map = new Map(noOfRows, noOfColumns);
-       return map;
+          Map map = MapControl.createMap(game, noOfRows, noOfColumns);
+
+//       System.out.println("Lovely Map");
+//       Map map = new Map(noOfRows, noOfColumns);
+        return map;
     }
-    
-        }
+}

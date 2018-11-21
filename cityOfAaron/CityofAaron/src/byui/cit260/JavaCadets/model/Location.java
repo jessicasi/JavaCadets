@@ -16,13 +16,15 @@ public class Location implements Serializable {
     
     private Scene scene;
     private boolean visited;
-
+    private String LocationType;
+    private String displaySymbol;
+    private int row;
+    private int column;
+    
     public Location() {
-    }
-    
+    }  
 
-    
-    public Scene getScene() {
+      public Scene getScene() {
         return scene;
     }
 
@@ -37,7 +39,40 @@ public class Location implements Serializable {
     public void setVisited(boolean visted) {
         this.visited = visted;
     }
+    public String getLocationType() {
+        return LocationType;
+    }
 
+    public void setLocationType(String LocationType) {
+        this.LocationType = LocationType;
+    }
+
+    public String getDisplaySymbol() {
+        return displaySymbol;
+    }
+
+    public void setDisplaySymbol(String displaySymbol) {
+        this.displaySymbol = displaySymbol;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public void setRow(int row) {
+        this.row = row;
+    }
+
+    public int getColumn() {
+        return column;
+    }
+
+    public void setColumn(int column) {
+        this.column = column;
+    }
+    
+    
+    
     @Override
     public int hashCode() {
         int hash = 3;
@@ -69,8 +104,9 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "scene=" + scene + ", visted=" + visited + '}';
+        return "Location{" + "scene=" + scene + ", visited=" + visited + ", LocationType=" + LocationType + ", displaySymbol=" + displaySymbol + ", row=" + row + ", column=" + column + '}';
     }
+
     
-    
-}
+    }
+

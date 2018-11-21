@@ -20,7 +20,7 @@ public class Map implements Serializable{
     private int currentRow;
     private int currentColumn;
     private int rowCount;
-    private Location[] locations;
+    private Location[][] locations;
     
         public Map(int rowCount, int columnCount) {
         this.rowCount = rowCount;
@@ -28,11 +28,11 @@ public class Map implements Serializable{
      }
     public Map(){}
 
-    public Location[] getLocations() {
+    public Location[][] getLocations() {
         return locations;
     }
 
-    public void setLocations(Location[] locations) {
+    public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
           

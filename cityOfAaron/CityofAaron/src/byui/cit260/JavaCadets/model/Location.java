@@ -6,6 +6,7 @@
 package byui.cit260.JavaCadets.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,6 +18,7 @@ public class Location implements Serializable {
     private Scene scene;
     private boolean visited;
     private String LocationType;
+    private String description;
     private String displaySymbol;
     private int row;
     private int column;
@@ -70,7 +72,18 @@ public class Location implements Serializable {
     public void setColumn(int column) {
         this.column = column;
     }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
     
+    public void setActors(ArrayList<Actor> actors) {
+        System.out.println("Lovely setActors");
+    }
     
     
     @Override
@@ -104,9 +117,9 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "scene=" + scene + ", visited=" + visited + ", LocationType=" + LocationType + ", displaySymbol=" + displaySymbol + ", row=" + row + ", column=" + column + '}';
+        return "Location{" + "scene=" + scene + ", visited=" + visited + ", LocationType=" + LocationType + ", description=" + description + ", displaySymbol=" + displaySymbol + ", row=" + row + ", column=" + column + '}';
     }
-
+    
     
     }
 

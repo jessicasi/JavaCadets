@@ -5,6 +5,7 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.util.ArrayList;
 import java.util.Objects;
 
 
@@ -47,6 +48,10 @@ public class QuestionLocation extends Location{
     @Override
     public String toString() {
         return "QuestionLocation{" + "question=" + question + '}';
+    }
+
+    public void setQuestions(ArrayList<Question> questionsInLocation) {
+       System.out.println("Lovely setQuestions");
     }
     
 }

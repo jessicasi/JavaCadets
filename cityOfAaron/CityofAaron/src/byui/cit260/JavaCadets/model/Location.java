@@ -91,6 +91,10 @@ public class Location implements Serializable {
         System.out.println("Lovely setActors");
     }
     
+    public void setActorCoordinates(Point coordinates){
+        actor.setCoordinates(coordinates);
+    }
+    
     
     @Override
     public int hashCode() {

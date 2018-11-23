@@ -429,11 +429,61 @@ public class MapControl {
             Location location = locations[0][4];
             location.setActor(ActorName.innkeeper);
             Point actorCoordinates = ActorName.innkeeper.getCoordinates();
-            actorPosition.setRow(0);
-            actorPosition.setColumn(4);
+            location.setActorCoordinates(actorCoordinates);
+            //actorPosition.setColumn(4);
+            
+            location = locations[1][2];
+            location.setActor(ActorName.sister);
+            actorCoordinates = ActorName.sister.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[2][1];
+            location.setActor(ActorName.moses);
+            actorCoordinates = ActorName.moses.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[2][2];
+            location.setActor(ActorName.king);
+            actorCoordinates = ActorName.king.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[2][3];
+            location.setActor(ActorName.nephi);
+            actorCoordinates = ActorName.nephi.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[2][4];
+            location.setActor(ActorName.mother);
+            actorCoordinates = ActorName.mother.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[0][0];
+            location.setActor(ActorName.villager);
+            actorCoordinates = ActorName.villager.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[3][4];
+            location.setActor(ActorName.fieldworker);
+            actorCoordinates = ActorName.fieldworker.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[4][4];
+            location.setActor(ActorName.brother);
+            actorCoordinates = ActorName.brother.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[3][2];
+            location.setActor(ActorName.father);
+            actorCoordinates = ActorName.father.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
+            
+            location = locations[3][3];
+            location.setActor(ActorName.Aaron);
+            actorCoordinates = ActorName.Aaron.getCoordinates();
+            location.setActorCoordinates(actorCoordinates);
             
             // Repeat above steps for each actor in the game
-            …
+           
             return 1; // indicates success
             } 
 

@@ -6,10 +6,12 @@
 package byui.cit260.JavaCadets.control;
 
 import byui.cit260.JavaCadets.model.Actor;
+import byui.cit260.JavaCadets.model.ActorName;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.InventoryItem;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
+import byui.cit260.JavaCadets.model.Point;
 import byui.cit260.JavaCadets.model.Question;
 import byui.cit260.JavaCadets.model.QuestionLocation;
 import byui.cit260.JavaCadets.model.ResourceLocation;
@@ -418,9 +420,23 @@ public class MapControl {
     }
 
     public static int assignActorsToLocations(Location[][] locations) {
-        System.out.println("Lovely Actors");
-        return 1;
-    }
+           // Check for invalid input
+             if (locations == null)
+             return -1; // indicates invalid input
+            
+            // Assign the actor Nephi to starting its location
+            
+            Location location = locations[0][4];
+            location.setActor(ActorName.innkeeper);
+            Point actorCoordinates = ActorName.innkeeper.getCoordinates();
+            actorPosition.setRow(0);
+            actorPosition.setColumn(4);
+            
+            // Repeat above steps for each actor in the game
+            …
+            return 1; // indicates success
+            } 
+
 
     private static int assignIemsToLocations(Location[][] locations, InventoryItem[] itemsInGame) {
         System.out.println("Lovely Locations");

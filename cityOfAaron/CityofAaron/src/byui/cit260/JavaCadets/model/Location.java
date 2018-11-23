@@ -22,6 +22,12 @@ public class Location implements Serializable {
     private String displaySymbol;
     private int row;
     private int column;
+    private Actor actor;
+    private ActorName actorname;
+    
+    public Actor getActors() {
+        return actor; 
+    }
     
     public Location() {
     }  
@@ -117,9 +123,13 @@ public class Location implements Serializable {
 
     @Override
     public String toString() {
-        return "Location{" + "scene=" + scene + ", visited=" + visited + ", LocationType=" + LocationType + ", description=" + description + ", displaySymbol=" + displaySymbol + ", row=" + row + ", column=" + column + '}';
+        return "Location{" + "scene=" + scene + ", visited=" + visited + ", LocationType=" + LocationType + ", description=" + description + ", displaySymbol=" + displaySymbol + ", row=" + row + ", column=" + column + ", actor=" + actor + '}';
     }
-    
+
+    public void setActor(ActorName actorName) {
+        this.actorname = actorName;
+    }
+
     
     }
 

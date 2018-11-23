@@ -13,10 +13,11 @@ import java.util.Objects;
  */
 public class Actor {
     
+    
     private String name;
     private String description;
-    private int coordinates;
-
+    private Point coordinates; 
+            
     public Actor() {
     }
 
@@ -36,11 +37,11 @@ public class Actor {
         this.description = description;
     }
 
-    public int getCoordinates() {
+    public Point getCoordinates() {
         return coordinates;
     }
 
-    public void setCoordinates(int coordinates) {
+    public void setCoordinates(Point coordinates) {
         this.coordinates = coordinates;
     }
 
@@ -49,7 +50,7 @@ public class Actor {
         int hash = 7;
         hash = 23 * hash + Objects.hashCode(this.name);
         hash = 23 * hash + Objects.hashCode(this.description);
-        hash = 23 * hash + this.coordinates;
+        hash = 23 * hash + Objects.hashCode(this.coordinates);
         return hash;
     }
 
@@ -65,24 +66,29 @@ public class Actor {
             return false;
         }
         final Actor other = (Actor) obj;
-        if (this.coordinates != other.coordinates) {
-            return false;
-        }
         if (!Objects.equals(this.name, other.name)) {
             return false;
         }
         if (!Objects.equals(this.description, other.description)) {
             return false;
         }
+        if (!Objects.equals(this.coordinates, other.coordinates)) {
+            return false;
+        }
         return true;
     }
 
+    
     @Override
     public String toString() {
         return "Actor{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + '}';
     }
+
+    public void add(ActorName actorName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
-    
+
     
     
 }

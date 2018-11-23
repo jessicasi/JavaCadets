@@ -419,7 +419,7 @@ public class MapControl {
         return location; // indicates success
     }
 
-    public static int assignActorsToLocations(Location[][] locations) {
+    private static int assignActorsToLocations(Location[][] locations) {
            // Check for invalid input
              if (locations == null)
              return -1; // indicates invalid input
@@ -427,7 +427,7 @@ public class MapControl {
             // Assign the actor Nephi to starting its location
             
             Location location = locations[0][4];
-            location.setActor(ActorName.innkeeper);
+            location.setActor(ActorName.nephi);
             Point actorCoordinates = ActorName.innkeeper.getCoordinates();
             location.setActorCoordinates(actorCoordinates);
             //actorPosition.setColumn(4);

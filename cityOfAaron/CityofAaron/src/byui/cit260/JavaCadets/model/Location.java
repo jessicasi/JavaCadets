@@ -14,7 +14,7 @@ import java.util.Objects;
  * @author Steven
  */
 public class Location implements Serializable {
-    
+
     private Scene scene;
     private boolean visited;
     private String LocationType;
@@ -23,16 +23,18 @@ public class Location implements Serializable {
     private int row;
     private int column;
     private Actor actor;
-    private ActorName actorname;
-    
-    public Actor getActors() {
-        return actor; 
-    }
-    
-    public Location() {
-    }  
+    private ActorName actorName;
 
-      public Scene getScene() {
+    public Actor getActors() {
+        return actor;
+    }
+
+    public Location() {
+        actor = new Actor();
+     
+    }
+
+    public Scene getScene() {
         return scene;
     }
 
@@ -47,6 +49,7 @@ public class Location implements Serializable {
     public void setVisited(boolean visted) {
         this.visited = visted;
     }
+
     public String getLocationType() {
         return LocationType;
     }
@@ -86,16 +89,21 @@ public class Location implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-    
+
     public void setActors(ArrayList<Actor> actors) {
         System.out.println("Lovely setActors");
     }
     
-    public void setActorCoordinates(Point coordinates){
-        actor.setCoordinates(coordinates);
+    public void setActor(ActorName actorName) {
+        this.actorName = actorName;
     }
-    
-    
+
+    public void setActorCoordinates(Point coordinates) {
+            actor.setCoordinates(coordinates);
+           
+    }
+
+ 
     @Override
     public int hashCode() {
         int hash = 3;
@@ -130,10 +138,4 @@ public class Location implements Serializable {
         return "Location{" + "scene=" + scene + ", visited=" + visited + ", LocationType=" + LocationType + ", description=" + description + ", displaySymbol=" + displaySymbol + ", row=" + row + ", column=" + column + ", actor=" + actor + '}';
     }
 
-    public void setActor(ActorName actorName) {
-        this.actorname = actorName;
-    }
-
-    
-    }
-
+}

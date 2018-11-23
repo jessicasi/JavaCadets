@@ -17,7 +17,8 @@ public class Actor {
     private String name;
     private String description;
     private Point coordinates; 
-            
+    
+    
     public Actor() {
     }
 
@@ -84,11 +85,4 @@ public class Actor {
         return "Actor{" + "name=" + name + ", description=" + description + ", coordinates=" + coordinates + '}';
     }
 
-    public void add(ActorName actorName) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-
-    
-    
 }

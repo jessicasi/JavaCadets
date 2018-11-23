@@ -34,6 +34,7 @@ public enum ActorName {
         Point point = new Point();
         point.setRow(row);
         point.setColumn(column);
+      //  System.out.println("Got to this point" + point);
         return point;
     }
     

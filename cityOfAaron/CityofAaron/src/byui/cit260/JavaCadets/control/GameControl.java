@@ -65,7 +65,7 @@ public class GameControl {
     }
 
     public static InventoryItem[] createItems() {
-        InventoryItem[] items = new InventoryItem[11];
+        InventoryItem[] items = new InventoryItem[12];
         
         InventoryItem item = new InventoryItem();
         item.setItemType("chicken");
@@ -103,6 +103,11 @@ public class GameControl {
         //item.setRequiredAmount(~);
         items[ItemType.scyth.ordinal()] = item;
         
+        item = new InventoryItem();
+        item.setItemType("wheat");
+        item.setQuantityInStock(500);
+        //item.setRequiredAmount(~);
+        items[ItemType.wheat.ordinal()] = item;
         return items;
         
         

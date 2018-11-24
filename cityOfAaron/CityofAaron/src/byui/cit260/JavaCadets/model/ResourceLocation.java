@@ -17,6 +17,7 @@ public class ResourceLocation extends Location {
     private InventoryItem inventoryitem;
     private int amountAvailable;
     private int amountUsed;
+    private ArrayList<InventoryItem> inventory;
     
    
     public ResourceLocation() {
@@ -46,13 +47,15 @@ public class ResourceLocation extends Location {
         this.amountUsed = amountUsed;
     }
     
-      public void setActors(ArrayList<Actor> actors) {
-         System.out.println("Lovely setActors resource location");
+ 
+    public void setItems(ArrayList<InventoryItem> itemsInLocation) {
+        this.inventory = itemsInLocation;
+    }
+    
+     public ArrayList<InventoryItem> getItems() {
+         return inventory;
     }
 
-    public void setItems(ArrayList<InventoryItem> itemsInLocation) {
-        System.out.println("Lovely setInventory");
-    }
     
 
     @Override
@@ -85,6 +88,7 @@ public class ResourceLocation extends Location {
         return "ResourceLocation{" + "inventoryitem=" + inventoryitem + ", amountAvailable=" + amountAvailable + ", amountUsed=" + amountUsed + '}';
     }
 
+   
   
 
     

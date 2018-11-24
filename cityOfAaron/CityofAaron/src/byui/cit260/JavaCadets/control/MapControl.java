@@ -9,6 +9,7 @@ import byui.cit260.JavaCadets.model.Actor;
 import byui.cit260.JavaCadets.model.ActorName;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.InventoryItem;
+import byui.cit260.JavaCadets.model.ItemType;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
 import byui.cit260.JavaCadets.model.Point;
@@ -59,7 +60,7 @@ public class MapControl {
     }
 
     public static Location[][] createLocations(int noOfRows, int noOfColumns) {
-       // Check for invalid inputs
+        // Check for invalid inputs
         if (noOfRows < 1 || noOfColumns < 1) {
             return null; // indicates the method failed
         }
@@ -76,8 +77,6 @@ public class MapControl {
         locations.setDescription("Visiting your Neighbor");
         locations.setVisited(false);
         locations.setDisplaySymbol("NBR");
-        ArrayList<Actor> actors = new ArrayList<>();
-        locations.setActors(actors);
 
         //Location 2
         locations = new Location();
@@ -88,8 +87,6 @@ public class MapControl {
         locations.setDescription("This is a river you can visit");
         locations.setVisited(false);
         locations.setDisplaySymbol("RVR");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
 
         //Location 3
         locations = new Location();
@@ -100,12 +97,10 @@ public class MapControl {
         locations.setDescription("Visit the famous Waters of Mormon");
         locations.setVisited(false);
         locations.setDisplaySymbol("MMN");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
+ 
 
         //Location 4
         ResourceLocation resourceLocation = new ResourceLocation();
-        //locations = new ResourceLocation();
         resourceLocation.setLocationType("Market");
         location[0][3] = resourceLocation;
         resourceLocation.setRow(0);
@@ -115,9 +110,6 @@ public class MapControl {
         resourceLocation.setDisplaySymbol("MKT");
         //resourceLocation.setAmountAvailable(3000);
         //resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
-
         ArrayList<InventoryItem> itemsInLocation = new ArrayList<>();
         resourceLocation.setItems(itemsInLocation);
 
@@ -131,8 +123,6 @@ public class MapControl {
         questionLocation.setDescription("Visit the Inn to talk to people");
         questionLocation.setVisited(false);
         questionLocation.setDisplaySymbol("INN");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
         ArrayList<Question> questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
@@ -147,8 +137,6 @@ public class MapControl {
         resourceLocation.setDisplaySymbol("GRN");
         resourceLocation.setAmountAvailable(3000);
         resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
         itemsInLocation = new ArrayList<>();
         resourceLocation.setItems(itemsInLocation);
 
@@ -161,20 +149,17 @@ public class MapControl {
         locations.setDescription("Visit the Village!");
         locations.setVisited(false);
         locations.setDisplaySymbol("VLG");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
+ 
 
         //Location 8
         questionLocation = new QuestionLocation();
         questionLocation.setLocationType("Road");
-        location[1][2] = locations;
+        location[1][2] = questionLocation;
         questionLocation.setRow(1);
         questionLocation.setColumn(2);
         questionLocation.setDescription("Visit the Road to chat with someone");
         questionLocation.setVisited(false);
         questionLocation.setDisplaySymbol("ROD");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
         questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
@@ -187,8 +172,7 @@ public class MapControl {
         locations.setDescription("Go visit a random field");
         locations.setVisited(false);
         locations.setDisplaySymbol("FLD");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
+       
 
         //Location 10
         locations = new Location();
@@ -199,8 +183,7 @@ public class MapControl {
         locations.setDescription("Go to the Well");
         locations.setVisited(false);
         locations.setDisplaySymbol("WEL");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
+
 
         //Location 11
         locations = new Location();
@@ -211,80 +194,63 @@ public class MapControl {
         locations.setDescription("Visit the Farm");
         locations.setVisited(false);
         locations.setDisplaySymbol("FRM");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
+
 
         //Location 12
         questionLocation = new QuestionLocation();
         questionLocation.setLocationType("Temple");
-        location[2][1] = locations;
+        location[2][1] = questionLocation;
         questionLocation.setRow(2);
         questionLocation.setColumn(1);
         questionLocation.setDescription("Go to the Temple to learn");
         questionLocation.setVisited(false);
         questionLocation.setDisplaySymbol("TMP");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
         questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
         //Location 13
         questionLocation = new QuestionLocation();
         questionLocation.setLocationType("The Rulers Court");
-        location[2][2] = locations;
+        location[2][2] = questionLocation;
         questionLocation.setRow(2);
         questionLocation.setColumn(2);
         questionLocation.setDescription("Go to the Rulers Court to talk to someone");
         questionLocation.setVisited(false);
         questionLocation.setDisplaySymbol("RLR");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
         questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
         //Location 14
         questionLocation = new QuestionLocation();
         questionLocation.setLocationType("Church");
-        location[2][3] = locations;
+        location[2][3] = questionLocation;
         questionLocation.setRow(2);
         questionLocation.setColumn(3);
         questionLocation.setDescription("Go to Church and talk to someone");
         questionLocation.setVisited(false);
         questionLocation.setDisplaySymbol("CHR");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
         questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
         //Location 15
-        resourceLocation = new ResourceLocation();
-        resourceLocation.setLocationType("Bakery");
+        locations = new Location();
+        locations.setLocationType("Bakery");
         location[2][4] = locations;
-        resourceLocation.setRow(2);
-        resourceLocation.setColumn(4);
-        resourceLocation.setDescription("Visit the Bakery to pick up some Wheat");
-        resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("BKY");
-        resourceLocation.setAmountAvailable(2000);
-        resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
-        itemsInLocation = new ArrayList<>();
-        resourceLocation.setItems(itemsInLocation);
+        locations.setRow(2);
+        locations.setColumn(4);
+        locations.setDescription("Visit the Bakery to run errands");
+        locations.setVisited(false);
+        locations.setDisplaySymbol("BKY");
 
         //Location 16
-        resourceLocation = new ResourceLocation();
+       resourceLocation = new ResourceLocation();
         resourceLocation.setLocationType("Barn");
-        location[3][0] = locations;
+        location[3][0] = resourceLocation;
         resourceLocation.setRow(3);
         resourceLocation.setColumn(0);
-        resourceLocation.setDescription("Visit the Barn to pick up some Wheat");
+        resourceLocation.setDescription("Visit the Barn to do some chores");
         resourceLocation.setVisited(false);
         resourceLocation.setDisplaySymbol("BRN");
-        resourceLocation.setAmountAvailable(4000);
-        resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
         itemsInLocation = new ArrayList<>();
         resourceLocation.setItems(itemsInLocation);
 
@@ -299,8 +265,6 @@ public class MapControl {
         resourceLocation.setDisplaySymbol("STR");
         //resourceLocation.setAmountAvailable(2000);
         //resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
         itemsInLocation = new ArrayList<>();
         resourceLocation.setItems(itemsInLocation);
 
@@ -313,8 +277,6 @@ public class MapControl {
         locations.setDescription("Visit the Bathhouse");
         locations.setVisited(false);
         locations.setDisplaySymbol("BTH");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
 
         //Location 19
         locations = new Location();
@@ -325,8 +287,6 @@ public class MapControl {
         locations.setDescription("Visit the Forest");
         locations.setVisited(false);
         locations.setDisplaySymbol("FST");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
 
         //Location 20
         locations = new Location();
@@ -337,72 +297,46 @@ public class MapControl {
         locations.setDescription("Visit the Undeveloped Land");
         locations.setVisited(false);
         locations.setDisplaySymbol("ULD");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
 
         //Location 21
-        resourceLocation = new ResourceLocation();
-        resourceLocation.setLocationType("Wheat Field 1");
+        locations = new Location();
+        locations.setLocationType("Wheat Field 1");
         location[4][0] = locations;
-        resourceLocation.setRow(4);
-        resourceLocation.setColumn(0);
-        resourceLocation.setDescription("Visit the WheatField to pick up some Wheat");
-        resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("WHT");
-        resourceLocation.setAmountAvailable(5000);
-        resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
-        itemsInLocation = new ArrayList<>();
-        resourceLocation.setItems(itemsInLocation);
+        locations.setRow(4);
+        locations.setColumn(0);
+        locations.setDescription("Visit the WheatField to work the fields");
+        locations.setVisited(false);
+        locations.setDisplaySymbol("WH1");
 
         //Location 22
-        resourceLocation = new ResourceLocation();
-        resourceLocation.setLocationType("Wheat Field 2");
+        locations = new Location();
+        locations.setLocationType("Wheat Field 2");
         location[4][1] = locations;
-        resourceLocation.setRow(4);
-        resourceLocation.setColumn(1);
-        resourceLocation.setDescription("Visit the WheatField to pick up some Wheat");
-        resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("WHT");
-        resourceLocation.setAmountAvailable(4000);
-        resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
-        itemsInLocation = new ArrayList<>();
-        resourceLocation.setItems(itemsInLocation);
+        locations.setRow(4);
+        locations.setColumn(1);
+        locations.setDescription("Visit the WheatField to work the fields");
+        locations.setVisited(false);
+        locations.setDisplaySymbol("WH2");
 
         //Location 23
-        resourceLocation = new ResourceLocation();
-        resourceLocation.setLocationType("Wheat Field 3");
+        locations = new Location();
+        locations.setLocationType("Wheat Field 3");
         location[4][2] = locations;
-        resourceLocation.setRow(4);
-        resourceLocation.setColumn(2);
-        resourceLocation.setDescription("Visit the WheatField to pick up some Wheat");
-        resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("WHT");
-        resourceLocation.setAmountAvailable(6000);
-        resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
-        itemsInLocation = new ArrayList<>();
-        resourceLocation.setItems(itemsInLocation);
+        locations.setRow(4);
+        locations.setColumn(2);
+        locations.setDescription("Visit the WheatField to work the fields");
+        locations.setVisited(false);
+        locations.setDisplaySymbol("WH3");
 
         //Location 24
-        resourceLocation = new ResourceLocation();
-        resourceLocation.setLocationType("Wheat Field 4");
+        locations = new Location();
+        locations.setLocationType("Wheat Field 4");
         location[4][3] = locations;
-        resourceLocation.setRow(4);
-        resourceLocation.setColumn(3);
-        resourceLocation.setDescription("Visit the WheatField to pick up some Wheat");
-        resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("WHT");
-        resourceLocation.setAmountAvailable(3000);
-        resourceLocation.setAmountUsed(0);
-        actors = new ArrayList<>();
-        resourceLocation.setActors(actors);
-        itemsInLocation = new ArrayList<>();
-        resourceLocation.setItems(itemsInLocation);
+        locations.setRow(4);
+        locations.setColumn(3);
+        locations.setDescription("Visit the WheatField to work the fields");
+        locations.setVisited(false);
+        locations.setDisplaySymbol("WH4");
 
         //Location 25
         locations = new Location();
@@ -413,84 +347,107 @@ public class MapControl {
         locations.setDescription("Visit the Lamanites BorderLand");
         locations.setVisited(false);
         locations.setDisplaySymbol("LMN");
-        actors = new ArrayList<>();
-        locations.setActors(actors);
 
         return location; // indicates success
     }
 
     private static int assignActorsToLocations(Location[][] locations) {
-           // Check for invalid input
-             if (locations == null)
-             return -1; // indicates invalid input
-            
-            // Assign the actor Nephi to starting its location
-            
-            Location location = locations[0][4];
-            location.setActor(ActorName.nephi);
-            Point actorCoordinates = ActorName.innkeeper.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            //actorPosition.setColumn(4);
-            
-            location = locations[1][2];
-            location.setActor(ActorName.sister);
-            actorCoordinates = ActorName.sister.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[2][1];
-            location.setActor(ActorName.moses);
-            actorCoordinates = ActorName.moses.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[2][2];
-            location.setActor(ActorName.king);
-            actorCoordinates = ActorName.king.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[2][3];
-            location.setActor(ActorName.nephi);
-            actorCoordinates = ActorName.nephi.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[2][4];
-            location.setActor(ActorName.mother);
-            actorCoordinates = ActorName.mother.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[0][0];
-            location.setActor(ActorName.villager);
-            actorCoordinates = ActorName.villager.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[3][4];
-            location.setActor(ActorName.fieldworker);
-            actorCoordinates = ActorName.fieldworker.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[4][4];
-            location.setActor(ActorName.brother);
-            actorCoordinates = ActorName.brother.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[3][2];
-            location.setActor(ActorName.father);
-            actorCoordinates = ActorName.father.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            location = locations[3][3];
-            location.setActor(ActorName.Aaron);
-            actorCoordinates = ActorName.Aaron.getCoordinates();
-            location.setActorCoordinates(actorCoordinates);
-            
-            // Repeat above steps for each actor in the game
-           
-            return 1; // indicates success
-            } 
+        // Check for invalid input
+        if (locations == null) {
+            return -1; // indicates invalid input
+        }
+        // Assign the actor Nephi to starting its location
 
+        Location location = locations[0][4];
+        location.setActor(ActorName.nephi);
+        Point actorCoordinates = ActorName.innkeeper.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+        //actorPosition.setColumn(4);
+
+        location = locations[1][2];
+        location.setActor(ActorName.sister);
+        actorCoordinates = ActorName.sister.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[2][1];
+        location.setActor(ActorName.moses);
+        actorCoordinates = ActorName.moses.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[2][2];
+        location.setActor(ActorName.king);
+        actorCoordinates = ActorName.king.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[2][3];
+        location.setActor(ActorName.nephi);
+        actorCoordinates = ActorName.nephi.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[2][4];
+        location.setActor(ActorName.mother);
+        actorCoordinates = ActorName.mother.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[0][0];
+        location.setActor(ActorName.villager);
+        actorCoordinates = ActorName.villager.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[3][4];
+        location.setActor(ActorName.fieldworker);
+        actorCoordinates = ActorName.fieldworker.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[4][4];
+        location.setActor(ActorName.brother);
+        actorCoordinates = ActorName.brother.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[3][2];
+        location.setActor(ActorName.father);
+        actorCoordinates = ActorName.father.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        location = locations[3][3];
+        location.setActor(ActorName.Aaron);
+        actorCoordinates = ActorName.Aaron.getCoordinates();
+        location.setActorCoordinates(actorCoordinates);
+
+        // Repeat above steps for each actor in the game
+        return 1; // indicates success
+    }
 
     private static int assignIemsToLocations(Location[][] locations, InventoryItem[] itemsInGame) {
-        System.out.println("Lovely Locations");
-        return 1;
+        /// Check for invalid inputs
+        if (locations == null || itemsInGame == null) {
+            return -1; // indicates an invalid input
+        }
+        // Add items to a location in the map
+        ResourceLocation location = (ResourceLocation) locations[0][3];
+        ArrayList<InventoryItem> itemsInLocation = location.getItems();
+        itemsInLocation.add(itemsInGame[ItemType.scyth.ordinal()]);
+        itemsInLocation.add(itemsInGame[ItemType.hoe.ordinal()]);
+        itemsInLocation.add(itemsInGame[ItemType.pickaxe.ordinal()]);
+        itemsInLocation.add(itemsInGame[ItemType.bow.ordinal()]);
+        itemsInLocation.add(itemsInGame[ItemType.feed.ordinal()]);
+        
+        location = (ResourceLocation) locations[1][0];
+        itemsInLocation = location.getItems();
+        itemsInLocation.add(itemsInGame[ItemType.wheat.ordinal()]);
+   
+        
+        location = (ResourceLocation) locations[3][0];
+        itemsInLocation = location.getItems();
+        itemsInLocation.add(itemsInGame[ItemType.pig.ordinal()]);
+        itemsInLocation.add(itemsInGame[ItemType.chicken.ordinal()]);
+        itemsInLocation.add(itemsInGame[ItemType.horse.ordinal()]);
+        itemsInLocation.add(itemsInGame[ItemType.goat.ordinal()]);
+        itemsInLocation.add(itemsInGame[ItemType.donkey.ordinal()]);
+        
+        
+       
+     return 1;
     }
 
 }

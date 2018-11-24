@@ -90,10 +90,7 @@ public class Location implements Serializable {
         this.description = description;
     }
 
-    public void setActors(ArrayList<Actor> actors) {
-        System.out.println("Lovely setActors");
-    }
-    
+   
     public void setActor(ActorName actorName) {
         this.actorName = actorName;
     }

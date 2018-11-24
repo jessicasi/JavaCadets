@@ -23,6 +23,7 @@ public enum ItemType implements Serializable{
    pickaxe,
    bow,
    feed,
+   wheat,
    cart;
 
 }

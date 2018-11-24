@@ -19,6 +19,10 @@ public class QuestionLocation extends Location{
 
     public QuestionLocation() {
     }
+    
+     public void setQuestions(ArrayList<Question> questionsInLocation) {
+       System.out.println("Lovely setQuestions");
+    }
 
     @Override
     public int hashCode() {
@@ -50,8 +54,6 @@ public class QuestionLocation extends Location{
         return "QuestionLocation{" + "question=" + question + '}';
     }
 
-    public void setQuestions(ArrayList<Question> questionsInLocation) {
-       System.out.println("Lovely setQuestions");
-    }
+   
     
 }

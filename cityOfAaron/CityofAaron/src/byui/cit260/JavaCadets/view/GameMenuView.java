@@ -5,12 +5,16 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.model.Game;
+import byui.cit260.JavaCadets.model.Location;
+import byui.cit260.JavaCadets.model.Map;
 
 /**
  *
  * @author Jessica
  */
-public class GameMenuView extends View{
+public class GameMenuView extends View {
 
     @Override
     public String[] getInputs() {
@@ -25,14 +29,8 @@ public class GameMenuView extends View{
         System.out.println("L - Live the year");
         System.out.println("R - Reports Menu");
         System.out.println("S - Save Game");
-        System.out.println("B - Test Make Bread");
-        System.out.println("BL - Test Buy Land");
-        System.out.println("SL - Test Sell Land");
-        System.out.println("P - Test Plant Crops");
-        System.out.println("F - Test Feed Population");
-        System.out.println("T - Test Tithing Menu");
         System.out.println("Q - Return to Main Menu");
-        
+
         String gameInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = gameInput;
 
@@ -47,7 +45,7 @@ public class GameMenuView extends View{
         switch (menuItem) {
 
             case "V": {
-                viewTheMap();
+                displayMap();
             }
             break;
             case "M": {
@@ -71,30 +69,12 @@ public class GameMenuView extends View{
                 saveGame();
             }
             break;
-             case "T": {
-                testTithes();
-            }
-             break;
-               case "BL": {
-                BuyLand();
-            }
-             break;
-            case "SL": {
-                SellLand();
-             }
-            break;
+
             case "P": {
                 plantCrops();
             }
             break;
-            case "F": {
-                feedPopulation();
-            }
-            break;
-             case "B": {
-                 testMakeBread();
-             }
-            break;
+
             case "Q":
                 return true;
 
@@ -106,12 +86,51 @@ public class GameMenuView extends View{
         return false;
     }
 
-    private void viewTheMap() {
-        System.out.println("Map View Called");
+    private void displayMap() {
+        String leftIndicator;
+        String rightIndicator;
+        Game game = CityofAaron.getCurrentGame(); // retreive the game
+        Map map = game.getTheMap(); // retreive the map from game
+        Location[][] locations = map.getLocations(); // retreive the locations from map
+        // Build the heading of the map
+        System.out.print("  |");
+        for (int column = 0; column < locations[0].length; column++) {
+            // print col numbers to side of map
+            System.out.print("  " + column + " |");
+        }
+        // Now build the map.  For each row, show the column information
+        System.out.println();
+        for (int row = 0; row < locations.length; row++) {
+            System.out.print(row + " "); // print row numbers to side of map
+            for (int column = 0; column < locations[row].length; column++) {
+                // set default indicators as blanks
+                leftIndicator = " ";
+                rightIndicator = " ";
+                if (locations[row][column] == map.getLocation()) {
+                    // Set star indicators to show this is the current location.
+                    leftIndicator = "*";
+                    rightIndicator = "*";
+                } else if (locations[row][column].isVisited()) {
+                    // Set < > indicators to show this location has been visited.
+                    leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
+                    rightIndicator = "<"; // same as above
+                }
+                System.out.print("|"); // start map with a |
+                if (locations[row][column].getScene() == null) {
+                    // No scene assigned here so use ?? for the symbol
+                    System.out.print(leftIndicator + "??" + rightIndicator);
+                } else {
+                    System.out.print(leftIndicator
+                            + locations[row][column].getScene().getMapSymbol()
+                            + rightIndicator);
+                }
+            }
+            System.out.println("|");
+        }
     }
 
     private void moveLocations() {
-         System.out.println("Move View Called");
+        System.out.println("Move View Called");
     }
 
     private void manageCrops() {
@@ -120,7 +139,7 @@ public class GameMenuView extends View{
     }
 
     private void liveTheYear() {
-         System.out.println("Live The Year View Called");
+        System.out.println("Live The Year View Called");
     }
 
     private void saveGame() {
@@ -129,39 +148,13 @@ public class GameMenuView extends View{
     }
 
     private void reportsMenu() {
-       ReportsMenuView reportsMenu = new ReportsMenuView();
-       reportsMenu.display();
+        ReportsMenuView reportsMenu = new ReportsMenuView();
+        reportsMenu.display();
     }
 
-    private void testTithes() {
-        TithesView tithesview = new TithesView();
-        tithesview.display();
-    }
-
-    private void testMakeBread() {
-        MakeAndSellBreadView bread = new MakeAndSellBreadView();
-        bread.display();
-    }
-
-    private void BuyLand() {
-        BuyLandView buyLand = new BuyLandView();
-        buyLand.display();
-    }
-    
-    private void SellLand() {
-        SellLandView sellLand = new SellLandView();
-        sellLand.display();
-    }
-    
-    private void feedPopulation() {
-        FeedThePeopleView FeedThePeopleView = new FeedThePeopleView();
-        FeedThePeopleView.display();
-    }
-    
     private void plantCrops() {
         PlantCropsView PlantCropsView = new PlantCropsView();
         PlantCropsView.display();
     }
 
-    
 }

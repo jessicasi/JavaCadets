@@ -18,17 +18,69 @@ public class Scene implements Serializable{
     private String description;
     private Question question;
     private InventoryItem item;
+    private Location location;
 
     public Scene() {
+
     }
+    
+    
+    
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public Question getQuestion() {
+        return question;
+    }
+
+    public void setQuestion(Question question) {
+        this.question = question;
+    }
+
+    public InventoryItem getItem() {
+        return item;
+    }
+
+    public void setItem(InventoryItem item) {
+        this.item = item;
+    }
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+    
+     public String getMapSymbol() {
+         String symbol = location.getDisplaySymbol();
+         return symbol;
+    }
+
 
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 13 * hash + Objects.hashCode(this.name);
-        hash = 13 * hash + Objects.hashCode(this.description);
-        hash = 13 * hash + Objects.hashCode(this.question);
-        hash = 13 * hash + Objects.hashCode(this.item);
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + Objects.hashCode(this.description);
+        hash = 79 * hash + Objects.hashCode(this.question);
+        hash = 79 * hash + Objects.hashCode(this.item);
+        hash = 79 * hash + Objects.hashCode(this.location);
         return hash;
     }
 
@@ -56,13 +108,19 @@ public class Scene implements Serializable{
         if (!Objects.equals(this.item, other.item)) {
             return false;
         }
+        if (!Objects.equals(this.location, other.location)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Scene{" + "name=" + name + ", description=" + description + ", question=" + question + ", item=" + item + '}';
+        return "Scene{" + "name=" + name + ", description=" + description + ", question=" + question + ", item=" + item + ", location=" + location + '}';
     }
-    
+
+   
+
+   
     
 }

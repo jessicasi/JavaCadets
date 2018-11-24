@@ -21,6 +21,16 @@ public class Map implements Serializable{
     private int currentColumn;
     private int rowCount;
     private Location[][] locations;
+    private Location location;
+
+    public Location getLocation() {
+        return location;
+    }
+
+    public void setLocation(Location location) {
+        this.location = location;
+    }
+    
     
         public Map(int rowCount, int columnCount) {
         this.rowCount = rowCount;
@@ -75,6 +85,7 @@ public class Map implements Serializable{
     public void setCurrentColumn(int currentColumn) {
         this.currentColumn = currentColumn;
     }
+
    
     
 
@@ -124,6 +135,8 @@ public class Map implements Serializable{
     public String toString() {
         return "Map{" + "description=" + description + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", rowCount=" + rowCount + '}';
     }
+
+
     
     
 }

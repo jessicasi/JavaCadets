@@ -465,7 +465,8 @@ public class MapControl {
         map.getCurrentLocation().setVisited(true);
         map.setCurrentRow(row);
         map.setCurrentColumn(column);
-        return null;
+        Location location = map.getCurrentLocation();
+        return location;
         
     }
 

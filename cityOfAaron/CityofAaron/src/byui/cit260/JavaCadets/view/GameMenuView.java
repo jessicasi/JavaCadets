@@ -131,9 +131,10 @@ public class GameMenuView extends View {
     }
 
     private void moveLocations() {
-        MapView mapView = new MapView();
-        mapView.display();
-        
+//        MapView mapView = new MapView();
+//        mapView.display();
+        MovePlayer moveplayer = new MovePlayer();
+        moveplayer.display();
     }
 
     private void manageCrops() {

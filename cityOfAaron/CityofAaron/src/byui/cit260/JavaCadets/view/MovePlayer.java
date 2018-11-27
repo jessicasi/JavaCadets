@@ -6,6 +6,7 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.control.MapControl;
 import static byui.cit260.JavaCadets.control.MapControl.movePlayer;
 import byui.cit260.JavaCadets.exceptions.MapControlException;
 import byui.cit260.JavaCadets.model.Game;
@@ -14,6 +15,8 @@ import byui.cit260.JavaCadets.model.Map;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.model.Scene;
 import static java.lang.Integer.parseInt;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -23,7 +26,7 @@ public class MovePlayer extends View{
 
     @Override
     public String[] getInputs() {
-        String[] inputs = new String[1];
+        String[] inputs = new String[2];
 
         System.out.println("Enter Row Number and then Enter Column Number");
         String input1 = getInput("Enter Row Number");
@@ -48,6 +51,7 @@ public class MovePlayer extends View{
             System.out.println("The row and column must be a number");
             return false;
                     }
+            
             Player player = CityofAaron.getPlayer();
 //            actor = get the Actor in the player object
             Game game = CityofAaron.getCurrentGame();
@@ -55,15 +59,36 @@ public class MovePlayer extends View{
             
             try{
             newLocation = movePlayer(map, row, column);
+            
             } catch (MapControlException mf){
             System.out.println("SUCK IT YOU FAILED ");
             return false;
                     }
+           Scene scene = new Scene();
+           scene.setDescription(newLocation.getDescription());
+           scene.setMapSymbol(newLocation.getDisplaySymbol());
             
             
-            Scene scene = new Scene();
-            scene.setDescription(newLocation.getDescription());
-            return true;  
+           
+     Location[][] locations = map.getLocations(); // retreive the locations from map
+     for (int i = 0; i < locations.length; i++) {
+          for (int j = 0; j < locations[i].length; j++) {
+               if (locations[i][j].getScene() != null) {               
+                    if (newLocation.equals(locations[i][j].getScene().getMapSymbol())) {
+                        try {
+                            MapControl.movePlayer(map, i, j);
+                        } catch (MapControlException ex) {
+                            Logger.getLogger(MapView.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+                         return true;
+                    }
+                 }
+            }
+     }
+//     System.out.println("\n*** Invalid selection *** Try Again later");
+//     return false;  
+     
+     return true;
     }
     
 }

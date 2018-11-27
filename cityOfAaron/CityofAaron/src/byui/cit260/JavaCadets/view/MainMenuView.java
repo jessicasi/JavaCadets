@@ -7,7 +7,10 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.GameControl;
+import byui.cit260.JavaCadets.exceptions.MapControlException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -42,7 +45,11 @@ public class MainMenuView extends View {
         switch (menuItem) {
 
             case "N": {
+            try {
                 startNewGame();
+            } catch (MapControlException ex) {
+                Logger.getLogger(MainMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
             break;
             case "R": {
@@ -64,7 +71,7 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() {
+    private void startNewGame() throws MapControlException {
         //Create a new Game
         GameControl.createNewGame(CityofAaron.getPlayer());
        

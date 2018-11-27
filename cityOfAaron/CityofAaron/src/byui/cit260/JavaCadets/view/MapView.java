@@ -31,15 +31,18 @@ public class  MapView extends View {
         System.out.println();
 
         
-        String mapOption = this.getInput("\nEnter Desired Location: ");
-        inputs[0] = mapOption;
+//        String mapOption = this.getInput("\nEnter Desired Location: ");
+//        inputs[0] = mapOption;
 
+        
+        MovePlayer moveplayer = new MovePlayer();
+        moveplayer.display();
 
         return inputs;
     }
  @Override
   public boolean doAction(String [] inputs) {
-    String mapOption = inputs[0].toUpperCase();
+     String mapOption = inputs[0].toUpperCase();
      Game game = CityofAaron.getCurrentGame(); // retreive the game
      Map map = game.getTheMap(); // retreive the map from game
      Location[][] locations = map.getLocations(); // retreive the locations from map

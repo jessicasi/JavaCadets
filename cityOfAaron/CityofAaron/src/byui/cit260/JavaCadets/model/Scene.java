@@ -19,7 +19,8 @@ public class Scene implements Serializable{
     private Question question;
     private InventoryItem item;
     private Location location;
-
+    private String mapSymbol;
+    
     public Scene() {
 
     }
@@ -67,9 +68,17 @@ public class Scene implements Serializable{
         this.location = location;
     }
     
-     public String getMapSymbol() {
-         String symbol = location.getDisplaySymbol();
-         return symbol;
+//     public String getMapSymbol() {
+//         String symbol = location.getDisplaySymbol();
+//         return symbol;
+//    }
+
+    public String getMapSymbol() {
+        return mapSymbol;
+    }
+
+    public void setMapSymbol(String mapsymbol) {
+        this.mapSymbol = mapsymbol;
     }
 
 
@@ -116,8 +125,10 @@ public class Scene implements Serializable{
 
     @Override
     public String toString() {
-        return "Scene{" + "name=" + name + ", description=" + description + ", question=" + question + ", item=" + item + ", location=" + location + '}';
+        return "Scene{" + "name=" + name + ", description=" + description + ", question=" + question + ", item=" + item + ", location=" + location + ", mapSymbol=" + mapSymbol + '}';
     }
+
+    
 
    
 

@@ -6,6 +6,7 @@
 
 package byui.cit260.JavaCadets.CityofAaron;
 
+import byui.cit260.JavaCadets.exceptions.BuyLandException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.view.StartProgramView;
@@ -22,11 +23,18 @@ public class CityofAaron {
     private static Player player = null;
     
     public static void main(String[] args){
-        
+       try {
+           
+       
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
+        
+    } catch (Throwable ie){
+        System.out.println(ie.getMessage());
+        ie.printStackTrace();
+        return;     
     }
-
+    }   
     public static Game getCurrentGame() {
         return currentGame;
     }
@@ -42,8 +50,5 @@ public class CityofAaron {
     public static void setPlayer(Player player) {
         CityofAaron.player = player;
     }
-    
-   
-    
     
 }

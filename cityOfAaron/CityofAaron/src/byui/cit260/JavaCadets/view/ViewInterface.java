@@ -14,6 +14,6 @@ public interface ViewInterface {
     public void display();
     public String[] getInputs();
     public String getInput(String promptMessage);
-    public boolean doAction(String[] inuputs);
+    public boolean doAction(String[] inputs);
     
 }

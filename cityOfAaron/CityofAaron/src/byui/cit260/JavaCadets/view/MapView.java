@@ -3,9 +3,12 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.MapControl;
+import byui.cit260.JavaCadets.exceptions.MapControlException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -44,7 +47,11 @@ public class  MapView extends View {
           for (int column = 0; column < locations[row].length; column++) {
                if (locations[row][column].getScene() != null) {               
                     if (mapOption.equals(locations[row][column].getScene().getMapSymbol())) {
-                         MapControl.movePlayer(map, row, column);
+                        try {
+                            MapControl.movePlayer(map, row, column);
+                        } catch (MapControlException ex) {
+                            Logger.getLogger(MapView.class.getName()).log(Level.SEVERE, null, ex);
+                        }
                          return true;
                     }
                  }

@@ -5,6 +5,7 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import byui.cit260.JavaCadets.exceptions.BuyLandException;
 import java.util.Scanner;
 
 /**
@@ -13,13 +14,13 @@ import java.util.Scanner;
  */
 public class BuyLand {
     
-    public int BuyLand (){
+    public int BuyLand () throws BuyLandException{
         
        int price = (int) (Math.random() * (27 - 17) + 17);
        
        //Acres will be sold for 17-27 wheat
         if (price < 17 || price > 27) {
-            return -3;
+            throw new BuyLandException("Not a Valid Price");
         }
        
        //TODO: Change this to call getAcresAvailable() and getWheatAvailable() from the Game class

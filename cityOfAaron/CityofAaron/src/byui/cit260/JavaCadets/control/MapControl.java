@@ -5,6 +5,8 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.exceptions.MapControlException;
 import byui.cit260.JavaCadets.model.Actor;
 import byui.cit260.JavaCadets.model.ActorName;
 import byui.cit260.JavaCadets.model.Game;
@@ -450,13 +452,21 @@ public class MapControl {
      return 1;
     }
     
- public static void movePlayer(Map map, int i, int i0) {
+ public static Location movePlayer(Map map, int i, int io) throws MapControlException {
+       if (map == null)
+           throw new MapControlException("Map is invalid");
+              
+       if (i < 0 || i > 4 || io < 0 || io > 4)
+           throw new MapControlException("Row or Column Number Invalid");
+     
         int row = i;
-        int column = i0;
+        int column = io;
         map.setCurrentLocation(map.getLocations()[row][column]);
         map.getCurrentLocation().setVisited(true);
         map.setCurrentRow(row);
         map.setCurrentColumn(column);
+        return null;
+        
     }
 
 }

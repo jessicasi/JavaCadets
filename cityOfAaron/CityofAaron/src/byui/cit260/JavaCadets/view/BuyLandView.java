@@ -7,6 +7,7 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.control.GameControl;
 import byui.cit260.JavaCadets.control.BuyLand;
+import byui.cit260.JavaCadets.exceptions.BuyLandException;
 import byui.cit260.JavaCadets.model.Player;
 import java.util.Scanner;
 
@@ -41,7 +42,7 @@ public class BuyLandView extends View {
         switch (menuItem) {
 
             case "B": {
-                buyLand();
+             buyLand();
             }
                 return true;
 
@@ -57,9 +58,15 @@ public class BuyLandView extends View {
     }
 
 
-    private void buyLand() {
+    private boolean buyLand() {
 
         BuyLand buyland = new BuyLand();
+        try {
         buyland.BuyLand();
+    } catch (BuyLandException ie){
+        System.out.println(ie.getMessage());
+        return false;
+    }
+        return true;
     }
 }

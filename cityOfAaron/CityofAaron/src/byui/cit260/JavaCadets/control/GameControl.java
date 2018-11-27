@@ -6,6 +6,7 @@
 package byui.cit260.JavaCadets.control;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.exceptions.MapControlException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.InventoryItem;
 import byui.cit260.JavaCadets.model.ItemType;
@@ -39,7 +40,7 @@ public class GameControl {
         return player;
     }
     
-    public static int createNewGame(Player player) {
+    public static int createNewGame(Player player) throws MapControlException {
         // Check for invalid inputs
         if (player == null)
             return -1; // indicates invalid input
@@ -144,7 +145,7 @@ public class GameControl {
         return map;
     }
     
-    public static void movePlayerToStartingLocation(Map map) {
+    public static void movePlayerToStartingLocation(Map map) throws MapControlException {
      MapControl.movePlayer(map, 0, 0); 
     }
 }

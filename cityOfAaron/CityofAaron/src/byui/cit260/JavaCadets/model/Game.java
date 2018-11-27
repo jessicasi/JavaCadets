@@ -96,6 +96,7 @@ public class Game implements Serializable{
     public void setWheatInStorage(int wheatInstorage) {
         this.wheatInstorage = wheatInstorage;
     }
+    
 
     @Override
     public int hashCode() {
@@ -146,6 +147,8 @@ public class Game implements Serializable{
     public String toString() {
         return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulaiton=" + currentPopulaiton + ", acresOwned=" + acresOwned + ", wheatInstorage=" + wheatInstorage + ", inventory=" + inventory + ", question=" + question + '}';
     }
+
+    
 
     
     

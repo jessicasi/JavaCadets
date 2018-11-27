@@ -12,16 +12,33 @@ import java.util.Objects;
  *
  * @author Skyler
  */
-
-public class Map implements Serializable{
+public class Map implements Serializable {
 
     private String description;
     private int columnCount;
-    private int currentRow;
-    private int currentColumn;
+    private int currentRow = 0;
+    private int currentColumn = 0;
     private int rowCount;
+    private boolean visited;
     private Location[][] locations;
     private Location location;
+    private Location currentLocation;
+
+    public Map() {
+    }
+
+    public Map(int rowCount, int columnCount) {
+        this.rowCount = rowCount;
+        this.columnCount = columnCount;
+    }
+
+    public Location getCurrentLocation() {
+        return currentLocation;
+    }
+
+    public void setCurrentLocation(Location currentLocation) {
+        this.currentLocation = currentLocation;
+    }
 
     public Location getLocation() {
         return location;
@@ -30,13 +47,6 @@ public class Map implements Serializable{
     public void setLocation(Location location) {
         this.location = location;
     }
-    
-    
-        public Map(int rowCount, int columnCount) {
-        this.rowCount = rowCount;
-        this.columnCount = columnCount;
-     }
-    public Map(){}
 
     public Location[][] getLocations() {
         return locations;
@@ -45,7 +55,15 @@ public class Map implements Serializable{
     public void setLocations(Location[][] locations) {
         this.locations = locations;
     }
-          
+
+    public boolean isVisited() {
+        return visited;
+    }
+
+    public void setVisited(boolean visited) {
+        this.visited = visited;
+    }
+
     public String getDescription() {
         return description;
     }
@@ -87,8 +105,6 @@ public class Map implements Serializable{
     }
 
    
-    
-
 
     @Override
     public int hashCode() {
@@ -136,11 +152,7 @@ public class Map implements Serializable{
         return "Map{" + "description=" + description + ", columnCount=" + columnCount + ", currentRow=" + currentRow + ", currentColumn=" + currentColumn + ", rowCount=" + rowCount + '}';
     }
 
-
-    
-    
 }
-
 
 //    public enum Map {    
 //    TheRulersCourt("The Ruler's Court", new Point(1,1)),

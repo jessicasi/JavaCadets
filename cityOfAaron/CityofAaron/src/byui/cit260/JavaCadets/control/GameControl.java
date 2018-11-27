@@ -61,6 +61,8 @@ public class GameControl {
          return -2; // indicates create map failed
         
         game.setTheMap(map);
+        movePlayerToStartingLocation(map);
+        
         return 1;
     }
 
@@ -124,5 +126,9 @@ public class GameControl {
 //       System.out.println("Lovely Map");
 //       Map map = new Map(noOfRows, noOfColumns);
         return map;
+    }
+    
+    public static void movePlayerToStartingLocation(Map map) {
+     MapControl.movePlayer(map, 0, 0); 
     }
 }

@@ -449,5 +449,14 @@ public class MapControl {
        
      return 1;
     }
+    
+ public static void movePlayer(Map map, int i, int i0) {
+        int row = i;
+        int column = i0;
+        map.setCurrentLocation(map.getLocations()[row][column]);
+        map.getCurrentLocation().setVisited(true);
+        map.setCurrentRow(row);
+        map.setCurrentColumn(column);
+    }
 
 }

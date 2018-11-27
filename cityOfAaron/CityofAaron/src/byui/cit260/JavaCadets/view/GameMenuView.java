@@ -10,6 +10,7 @@ import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
 
+
 /**
  *
  * @author Jessica
@@ -130,7 +131,9 @@ public class GameMenuView extends View {
     }
 
     private void moveLocations() {
-        System.out.println("Move View Called");
+        MapView mapView = new MapView();
+        mapView.display();
+        
     }
 
     private void manageCrops() {

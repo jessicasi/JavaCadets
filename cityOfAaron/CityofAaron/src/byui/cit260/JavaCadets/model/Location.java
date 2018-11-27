@@ -31,7 +31,7 @@ public class Location implements Serializable {
 
     public Location() {
         actor = new Actor();
-     
+
     }
 
     public Scene getScene() {
@@ -90,17 +90,17 @@ public class Location implements Serializable {
         this.description = description;
     }
 
-   
     public void setActor(ActorName actorName) {
         this.actorName = actorName;
     }
 
     public void setActorCoordinates(Point coordinates) {
-            actor.setCoordinates(coordinates);
-           
+        actor.setCoordinates(coordinates);
+
     }
 
- 
+   
+
     @Override
     public int hashCode() {
         int hash = 3;

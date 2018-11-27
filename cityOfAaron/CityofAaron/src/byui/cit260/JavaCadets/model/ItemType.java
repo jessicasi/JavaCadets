@@ -13,17 +13,27 @@ import java.io.Serializable;
  */
 public enum ItemType implements Serializable{
     
-   pig,
-   chicken,
-   horse,
-   goat,
-   donkey,  
-   scyth,
-   hoe,
-   pickaxe,
-   bow,
-   feed,
-   wheat,
-   cart;
+   pig (20),
+   chicken (15),
+   horse (30),
+   goat (15),
+   donkey (10),  
+   scyth (20),
+   hoe (10),
+   pickaxe (10),
+   bow (30),
+   feed (10),
+   wheat (1),
+   cart(200);
+   
+   private final int cost;
+   
+     ItemType(int cost){
+        this.cost = cost;
+    }
+     
+     public int getCost() {
+         return cost;
+     }
 
 }

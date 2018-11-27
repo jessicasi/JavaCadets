@@ -5,6 +5,9 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.control.ReportsControl;
+import byui.cit260.JavaCadets.model.InventoryItem;
 import java.util.Scanner;
 
 /**
@@ -26,6 +29,7 @@ public class ReportsMenuView extends View {
         System.out.println("B - View the Tools in the StoreHouse ");
         System.out.println("C - View the Provisions in the StoreHouse ");
         System.out.println("D - View the Authors of the Game ");
+        System.out.println("I - View total cost of items in Inventory");
         System.out.println("Q - Quit");
         
         String reportsInput = this.getInput("\nMake a selection from the Game Menu");
@@ -59,7 +63,10 @@ public class ReportsMenuView extends View {
                 Authors();
             }
             return true;
-                                   
+                         
+            case "I" :
+                getInventoryTotal();
+                break;
             case "Q":
                 return true;
 
@@ -85,6 +92,23 @@ public class ReportsMenuView extends View {
 
     private void Authors() {
         System.out.println("Authors Was Called");
+    }
+
+    private void getInventoryTotal() {
+        
+        ReportsControl reportsControl = new ReportsControl();
+        InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
+        
+        int totalCost = reportsControl.quantityCost(items);
+        System.out.println("Items in Inventory:");
+        for(int i = 0; i < items.length; i++){
+            if (items[i]==null){
+                continue;
+            }
+            System.out.println(items[i].getItemType());
+        }
+        
+        System.out.println("Total cost of all inventory items: " + totalCost);
     }
 
     }

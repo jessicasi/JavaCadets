@@ -13,6 +13,7 @@ import byui.cit260.JavaCadets.model.Map;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.model.Question;
 import java.util.ArrayList;
+import java.util.Arrays;
 
 /**
  *
@@ -47,8 +48,9 @@ public class GameControl {
         game.setThePlayer(player);
         CityofAaron.setCurrentGame(game);
         // call setter to assign an actor to the player
-        // Create the lists of used in the game
+        // Create the lists of weapons used in the game
         InventoryItem[] items = createItems();
+        
         game.setInventory(items);
         Question[] question = createQuestion();
         game.setQuestion(question);
@@ -72,18 +74,24 @@ public class GameControl {
         InventoryItem item = new InventoryItem();
         item.setItemType("chicken");
         item.setQuantityInStock(2);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.chicken.getCost());
         //item.setRequiredAmount(~);
         items[ItemType.chicken.ordinal()] = item;
         
         item = new InventoryItem();
         item.setItemType("feed");
         item.setQuantityInStock(4);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.feed.getCost());
         //item.setRequiredAmount(~);
         items[ItemType.feed.ordinal()] = item;
         
         item = new InventoryItem();
         item.setItemType("bow");
         item.setQuantityInStock(2);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.bow.getCost());
         //item.setRequiredAmount(~);
         items[ItemType.bow.ordinal()] = item;
         
@@ -91,23 +99,31 @@ public class GameControl {
         item.setItemType("cart");
         item.setQuantityInStock(1);
         //item.setRequiredAmount(~);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.cart.getCost());
         items[ItemType.cart.ordinal()] = item;
         
         item = new InventoryItem();
         item.setItemType("hoe");
         item.setQuantityInStock(1);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.hoe.getCost());
         //item.setRequiredAmount(~);
         items[ItemType.hoe.ordinal()] = item;
         
         item = new InventoryItem();
         item.setItemType("scyth");
         item.setQuantityInStock(1);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.scyth.getCost());
         //item.setRequiredAmount(~);
         items[ItemType.scyth.ordinal()] = item;
         
         item = new InventoryItem();
         item.setItemType("wheat");
         item.setQuantityInStock(500);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.wheat.getCost());
         //item.setRequiredAmount(~);
         items[ItemType.wheat.ordinal()] = item;
         return items;

@@ -13,11 +13,10 @@ import java.util.Objects;
  */
 public class InventoryItem {
     
-        private String name;
         private String itemType;
         private int quantity;
-        private Condition condition;
-        private double pricePerUnit;
+        private String condition;
+        private int pricePerUnit;
 
     public InventoryItem() {
     }
@@ -28,7 +27,7 @@ public class InventoryItem {
      *
      * @return the value of pricePerUnit
      */
-    public double getPricePerUnit() {
+    public int getPricePerUnit() {
         return pricePerUnit;
     }
 
@@ -37,7 +36,7 @@ public class InventoryItem {
      *
      * @param pricePerUnit new value of pricePerUnit
      */
-    public void setPricePerUnit(double pricePerUnit) {
+    public void setPricePerUnit(int pricePerUnit) {
         this.pricePerUnit = pricePerUnit;
     }
 
@@ -47,7 +46,7 @@ public class InventoryItem {
      *
      * @return the value of condition
      */
-    public Condition getCondition() {
+    public String getCondition() {
         return condition;
     }
 
@@ -56,7 +55,7 @@ public class InventoryItem {
      *
      * @param condition new value of condition
      */
-    public void setCondition(Condition condition) {
+    public void setCondition(String condition) {
         this.condition = condition;
     }
 
@@ -98,33 +97,13 @@ public class InventoryItem {
         this.itemType = itemType;
     }
 
-
-    /**
-     * Get the value of name
-     *
-     * @return the value of name
-     */
-    public String getName() {
-        return name;
-    }
-
-    /**
-     * Set the value of name
-     *
-     * @param name new value of name
-     */
-    public void setName(String name) {
-        this.name = name;
-    }
-
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 43 * hash + Objects.hashCode(this.name);
-        hash = 43 * hash + Objects.hashCode(this.itemType);
-        hash = 43 * hash + this.quantity;
-        hash = 43 * hash + Objects.hashCode(this.condition);
-        hash = 43 * hash + (int) (Double.doubleToLongBits(this.pricePerUnit) ^ (Double.doubleToLongBits(this.pricePerUnit) >>> 32));
+        int hash = 7;
+        hash = 37 * hash + Objects.hashCode(this.itemType);
+        hash = 37 * hash + this.quantity;
+        hash = 37 * hash + Objects.hashCode(this.condition);
+        hash = 37 * hash + this.pricePerUnit;
         return hash;
     }
 
@@ -143,13 +122,10 @@ public class InventoryItem {
         if (this.quantity != other.quantity) {
             return false;
         }
-        if (Double.doubleToLongBits(this.pricePerUnit) != Double.doubleToLongBits(other.pricePerUnit)) {
+        if (this.pricePerUnit != other.pricePerUnit) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (this.itemType != other.itemType) {
+        if (!Objects.equals(this.itemType, other.itemType)) {
             return false;
         }
         if (!Objects.equals(this.condition, other.condition)) {
@@ -160,7 +136,9 @@ public class InventoryItem {
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "name=" + name + ", itemType=" + itemType + ", quantity=" + quantity + ", condition=" + condition + ", pricePerUnit=" + pricePerUnit + '}';
+        return "InventoryItem{" + "itemType=" + itemType + ", quantity=" + quantity + ", condition=" + condition + ", pricePerUnit=" + pricePerUnit + '}';
     }
 
+    
+    
 }

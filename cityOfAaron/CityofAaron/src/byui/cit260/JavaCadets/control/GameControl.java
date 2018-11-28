@@ -48,11 +48,14 @@ public class GameControl {
         Game game = new Game();
         game.setThePlayer(player);
         CityofAaron.setCurrentGame(game);
+        game.setCurrentPopulation(5);
         // call setter to assign an actor to the player
         // Create the lists of weapons used in the game
         InventoryItem[] items = createItems();
         
         game.setInventory(items);
+        game.setWheatInStorage(items[ItemType.wheat.ordinal()].getQuantityInStock());
+        game.setAcresOwned(50);
         Question[] question = createQuestion();
         game.setQuestion(question);
  

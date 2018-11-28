@@ -17,9 +17,9 @@ public class Game implements Serializable{
     private Player thePlayer;
     private Map theMap;
     private Storehouse theStorehouse;
-    private int currentPopulaiton;
+    private int currentPopulation;
     private int acresOwned;
-    private int wheatInstorage;       
+    private int wheatInStorage;       
     private InventoryItem[] inventory;
     private Question[] question;
 
@@ -30,14 +30,7 @@ public class Game implements Serializable{
     public void setQuestion(Question[] question) {
         this.question = question;
     }
-    public int getWheatInstorage() {
-        return wheatInstorage;
-    }
-
-    public void setWheatInstorage(int wheatInstorage) {
-        this.wheatInstorage = wheatInstorage;
-    }
-
+  
     public InventoryItem[] getInventory() {
         return inventory;
     }
@@ -73,12 +66,12 @@ public class Game implements Serializable{
         this.theStorehouse = theStorehouse;
     }
 
-    public int getCurrentPopulaiton() {
-        return currentPopulaiton;
+    public int getCurrentPopulation() {
+        return currentPopulation;
     }
 
-    public void setCurrentPopulaiton(int currentPopulaiton) {
-        this.currentPopulaiton = currentPopulaiton;
+    public void setCurrentPopulation(int currentPopulaiton) {
+        this.currentPopulation = currentPopulaiton;
     }
 
     public int getAcresOwned() {
@@ -90,11 +83,11 @@ public class Game implements Serializable{
     }
 
     public int getWheatInStorage() {
-        return wheatInstorage;
+        return wheatInStorage;
     }
 
     public void setWheatInStorage(int wheatInstorage) {
-        this.wheatInstorage = wheatInstorage;
+        this.wheatInStorage = wheatInstorage;
     }
     
 
@@ -104,9 +97,9 @@ public class Game implements Serializable{
         hash = 79 * hash + Objects.hashCode(this.thePlayer);
         hash = 79 * hash + Objects.hashCode(this.theMap);
         hash = 79 * hash + Objects.hashCode(this.theStorehouse);
-        hash = 79 * hash + this.currentPopulaiton;
+        hash = 79 * hash + this.currentPopulation;
         hash = 79 * hash + this.acresOwned;
-        hash = 79 * hash + this.wheatInstorage;
+        hash = 79 * hash + this.wheatInStorage;
         return hash;
     }
 
@@ -122,13 +115,13 @@ public class Game implements Serializable{
             return false;
         }
         final Game other = (Game) obj;
-        if (this.currentPopulaiton != other.currentPopulaiton) {
+        if (this.currentPopulation != other.currentPopulation) {
             return false;
         }
         if (this.acresOwned != other.acresOwned) {
             return false;
         }
-        if (this.wheatInstorage != other.wheatInstorage) {
+        if (this.wheatInStorage != other.wheatInStorage) {
             return false;
         }
         if (!Objects.equals(this.thePlayer, other.thePlayer)) {
@@ -145,7 +138,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulaiton=" + currentPopulaiton + ", acresOwned=" + acresOwned + ", wheatInstorage=" + wheatInstorage + ", inventory=" + inventory + ", question=" + question + '}';
+        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulaiton=" + currentPopulation + ", acresOwned=" + acresOwned + ", wheatInstorage=" + wheatInStorage + ", inventory=" + inventory + ", question=" + question + '}';
     }
 
     

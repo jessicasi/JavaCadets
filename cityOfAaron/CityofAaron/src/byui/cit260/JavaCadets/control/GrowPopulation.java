@@ -5,22 +5,25 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import byui.cit260.JavaCadets.exceptions.GrowPopulationException;
+
 /**
  *
  * @author jessicasi
  */
 public class GrowPopulation {
     
-    public int growPopulation(int population, float growthRate) {
+    public int growPopulation(int population, float growthRate) throws GrowPopulationException{
         
         if (population < 1) {
-            return -1;
+            throw new GrowPopulationException("All of your people are gone!");
+
         }
         if (growthRate < 1) {
-            return -2;
+            throw new GrowPopulationException("Your growth rate is less than 0 - that's not growth, try again!");
         }
         if (growthRate > 5) {
-            return -3;
+            throw new GrowPopulationException("Your growth rate is too high, keep it 4 or under");
         }
         
         growthRate = growthRate/100;

@@ -6,14 +6,10 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
-import byui.cit260.JavaCadets.control.GameControl;
 import byui.cit260.JavaCadets.control.FeedThePeople;
 import byui.cit260.JavaCadets.exceptions.FeedThePeopleException;
 import byui.cit260.JavaCadets.model.Game;
-import byui.cit260.JavaCadets.model.Player;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -87,7 +83,6 @@ public class FeedThePeopleView extends View {
             int peopleFed = feedThePeople.feedThePeople(game, wheatFeed);
             
                  System.out.println("\nGreat Work! You fed " + peopleFed + " people and have " + game.getWheatInStorage() + " wheat left");        
-       // FeedThePeople FeedThePeople = new FeedThePeople();
-        //FeedThePeople.FeedThePeople();
+     
     }
 }

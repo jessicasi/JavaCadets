@@ -6,8 +6,8 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.control.GameControl;
+import byui.cit260.JavaCadets.exceptions.GameControlException;
 import byui.cit260.JavaCadets.model.Player;
-import java.util.Scanner;
 
 /**
  *
@@ -44,7 +44,12 @@ public class StartProgramView extends View {
     public boolean doAction(String[] inputs) {
 
         String playersName = inputs[0];
-        Player player = GameControl.savePlayer(playersName);
+        Player player = null;
+        try {
+            player = GameControl.savePlayer(playersName);
+        } catch (GameControlException ex) {
+            System.out.println(ex.getMessage());
+        }
 
         if (player == null) {
             System.out.println("Could not create the player. "

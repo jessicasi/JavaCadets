@@ -67,6 +67,7 @@ public class MovePlayer extends View{
            Scene scene = new Scene();
            scene.setDescription(newLocation.getDescription());
            scene.setMapSymbol(newLocation.getDisplaySymbol());
+           newLocation.setScene(scene);
             
             
            

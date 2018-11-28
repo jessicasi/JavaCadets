@@ -7,7 +7,10 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.control.MakeBread;
 import byui.cit260.JavaCadets.control.SellBread;
+import byui.cit260.JavaCadets.exceptions.SellBreadException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -62,11 +65,15 @@ public class MakeAndSellBreadView extends View{
     }
 
     private void sellBread(int loaves) {
+        try {
             SellBread sellBread = new SellBread();
             int sale = sellBread.sellBread(loaves);
             
             System.out.println();
             System.out.println("You sold your bread for a total of: "+  sale + " wheat!");
+        } catch (SellBreadException ex) {
+            Logger.getLogger(MakeAndSellBreadView.class.getName()).log(Level.SEVERE, null, ex);
+        }
         
     }
 

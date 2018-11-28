@@ -7,8 +7,11 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.ReportsControl;
+import byui.cit260.JavaCadets.exceptions.ReportsControlException;
 import byui.cit260.JavaCadets.model.InventoryItem;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -96,19 +99,23 @@ public class ReportsMenuView extends View {
 
     private void getInventoryTotal() {
         
-        ReportsControl reportsControl = new ReportsControl();
-        InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
-        
-        int totalCost = reportsControl.quantityCost(items);
-        System.out.println("Items in Inventory:");
-        for(int i = 0; i < items.length; i++){
-            if (items[i]==null){
-                continue;
+        try {
+            ReportsControl reportsControl = new ReportsControl();
+            InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
+            
+            int totalCost = reportsControl.quantityCost(items);
+            System.out.println("Items in Inventory:");
+            for(int i = 0; i < items.length; i++){
+                if (items[i]==null){
+                    continue;
+                }
+                System.out.println(items[i].getItemType());
             }
-            System.out.println(items[i].getItemType());
+
+            System.out.println("Total cost of all inventory items: " + totalCost);
+        } catch (ReportsControlException ex) {
+            Logger.getLogger(ReportsMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
-        System.out.println("Total cost of all inventory items: " + totalCost);
     }
 
     }

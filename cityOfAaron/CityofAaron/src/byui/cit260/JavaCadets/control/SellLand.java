@@ -5,6 +5,7 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import byui.cit260.JavaCadets.exceptions.SellLandException;
 import java.util.Scanner;
 
 /**
@@ -13,7 +14,7 @@ import java.util.Scanner;
  */
 public class SellLand {
     
-    public int SellLand (){
+    public int SellLand () throws SellLandException{
         
         //Selling price at a random price between 15 and 19
         int price = (int) (Math.random() * (19 - 15) + 15);

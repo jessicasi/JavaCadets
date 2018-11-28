@@ -5,6 +5,7 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import byui.cit260.JavaCadets.exceptions.ReportsControlException;
 import byui.cit260.JavaCadets.model.InventoryItem;
 
 /**
@@ -14,7 +15,7 @@ import byui.cit260.JavaCadets.model.InventoryItem;
 public class ReportsControl {
     
     
-    public int quantityCost(InventoryItem[] items){
+    public int quantityCost(InventoryItem[] items) throws ReportsControlException{
      
         int total = 0;
         int itemPrice = 0;

@@ -5,13 +5,16 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import byui.cit260.JavaCadets.exceptions.SellBreadException;
+
 /**
  *
  * @author skylerfoxx
  */
 public class SellBread {
+    
 
-    public int sellBread(int loaves) {
+    public int sellBread(int loaves) throws SellBreadException {
 
         int price = (int) (Math.random() * (10 - 4) + 4);
 

@@ -7,8 +7,11 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.control.GameControl;
 import byui.cit260.JavaCadets.control.SellLand;
+import byui.cit260.JavaCadets.exceptions.SellLandException;
 import byui.cit260.JavaCadets.model.Player;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -57,9 +60,14 @@ public class SellLandView extends View {
     }
 
 
-    private void sellLand() {
+    private boolean sellLand() {
 
         SellLand sellLand = new SellLand();
-        sellLand.SellLand();
-    }
+        try {
+            sellLand.SellLand();
+        } catch (SellLandException ex) {
+            Logger.getLogger(SellLandView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return true;
+}
 }

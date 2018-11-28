@@ -75,13 +75,13 @@ public class SaveGameMenuView extends View{
     private void saveGame() {
 
         System.out.println("Enter the name of the file where the game will be saved: ");
-
+        
         Scanner inFile;
         inFile = new Scanner(System.in);
         String filename = inFile.nextLine();
-
+            
         boolean valid = false;
-
+        
         while (valid == false) {
             if (filename.equals("")) {
                 System.out.println("Please enter a valid filename");

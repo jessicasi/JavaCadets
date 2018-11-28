@@ -5,21 +5,19 @@
  */
 package byui.cit260.JavaCadets.view;
 
-import java.util.Scanner;
-
 
 /**
  *
  * @author Steven
  */
 public class ManageTheCrops extends View {
-   
-    @Override 
-    public String[] getInputs(){
-    
-    String[] inputs = new String[1];
-    
-     System.out.println(" ********************** ");
+
+    @Override
+    public String[] getInputs() {
+
+        String[] inputs = new String[1];
+
+        System.out.println(" ********************** ");
         System.out.println(" * Manage Your Crops * ");
         System.out.println(" ********************** ");
         System.out.println();
@@ -45,28 +43,27 @@ public class ManageTheCrops extends View {
             case "A": {
                 BuyLand();
             }
-            return true;
-            
-            case "B":{
+            break;
+
+            case "B": {
                 SellLand();
             }
-            return true;
-            
-            case "C":{
+            break;
+
+            case "C": {
                 feedPopulation();
             }
-            return true;
-            
-            case "D":{
+            break;
+
+            case "D": {
                 plantCrops();
             }
-            return true;
-            
-            case "E":{
-                PayTithesAndOfferings();
+            break;
+
+            case "E": {
+                payTithesAndOfferings();
             }
-            return true;
-            
+            break;
             case "Q":
                 return true;
 
@@ -98,9 +95,10 @@ public class ManageTheCrops extends View {
         PlantCropsView.display();
     }
 
-    private void PayTithesAndOfferings() {
+    private void payTithesAndOfferings() {
         TithesView payTithesAndOfferings = new TithesView();
         payTithesAndOfferings.display();
     }
 
+    
 }

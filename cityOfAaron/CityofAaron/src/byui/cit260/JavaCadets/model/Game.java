@@ -6,6 +6,7 @@
 package byui.cit260.JavaCadets.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 import java.util.Objects;
 
 /**
@@ -20,6 +21,7 @@ public class Game implements Serializable{
     private int currentPopulation;
     private int acresOwned;
     private int wheatInStorage;       
+    private int tithingPaid;
     private InventoryItem[] inventory;
     private Question[] question;
 
@@ -89,17 +91,27 @@ public class Game implements Serializable{
     public void setWheatInStorage(int wheatInstorage) {
         this.wheatInStorage = wheatInstorage;
     }
-    
+
+    public int getTithingPaid() {
+        return tithingPaid;
+    }
+
+    public void setTithingPaid(int tithingPaid) {
+        this.tithingPaid = tithingPaid;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 79 * hash + Objects.hashCode(this.thePlayer);
-        hash = 79 * hash + Objects.hashCode(this.theMap);
-        hash = 79 * hash + Objects.hashCode(this.theStorehouse);
-        hash = 79 * hash + this.currentPopulation;
-        hash = 79 * hash + this.acresOwned;
-        hash = 79 * hash + this.wheatInStorage;
+        int hash = 7;
+        hash = 97 * hash + Objects.hashCode(this.thePlayer);
+        hash = 97 * hash + Objects.hashCode(this.theMap);
+        hash = 97 * hash + Objects.hashCode(this.theStorehouse);
+        hash = 97 * hash + this.currentPopulation;
+        hash = 97 * hash + this.acresOwned;
+        hash = 97 * hash + this.wheatInStorage;
+        hash = 97 * hash + this.tithingPaid;
+        hash = 97 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 97 * hash + Arrays.deepHashCode(this.question);
         return hash;
     }
 
@@ -124,6 +136,9 @@ public class Game implements Serializable{
         if (this.wheatInStorage != other.wheatInStorage) {
             return false;
         }
+        if (this.tithingPaid != other.tithingPaid) {
+            return false;
+        }
         if (!Objects.equals(this.thePlayer, other.thePlayer)) {
             return false;
         }
@@ -133,16 +148,24 @@ public class Game implements Serializable{
         if (!Objects.equals(this.theStorehouse, other.theStorehouse)) {
             return false;
         }
+        if (!Arrays.deepEquals(this.inventory, other.inventory)) {
+            return false;
+        }
+        if (!Arrays.deepEquals(this.question, other.question)) {
+            return false;
+        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulaiton=" + currentPopulation + ", acresOwned=" + acresOwned + ", wheatInstorage=" + wheatInStorage + ", inventory=" + inventory + ", question=" + question + '}';
+        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", inventory=" + inventory + ", question=" + question + '}';
     }
-
-    
-
+ 
     
     
 }
+    
+    
+
+    

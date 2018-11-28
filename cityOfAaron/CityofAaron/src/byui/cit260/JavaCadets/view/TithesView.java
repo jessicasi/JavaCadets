@@ -5,6 +5,8 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.model.Game;
 import java.util.Scanner;
 
 /**
@@ -80,8 +82,9 @@ public class TithesView extends View{
             
         } while (valid == false);
         
-        //TODO : Save the value entered by user
-        System.out.println("Your value was saved");
+        Game game = CityofAaron.getCurrentGame();
+        game.setTithingPaid(tithes);
+  
     
     }
 

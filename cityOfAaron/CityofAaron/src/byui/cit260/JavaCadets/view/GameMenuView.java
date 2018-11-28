@@ -6,9 +6,13 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.control.LiveTheYear;
+import byui.cit260.JavaCadets.exceptions.HarvestCropsException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -59,7 +63,10 @@ public class GameMenuView extends View {
             break;
 
             case "L": {
+            try {
                 liveTheYear();
+            } catch (HarvestCropsException ex) {
+                System.out.println(ex.getMessage());            }
             }
             break;
             case "R": {
@@ -142,8 +149,9 @@ public class GameMenuView extends View {
         manageCrops.display();
     }
 
-    private void liveTheYear() {
-        System.out.println("Live The Year View Called");
+    private void liveTheYear() throws HarvestCropsException {
+        LiveTheYear liveTheYear = new LiveTheYear();
+        String [] yearlyReport = liveTheYear.liveTheYear();
     }
 
     private void saveGame() {

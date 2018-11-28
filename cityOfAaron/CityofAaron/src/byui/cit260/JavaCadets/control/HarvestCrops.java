@@ -5,41 +5,51 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import byui.cit260.JavaCadets.exceptions.HarvestCropsException;
+import byui.cit260.JavaCadets.model.Game;
+
 /**
  *
  * @author Steven
  */
 public class HarvestCrops {
     
-    public int harvestCrops(int userAcres, int tithesAndOfferings) {
+    public int harvestCrops(Game game) throws HarvestCropsException{
       
-        int wheat = 0;
-        int bushelsPerAcre = 0;
         int cropYield = 0;
-        int percent = tithesAndOfferings;
+        int bushelsPerAcre = 0;
+        int percent = game.getTithingPaid();
+        int range = 0;
+        
        
         
-        if(userAcres <=0){
-            return -1;
+        if(game.getAcresOwned() <=0){
+            throw new HarvestCropsException("There are no acres to harvest");
         }
-        if (tithesAndOfferings <=0){
-            return -2;
+        if (game.getTithingPaid() <=0){
+            throw new HarvestCropsException("You didn't pay your tithing yet, so there aren't any crops to harvest");
         }
         
         if (percent > 12) {
-             bushelsPerAcre = 4; //(int) (Math.random() * (5 - 2)) + 0;
-            wheat = bushelsPerAcre * userAcres; 
+            range = 4;
+            bushelsPerAcre = (int) (Math.random() * range) + 2;
+            cropYield = bushelsPerAcre * game.getAcresOwned(); 
         }
         else if (percent >= 8 && percent <12) {
-             bushelsPerAcre = 3; //(int) (Math.random() * (4 - 2)) + 0;
-            wheat = bushelsPerAcre * userAcres; 
+       
+            range = 3;
+             bushelsPerAcre = (int) (Math.random() * range) + 2;
+            cropYield = bushelsPerAcre * game.getAcresOwned(); 
         }
         else {
-             bushelsPerAcre = 2; //(int) (Math.random() * (3 - 1)) + 0;
-            wheat = bushelsPerAcre * userAcres; 
+            range = 3;
+             bushelsPerAcre = (int) (Math.random() * range) + 1;
+            cropYield = bushelsPerAcre * game.getAcresOwned(); 
         }
         
-        return cropYield = wheat;
+        //TO DO: add crop yield to wheat in storage??
+        
+        return cropYield;
     }
         
 }

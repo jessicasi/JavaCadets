@@ -156,7 +156,7 @@ public class ReportsMenuView extends View {
             ReportsControl reportsControl = new ReportsControl();
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
             
-            int totalCost = reportsControl.quantityCost(items);
+            int totalList = reportsControl.quantityCost(items);
             System.out.println("Items in Inventory:");
             for(int i = 0; i < items.length; i++){
                 if (items[i]==null){
@@ -164,7 +164,7 @@ public class ReportsMenuView extends View {
                 }
                 System.out.println(items[i].getItemType());
             }
-
+        
         } catch (ReportsControlException ex) {
             Logger.getLogger(ReportsMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }

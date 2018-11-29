@@ -35,7 +35,7 @@ public class ReportsMenuView extends View {
         System.out.println("D - View the Authors of the Game ");
         System.out.println("I - View total cost of items in Inventory");
         System.out.println("J - View Average of items in Inventory");
-        System.out.println("V - View items in Inventory");
+        System.out.println("V - View sorted items in Inventory");
         System.out.println("Q - Quit");
         
         String reportsInput = this.getInput("\nMake a selection from the Game Menu");

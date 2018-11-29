@@ -9,6 +9,7 @@ import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.ReportsControl;
 import byui.cit260.JavaCadets.exceptions.ReportsControlException;
 import byui.cit260.JavaCadets.model.InventoryItem;
+import byui.cit260.JavaCadets.model.ItemType;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -34,6 +35,7 @@ public class ReportsMenuView extends View {
         System.out.println("D - View the Authors of the Game ");
         System.out.println("I - View total cost of items in Inventory");
         System.out.println("J - View Average of items in Inventory");
+        System.out.println("V - View items in Inventory");
         System.out.println("Q - Quit");
         
         String reportsInput = this.getInput("\nMake a selection from the Game Menu");
@@ -74,8 +76,10 @@ public class ReportsMenuView extends View {
             
             case "J":
                 getInventoryAverage();
+            break;
             
-            
+            case "V":
+                getInventorySorted();
             break;
                 
             case "Q":
@@ -112,14 +116,11 @@ public class ReportsMenuView extends View {
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
             
             int totalCost = reportsControl.quantityCost(items);
-            System.out.println("Items in Inventory:");
             for(int i = 0; i < items.length; i++){
                 if (items[i]==null){
                     continue;
                 }
-                System.out.println(items[i].getItemType());
             }
-
             System.out.println("Total cost of all inventory items: " + totalCost);
         } catch (ReportsControlException ex) {
             Logger.getLogger(ReportsMenuView.class.getName()).log(Level.SEVERE, null, ex);
@@ -135,17 +136,35 @@ public class ReportsMenuView extends View {
             
             int average = reportsControl.quantityCost(items);
             int sum = 0;
-            System.out.println("Average of Items In Inventory:");
             for (int i = 0; i < items.length; i++){
                 if(items[i] == null){
                     continue;
                 }
-                System.out.println(items[i].getItemType());
                 sum = sum + items[i].getPricePerUnit();
                 average = sum / items.length;
                 
             }
             System.out.println("Average of Items in Inventory:" + average);
+        } catch (ReportsControlException ex) {
+            Logger.getLogger(ReportsMenuView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    private void getInventorySorted() {
+        
+        try {
+            ReportsControl reportsControl = new ReportsControl();
+            InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
+            
+            int totalCost = reportsControl.quantityCost(items);
+            System.out.println("Items in Inventory:");
+            for(int i = 0; i < items.length; i++){
+                if (items[i]==null){
+                    continue;
+                }
+                System.out.println(items[i].getItemType());
+            }
+
         } catch (ReportsControlException ex) {
             Logger.getLogger(ReportsMenuView.class.getName()).log(Level.SEVERE, null, ex);
         }

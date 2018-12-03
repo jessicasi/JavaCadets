@@ -5,6 +5,8 @@
  */
 package byui.cit260.JavaCadets.control;
 
+import byui.cit260.JavaCadets.exceptions.PlantCropsException;
+
 import java.util.Scanner;
 
 /**

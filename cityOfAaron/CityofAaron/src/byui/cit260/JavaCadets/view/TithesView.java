@@ -10,8 +10,7 @@ import byui.cit260.JavaCadets.control.Tithes;
 import byui.cit260.JavaCadets.exceptions.TithesException;
 import byui.cit260.JavaCadets.model.Game;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *

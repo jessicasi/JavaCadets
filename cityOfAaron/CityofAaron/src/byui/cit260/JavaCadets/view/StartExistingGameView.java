@@ -5,13 +5,9 @@
  */
 package byui.cit260.JavaCadets.view;
 
-import static byui.cit260.JavaCadets.control.GameControl.getGame;
-import byui.cit260.JavaCadets.exceptions.GameControlException;
+
 import byui.cit260.JavaCadets.model.Game;
 import java.io.IOException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -24,7 +20,7 @@ public class StartExistingGameView extends View {
 
         String[] inputs = new String[1];
 
-        System.out.println(" ********************** ");
+        this.console.println(" ********************** ");
         System.out.println(" * Load Save Game * ");
         System.out.println(" ********************** ");
         System.out.println();

@@ -52,15 +52,15 @@ public class GameMenuView extends View {
         switch (menuItem) {
 
             case "V": {
-                displayMap();
+                this.displayMap();
             }
             break;
             case "M": {
-                moveLocations();
+                this.moveLocations();
             }
             break;
             case "C": {
-                manageCrops();
+                this.manageCrops();
             }
             break;
 
@@ -74,16 +74,16 @@ public class GameMenuView extends View {
             }
             break;
             case "R": {
-                reportsMenu();
+                this.reportsMenu();
             }
             break;
             case "S": {
-                saveGame();
+                this.saveGame();
             }
             break;
 
             case "P": {
-                plantCrops();
+                this.plantCrops();
             }
             break;
 

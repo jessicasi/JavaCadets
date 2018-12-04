@@ -7,7 +7,10 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.model.Game;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -61,26 +64,35 @@ public class TithesView extends View{
 
         System.out.println("What percentage of your harvest do you want to pay in tithes & offerings?");
 
-        Scanner inFile;
+        
         int tithes = 0;
 
         boolean valid = false;
-
-        do {
-            inFile = new Scanner(System.in);
-            tithes = inFile.nextInt();
-
-            if (tithes < 0) {
-                System.out.println("Enter a number greater than 0");
-                continue;
-            } else if (tithes > 100) {
-                System.out.println("Enter a number lower than or equal to 100");
-                continue;
-            }
-
-            valid = true;
+        String selection = null;
+        
+        while (!valid) {
             
-        } while (valid == false);
+            try {
+                selection = this.keyboard.readLine();
+                tithes = Integer.parseInt(selection);
+                
+                if (tithes < 0) {
+                    System.out.println("Enter a number greater than 0");
+                    continue;
+                } else if (tithes > 100) {
+                    System.out.println("Enter a number lower than or equal to 100");
+                    continue;
+                }
+                
+                valid = true;
+            } //while (valid == false);
+            catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            }
+           
+            
+            
+        }
         
         Game game = CityofAaron.getCurrentGame();
         game.setTithingPaid(tithes);

@@ -5,7 +5,13 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import static byui.cit260.JavaCadets.control.GameControl.getGame;
+import byui.cit260.JavaCadets.exceptions.GameControlException;
+import byui.cit260.JavaCadets.model.Game;
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,8 +32,9 @@ public class StartExistingGameView extends View {
         System.out.println("Q - Quit without saving");
 
         String existingGameInput = this.getInput("\nMake a selection from the Game Menu");
+        
         inputs[0] = existingGameInput;
-
+                
         return inputs;
         }
     
@@ -50,31 +57,44 @@ public class StartExistingGameView extends View {
             }
             break;
         }
+        
         return false;
         } 
    
     private void LoadGame() {
-      
-       System.out.println("Enter the name of thee the file the game will Load From");
-       
-       Scanner inFile;
-        inFile = new Scanner(System.in);
-        String filename = inFile.nextLine();
+      String selection = null;
+        try {
+            System.out.println("Enter the name of thee the file the game will Load From");
 
-        boolean valid = false;
+          selection = this.keyboard.readLine();
+//        String filename = inFile.nextLine();
 
-        while (valid == false) {
-            if (filename.equals("")) {
-                System.out.println("Please enter a valid filename");
-                filename = inFile.nextLine();
-                continue;
-            }
-            System.out.println("Success! Your game has been Loaded!");
-            valid = true;
+                boolean valid = false;
+
+                while (valid == false) {
+                    if (selection.equals("")) {
+                        ErrorView.display(this.getClass().getName(), "Error reading Input:");
+                        selection = this.keyboard.readLine();
+                        continue;
+                    }
+                                                        
+                    System.out.println("Success! Your game has been Loaded!");
+                    valid = true;
+                }
+                        } catch (IOException ex) {
+                       ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
+                try{
+                    Game.getGame(selection);
+                    
+                   } catch (GameControlException ex){
+                     ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+                     
+                   }
+                return false;
+    }  
 
-    }
-        
+    
     }
     
     

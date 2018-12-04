@@ -5,7 +5,10 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import java.io.IOException;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -17,7 +20,7 @@ public class SaveGameMenuView extends View{
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-
+               
         System.out.println(" ********************** ");
         System.out.println(" * Save Game * ");
         System.out.println(" ********************** ");
@@ -25,28 +28,32 @@ public class SaveGameMenuView extends View{
         System.out.println("S - Save Game");
         System.out.println("Q - Quit without saving");
         
-        String saveGameInput = this.getInput("\nMake a selection from the Save Game Menu");
-        inputs[0] = saveGameInput;
-
+//        String input1 = getInput("MESSAGE");
+        
         boolean valid = false;
-
-        while (valid == false) {
-            System.out.println("Make a selection from the menu");
-            //Get the value entered from the keyboard
-            Scanner inFile;
-            inFile = new Scanner(System.in);
-            inputs[0] = inFile.nextLine();
-            // Trim off leading and trailing blanks from the value
-            inputs[0] = inputs[0].trim();
-            //Make sure user entered a value
-
-            if (inputs[0].equals("")) {
-                System.out.println("Please enter a non-blank value");
-                continue;
+        String selection = null;
+        
+        while (!valid) {
+            try {
+                System.out.println("Make a selection from the menu");
+                //Get the value entered from the keyboard
+               
+                selection = this.keyboard.readLine();
+                
+                // Trim off leading and trailing blanks from the value
+                selection = selection.trim();
+                //Make sure user entered a value
+                
+                if (selection.equals("")) {
+                    ErrorView.display(this.getClass().getName(), "Please Enter File Name:");
+                    continue;
+                }
+                valid = true;
+            } catch (IOException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
             }
-            valid = true;
         }
-
+        inputs[0] = selection;
         return inputs;
     }
 
@@ -57,7 +64,11 @@ public class SaveGameMenuView extends View{
         switch (menuItem) {
 
             case "S": {
+            try {
                 saveGame();
+            } catch (IOException ex) {
+                Logger.getLogger(SaveGameMenuView.class.getName()).log(Level.SEVERE, null, ex);
+            }
             }
             return true;
 
@@ -72,24 +83,29 @@ public class SaveGameMenuView extends View{
         return false;
     }
 
-    private void saveGame() {
+    private void saveGame() throws IOException {
 
-        System.out.println("Enter the name of the file where the game will be saved: ");
-        
-        Scanner inFile;
-        inFile = new Scanner(System.in);
-        String filename = inFile.nextLine();
+        try {
+            System.out.println("Enter the name of the file where the game will be saved: ");
             
-        boolean valid = false;
-        
-        while (valid == false) {
-            if (filename.equals("")) {
-                System.out.println("Please enter a valid filename");
-                filename = inFile.nextLine();
-                continue;
+            String selection = null;
+            
+            selection = this.keyboard.readLine();
+            
+            
+            boolean valid = false;
+            
+            while (valid == false) {
+                if (selection.equals("")) {
+                    System.out.println("Please enter a valid selection");
+                    selection = this.keyboard.readLine();
+                    continue;
+                }
+                System.out.println("Success! Your game has been saved!");
+                valid = true;
             }
-            System.out.println("Success! Your game has been saved!");
-            valid = true;
+        } catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
 
     }

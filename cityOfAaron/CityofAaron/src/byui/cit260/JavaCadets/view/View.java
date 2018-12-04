@@ -5,7 +5,13 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -13,6 +19,9 @@ import java.util.Scanner;
  */
 public abstract class View implements ViewInterface {
     
+   protected final BufferedReader keyboard = CityofAaron.getInFile();
+   protected final PrintWriter console = CityofAaron.getOutFile();
+   
     public View() {
         
     }
@@ -21,14 +30,14 @@ public abstract class View implements ViewInterface {
      public void display() {
         boolean endOfView = false;
         do {
-            String[] inputs = this.getInputs();
-            //no inputs were entered OR the first input is Q
-                    if (inputs.length < 1 || inputs[0].equals("Q")){
+            String[] selections = this.getInputs();
+            //no selections were entered OR the first selection is Q
+                    if (selections.length < 1 || selections[0].equals("Q")){
                         System.out.println("Progam end"); 
                         endOfView = true;
                     }
 
-                        endOfView = doAction(inputs);
+                        endOfView = doAction(selections);
                     }
                         while (endOfView != true);
     
@@ -36,31 +45,39 @@ public abstract class View implements ViewInterface {
      
     @Override
      public String getInput(String promptMessage){
-         String input = "";
+//         String selection = "";
+         
          
              boolean valid = false;
-                    while (valid == false){
-                         //Display the prompt message
-                        System.out.println(promptMessage);
-                        
-                        //Get the value entered from the keyboard
-                        Scanner inFile;
-                        inFile = new Scanner (System.in);
-                        input = inFile.nextLine();
-                        
-                        // Trim off leading and trailing blanks from the value
-                        input = input.trim();
-                        
-                        //IF length of the value < 1 then
-                        // Display "You must enter a non-blank value”
-                        if (input.equals("")){
-                            System.out.println("Please enter a name:");
-                            continue;
-                        }
-                        valid = true;
-                    }   
+             String selection = null;
+             
+       
+             try {
+                 while (!valid ){
+                 //Display the prompt message
+                 System.out.println(promptMessage);
+                 
+                 //Get the value entered from the keyboard
+//               Scanner inFile;
+                 selection = this.keyboard.readLine();
+                 
+                 
+                 // Trim off leading and trailing blanks from the value
+                 selection = selection.trim();
+                 
+                 //IF length of the value < 1 then
+                 // Display "You must enter a non-blank value”
+                 if (selection.equals("")){
+                     ErrorView.display(this.getClass().getName(), "You must ender a Name:" );
+                     continue;
+                 }
+                 valid = true;
+             } 
+                    } catch (IOException ex) {   
+                            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+       }
                     
-                    return input;
+                    return selection;
      }
     
     

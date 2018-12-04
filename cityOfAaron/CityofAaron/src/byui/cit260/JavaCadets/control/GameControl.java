@@ -14,6 +14,10 @@ import byui.cit260.JavaCadets.model.ItemType;
 import byui.cit260.JavaCadets.model.Map;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.model.Question;
+import java.io.BufferedInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  *
@@ -141,4 +145,22 @@ public class GameControl {
     public static void movePlayerToStartingLocation(Map map) throws MapControlException {
         MapControl.movePlayer(map, 0, 0);
     }
+    
+    public static void saveGame (Game game, String filePath) throws GameControlException{
+        if (game == null || filePath == null || filePath.length() < 1)
+            throw new GameControlException("File Path invaild");
+        
+        try (
+            ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))){
+            out.writeObject(game);
+        } catch (IOException ex) {
+            System.out.println("I/O Error" + ex.getMessage());
+        }
+        }   
+    public static  Game getGame(){
+        System.out.println("GET GAME");
+        Game game = null;
+        return game;
+    }       
+      
 }

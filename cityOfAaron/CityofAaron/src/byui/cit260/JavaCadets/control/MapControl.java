@@ -5,9 +5,7 @@
  */
 package byui.cit260.JavaCadets.control;
 
-import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.exceptions.MapControlException;
-import byui.cit260.JavaCadets.model.Actor;
 import byui.cit260.JavaCadets.model.ActorName;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.InventoryItem;

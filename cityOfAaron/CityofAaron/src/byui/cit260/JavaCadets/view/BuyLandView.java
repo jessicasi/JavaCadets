@@ -22,12 +22,12 @@ public class BuyLandView extends View {
 
         String[] inputs = new String[1];
 
-        System.out.println(" ********************** ");
-        System.out.println(" ***   Buy Land   *** ");
-        System.out.println(" ********************** ");
-        System.out.println();
-        System.out.println("B - Buy Land");
-        System.out.println("Q - Quit Buying Land");
+        this.console.println(" ********************** ");
+        this.console.println(" ***   Buy Land   *** ");
+        this.console.println(" ********************** ");
+        this.console.println();
+        this.console.println("B - Buy Land");
+        this.console.println("Q - Quit Buying Land");
 
         String buyInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = buyInput;
@@ -42,7 +42,7 @@ public class BuyLandView extends View {
         switch (menuItem) {
 
             case "B": {
-             
+
                 //Create new buyLand object
                 BuyLand buyLand = new BuyLand();
 
@@ -63,11 +63,10 @@ public class BuyLandView extends View {
 
                 this.console.println("1 acre of land costs " + price + " wheat.\n");
                 this.console.println("You currently have " + currentWheat + " wheat.");
-               
+
                 //get number of Acres user wants to buy
                 while (!valid) {
-                     this.console.println("How many acres do you want to buy?");
-
+                    this.console.println("How many acres do you want to buy?");
 
                     try {
                         selection = this.keyboard.readLine();
@@ -98,14 +97,14 @@ public class BuyLandView extends View {
                 this.console.println("You now have " + game.getAcresOwned() + " total acres.");
                 this.console.println("You have " + game.getWheatInStorage() + " wheat remaining.");
 
-//        
+        
                 return true;
             }
             case "Q":
                 return true;
 
             default: {
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
             }
             break;
         }

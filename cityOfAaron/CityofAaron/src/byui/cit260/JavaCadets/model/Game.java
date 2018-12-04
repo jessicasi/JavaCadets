@@ -23,6 +23,7 @@ public class Game implements Serializable{
     private Map theMap;
     private Storehouse theStorehouse;
     private int currentPopulation;
+    private int populationMortality;
     private int acresOwned;
     private int wheatInStorage;       
     private int tithingPaid;
@@ -104,6 +105,14 @@ public class Game implements Serializable{
         this.tithingPaid = tithingPaid;
     }
 
+    public int getPopulationMortality() {
+        return populationMortality;
+    }
+
+    public void setPopulationMortality(int populationMortality) {
+        this.populationMortality += populationMortality;
+    }
+
     @Override
     public int hashCode() {
         int hash = 7;
@@ -111,6 +120,7 @@ public class Game implements Serializable{
         hash = 97 * hash + Objects.hashCode(this.theMap);
         hash = 97 * hash + Objects.hashCode(this.theStorehouse);
         hash = 97 * hash + this.currentPopulation;
+        hash = 97 * hash + this.populationMortality;
         hash = 97 * hash + this.acresOwned;
         hash = 97 * hash + this.wheatInStorage;
         hash = 97 * hash + this.tithingPaid;
@@ -132,6 +142,9 @@ public class Game implements Serializable{
         }
         final Game other = (Game) obj;
         if (this.currentPopulation != other.currentPopulation) {
+            return false;
+        }
+        if (this.populationMortality != other.populationMortality) {
             return false;
         }
         if (this.acresOwned != other.acresOwned) {
@@ -163,9 +176,13 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", inventory=" + inventory + ", question=" + question + '}';
+        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", populationMortality=" + populationMortality + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", inventory=" + inventory + ", question=" + question + '}';
     }
- 
+
+    
+    
+    
+  
     
     
 }

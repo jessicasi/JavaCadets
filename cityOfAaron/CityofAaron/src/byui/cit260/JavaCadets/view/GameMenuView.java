@@ -16,7 +16,6 @@ import byui.cit260.JavaCadets.model.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 /**
  *
  * @author Jessica
@@ -65,12 +64,13 @@ public class GameMenuView extends View {
             break;
 
             case "L": {
-            try {
-                liveTheYear();
-            } catch (HarvestCropsException ex) {
-                System.out.println(ex.getMessage());            } catch (GrowPopulationException ex) {
-                Logger.getLogger(GameMenuView.class.getName()).log(Level.SEVERE, null, ex);
-            }
+                try {
+                    liveTheYear();
+                } catch (HarvestCropsException ex) {
+                    this.console.println(ex.getMessage());
+                } catch (GrowPopulationException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+                }
             }
             break;
             case "R": {
@@ -155,7 +155,7 @@ public class GameMenuView extends View {
 
     private void liveTheYear() throws HarvestCropsException, GrowPopulationException {
         LiveTheYear liveTheYear = new LiveTheYear();
-        String [] yearlyReport = liveTheYear.liveTheYear();
+        String[] yearlyReport = liveTheYear.liveTheYear();
     }
 
     private void saveGame() {

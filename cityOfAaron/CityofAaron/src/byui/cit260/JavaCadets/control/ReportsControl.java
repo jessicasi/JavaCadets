@@ -20,13 +20,12 @@ public class ReportsControl {
         int total = 0;
         int itemPrice = 0;
         
-        for(int i = 0; i < items.length; i++){
-            if (items[i]==null){
+        for (InventoryItem item : items) {
+            if (item == null) {
                 continue;
             }
-            
-            itemPrice = items[i].getPricePerUnit() * items[i].getQuantityInStock();
-             total +=itemPrice;
+            itemPrice = item.getPricePerUnit() * item.getQuantityInStock();
+            total +=itemPrice;
         }
         
         return total;

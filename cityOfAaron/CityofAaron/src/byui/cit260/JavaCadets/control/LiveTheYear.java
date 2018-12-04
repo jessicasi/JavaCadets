@@ -32,6 +32,8 @@ public class LiveTheYear {
 //The number of bushels of wheat in store eaten by rats. This value is subtracted from the wheat in store.
 
 //The number of people that starve because they don’t have enough wheat.
+        int populationMortality = game.getPopulationMortality();
+
 //The number of people that move into the city.  
         GrowPopulation growPopulation = new GrowPopulation();
         int newPeople = growPopulation.growPopulation(game);

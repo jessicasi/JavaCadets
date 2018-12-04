@@ -81,6 +81,34 @@ public class SellLandTest {
          result = instance.SellLand();
         assertEquals(expResult, result);
     }
+
+    /**
+     * Test of SellLand method, of class SellLand.
+     */
+    @Test
+    public void testSellLand() throws Exception {
+        System.out.println("SellLand");
+        SellLand instance = new SellLand();
+        int expResult = 0;
+        int result = instance.SellLand();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getPrice method, of class SellLand.
+     */
+    @Test
+    public void testGetPrice() throws Exception {
+        System.out.println("getPrice");
+        SellLand instance = new SellLand();
+        int expResult = 0;
+        int result = instance.getPrice();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
     
     
 }

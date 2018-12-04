@@ -5,6 +5,8 @@
  */
 package byui.cit260.JavaCadets.view;
 
+import byui.cit260.JavaCadets.exceptions.CurrentAnnualReportException;
+
 /**
  *
  * @author Jessica

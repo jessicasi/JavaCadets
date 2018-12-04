@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.JavaCadets.view;
-
+import byui.cit260.JavaCadets.exceptions.ReportsMenuViewException;
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.ReportsControl;
 import byui.cit260.JavaCadets.exceptions.ReportsControlException;

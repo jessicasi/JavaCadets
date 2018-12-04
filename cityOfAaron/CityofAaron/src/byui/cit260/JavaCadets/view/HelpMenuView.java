@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package byui.cit260.JavaCadets.view;
+import byui.cit260.JavaCadets.exceptions.HelpMenuViewException;
 import byui.cit260.JavaCadets.control.GameControl;
 import byui.cit260.JavaCadets.model.Player;
 import java.util.Scanner;

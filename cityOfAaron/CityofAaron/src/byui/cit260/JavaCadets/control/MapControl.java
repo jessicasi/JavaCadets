@@ -78,7 +78,7 @@ public class MapControl {
         locations.setColumn(0);
         locations.setDescription("Visiting your Neighbor");
         locations.setVisited(false);
-        locations.setDisplaySymbol("NBR");
+        locations.setDisplaySymbol("NB");
 
         //Location 2
         locations = new Location();
@@ -88,7 +88,7 @@ public class MapControl {
         locations.setColumn(1);
         locations.setDescription("This is a river you can visit");
         locations.setVisited(false);
-        locations.setDisplaySymbol("RVR");
+        locations.setDisplaySymbol("RV");
 
         //Location 3
         locations = new Location();
@@ -98,7 +98,7 @@ public class MapControl {
         locations.setColumn(2);
         locations.setDescription("Visit the famous Waters of Mormon");
         locations.setVisited(false);
-        locations.setDisplaySymbol("MMN");
+        locations.setDisplaySymbol("WM");
  
 
         //Location 4
@@ -109,7 +109,7 @@ public class MapControl {
         resourceLocation.setColumn(3);
         resourceLocation.setDescription("This is the Market where you can buy items");
         resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("MKT");
+        resourceLocation.setDisplaySymbol("MK");
         //resourceLocation.setAmountAvailable(3000);
         //resourceLocation.setAmountUsed(0);
         ArrayList<InventoryItem> itemsInLocation = new ArrayList<>();
@@ -124,7 +124,7 @@ public class MapControl {
         questionLocation.setColumn(4);
         questionLocation.setDescription("Visit the Inn to talk to people");
         questionLocation.setVisited(false);
-        questionLocation.setDisplaySymbol("INN");
+        questionLocation.setDisplaySymbol("IN");
         ArrayList<Question> questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
@@ -136,7 +136,7 @@ public class MapControl {
         resourceLocation.setColumn(0);
         resourceLocation.setDescription("Visit the City Granary to pick up some Wheat");
         resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("GRN");
+        resourceLocation.setDisplaySymbol("GN");
         resourceLocation.setAmountAvailable(3000);
         resourceLocation.setAmountUsed(0);
         itemsInLocation = new ArrayList<>();
@@ -150,7 +150,7 @@ public class MapControl {
         locations.setColumn(1);
         locations.setDescription("Visit the Village!");
         locations.setVisited(false);
-        locations.setDisplaySymbol("VLG");
+        locations.setDisplaySymbol("VG");
  
 
         //Location 8
@@ -161,7 +161,7 @@ public class MapControl {
         questionLocation.setColumn(2);
         questionLocation.setDescription("Visit the Road to chat with someone");
         questionLocation.setVisited(false);
-        questionLocation.setDisplaySymbol("ROD");
+        questionLocation.setDisplaySymbol("RD");
         questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
@@ -173,7 +173,7 @@ public class MapControl {
         locations.setColumn(3);
         locations.setDescription("Go visit a random field");
         locations.setVisited(false);
-        locations.setDisplaySymbol("FLD");
+        locations.setDisplaySymbol("FD");
        
 
         //Location 10
@@ -184,7 +184,7 @@ public class MapControl {
         locations.setColumn(4);
         locations.setDescription("Go to the Well");
         locations.setVisited(false);
-        locations.setDisplaySymbol("WEL");
+        locations.setDisplaySymbol("WL");
 
 
         //Location 11
@@ -195,7 +195,7 @@ public class MapControl {
         locations.setColumn(0);
         locations.setDescription("Visit the Farm");
         locations.setVisited(false);
-        locations.setDisplaySymbol("FRM");
+        locations.setDisplaySymbol("RM");
 
 
         //Location 12
@@ -206,7 +206,7 @@ public class MapControl {
         questionLocation.setColumn(1);
         questionLocation.setDescription("Go to the Temple to learn");
         questionLocation.setVisited(false);
-        questionLocation.setDisplaySymbol("TMP");
+        questionLocation.setDisplaySymbol("TP");
         questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
@@ -218,7 +218,7 @@ public class MapControl {
         questionLocation.setColumn(2);
         questionLocation.setDescription("Go to the Rulers Court to talk to someone");
         questionLocation.setVisited(false);
-        questionLocation.setDisplaySymbol("RLR");
+        questionLocation.setDisplaySymbol("RC");
         questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
@@ -230,7 +230,7 @@ public class MapControl {
         questionLocation.setColumn(3);
         questionLocation.setDescription("Go to Church and talk to someone");
         questionLocation.setVisited(false);
-        questionLocation.setDisplaySymbol("CHR");
+        questionLocation.setDisplaySymbol("CH");
         questionsInLocation = new ArrayList<>();
         questionLocation.setQuestions(questionsInLocation);
 
@@ -242,7 +242,7 @@ public class MapControl {
         locations.setColumn(4);
         locations.setDescription("Visit the Bakery to run errands");
         locations.setVisited(false);
-        locations.setDisplaySymbol("BKY");
+        locations.setDisplaySymbol("BY");
 
         //Location 16
        resourceLocation = new ResourceLocation();
@@ -252,7 +252,7 @@ public class MapControl {
         resourceLocation.setColumn(0);
         resourceLocation.setDescription("Visit the Barn to do some chores");
         resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("BRN");
+        resourceLocation.setDisplaySymbol("BN");
         itemsInLocation = new ArrayList<>();
         resourceLocation.setItems(itemsInLocation);
 
@@ -264,7 +264,7 @@ public class MapControl {
         resourceLocation.setColumn(1);
         resourceLocation.setDescription("Visit the Storehouse to look at your items");
         resourceLocation.setVisited(false);
-        resourceLocation.setDisplaySymbol("STR");
+        resourceLocation.setDisplaySymbol("ST");
         //resourceLocation.setAmountAvailable(2000);
         //resourceLocation.setAmountUsed(0);
         itemsInLocation = new ArrayList<>();
@@ -278,7 +278,7 @@ public class MapControl {
         locations.setColumn(2);
         locations.setDescription("Visit the Bathhouse");
         locations.setVisited(false);
-        locations.setDisplaySymbol("BTH");
+        locations.setDisplaySymbol("BH");
 
         //Location 19
         locations = new Location();
@@ -288,7 +288,7 @@ public class MapControl {
         locations.setColumn(3);
         locations.setDescription("Visit the Forest");
         locations.setVisited(false);
-        locations.setDisplaySymbol("FST");
+        locations.setDisplaySymbol("FT");
 
         //Location 20
         locations = new Location();
@@ -298,7 +298,7 @@ public class MapControl {
         locations.setColumn(4);
         locations.setDescription("Visit the Undeveloped Land");
         locations.setVisited(false);
-        locations.setDisplaySymbol("ULD");
+        locations.setDisplaySymbol("UD");
 
         //Location 21
         locations = new Location();
@@ -308,7 +308,7 @@ public class MapControl {
         locations.setColumn(0);
         locations.setDescription("Visit the WheatField to work the fields");
         locations.setVisited(false);
-        locations.setDisplaySymbol("WH1");
+        locations.setDisplaySymbol("W1");
 
         //Location 22
         locations = new Location();
@@ -318,7 +318,7 @@ public class MapControl {
         locations.setColumn(1);
         locations.setDescription("Visit the WheatField to work the fields");
         locations.setVisited(false);
-        locations.setDisplaySymbol("WH2");
+        locations.setDisplaySymbol("W2");
 
         //Location 23
         locations = new Location();
@@ -328,7 +328,7 @@ public class MapControl {
         locations.setColumn(2);
         locations.setDescription("Visit the WheatField to work the fields");
         locations.setVisited(false);
-        locations.setDisplaySymbol("WH3");
+        locations.setDisplaySymbol("W3");
 
         //Location 24
         locations = new Location();
@@ -338,7 +338,7 @@ public class MapControl {
         locations.setColumn(3);
         locations.setDescription("Visit the WheatField to work the fields");
         locations.setVisited(false);
-        locations.setDisplaySymbol("WH4");
+        locations.setDisplaySymbol("W4");
 
         //Location 25
         locations = new Location();
@@ -348,7 +348,7 @@ public class MapControl {
         locations.setColumn(4);
         locations.setDescription("Visit the Lamanites BorderLand");
         locations.setVisited(false);
-        locations.setDisplaySymbol("LMN");
+        locations.setDisplaySymbol("LN");
 
         return location; // indicates success
     }

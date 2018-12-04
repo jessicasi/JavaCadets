@@ -84,18 +84,17 @@ public class StartExistingGameView extends View {
                         } catch (IOException ex) {
                        ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
-                try{
+              //  try{
                     Game.getGame(selection);
                     
-                   } catch (GameControlException ex){
-                     ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+                 //  } catch (GameControlException ex){
+                     //ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
                      
                    }
-                return false;
+              //  return false;
     }  
 
-    
-    }
-    
-    
 
+   
+    
+    

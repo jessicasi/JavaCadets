@@ -5,11 +5,11 @@
  */
 package byui.cit260.JavaCadets.view;
 
-import byui.cit260.JavaCadets.control.GameControl;
+import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.BuyLand;
 import byui.cit260.JavaCadets.exceptions.BuyLandException;
-import byui.cit260.JavaCadets.model.Player;
-import java.util.Scanner;
+import byui.cit260.JavaCadets.model.Game;
+import java.io.IOException;
 
 /**
  *
@@ -21,7 +21,7 @@ public class BuyLandView extends View {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-        
+
         System.out.println(" ********************** ");
         System.out.println(" ***   Buy Land   *** ");
         System.out.println(" ********************** ");
@@ -31,10 +31,10 @@ public class BuyLandView extends View {
 
         String buyInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = buyInput;
-        
+
         return inputs;
     }
-    
+
     @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
@@ -42,10 +42,65 @@ public class BuyLandView extends View {
         switch (menuItem) {
 
             case "B": {
-             buyLand();
-            }
-                return true;
+             
+                //Create new buyLand object
+                BuyLand buyLand = new BuyLand();
 
+                //declare other variables
+                Game game = CityofAaron.getCurrentGame();
+                int price = 0;
+                boolean valid = false;
+                String selection = null;
+                int landToBuy = 0;
+                //Calculate the random price it will be sold for
+                try {
+                    price = buyLand.calculatePrice();
+                } catch (BuyLandException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+                }
+                //get current wheat in storage
+                int currentWheat = game.getWheatInStorage();
+
+                this.console.println("1 acre of land costs " + price + " wheat.\n");
+                this.console.println("You currently have " + currentWheat + " wheat.");
+               
+                //get number of Acres user wants to buy
+                while (!valid) {
+                     this.console.println("How many acres do you want to buy?");
+
+
+                    try {
+                        selection = this.keyboard.readLine();
+                        selection = selection.trim();
+
+                        if (selection.length() < 1) {
+                            this.console.println("You must enter a value");
+                            continue;
+                        }
+                    } catch (IOException ex) {
+                        ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+                        continue;
+                    }
+                    //parse selection to an integer
+                    landToBuy = Integer.parseInt(selection);
+
+                    try {
+                        //ensure user has enough wheat to purchase land
+                        //  valid = buyLand.calculateWheatNeeded(game, landToBuy,price);
+                        valid = buyLand.BuyLand(game, landToBuy, price);
+
+                    } catch (BuyLandException ex) {
+                        ErrorView.display(this.getClass().getName(), ex.getMessage());
+
+                    }
+
+                }
+                this.console.println("You now have " + game.getAcresOwned() + " total acres.");
+                this.console.println("You have " + game.getWheatInStorage() + " wheat remaining.");
+
+//        
+                return true;
+            }
             case "Q":
                 return true;
 
@@ -57,16 +112,4 @@ public class BuyLandView extends View {
         return false;
     }
 
-
-    private boolean buyLand() {
-
-        BuyLand buyland = new BuyLand();
-        try {
-        buyland.BuyLand();
-    } catch (BuyLandException ie){
-        System.out.println(ie.getMessage());
-        return false;
-    }
-        return true;
-    }
 }

@@ -6,6 +6,7 @@
 package byui.cit260.JavaCadets.control;
 
 import byui.cit260.JavaCadets.exceptions.SellBreadException;
+import byui.cit260.JavaCadets.model.Game;
 
 /**
  *
@@ -14,19 +15,22 @@ import byui.cit260.JavaCadets.exceptions.SellBreadException;
 public class SellBread {
     
 
-    public int sellBread(int loaves) throws SellBreadException {
+    public int sellBread( Game game, int loaves) throws SellBreadException {
 
         int price = (int) (Math.random() * (10 - 4) + 4);
 
         //Bread will be sold for 4-10 wheat
-        if (price < 3 || price > 8) {
-            return -3;
+        if (price < 4 || price > 10) {
+            throw new SellBreadException("Internal Price Error, try again");
         }
 
         int sale = loaves * price;
-
-        //TODO: add sale to wheatAvailable
+        game.setWheatInStorage(game.getWheatInStorage() + sale);
+        
+       
         return sale;
     }
+
+
 
 }

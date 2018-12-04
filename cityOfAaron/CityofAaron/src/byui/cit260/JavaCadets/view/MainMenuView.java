@@ -4,14 +4,11 @@
  * and open the template in the editor.
  */
 package byui.cit260.JavaCadets.view;
-import byui.cit260.JavaCadets.exceptions.MainMenuViewException;
+
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.GameControl;
 import byui.cit260.JavaCadets.exceptions.GameControlException;
 import byui.cit260.JavaCadets.exceptions.MapControlException;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *

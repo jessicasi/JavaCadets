@@ -5,8 +5,6 @@
  */
 package byui.cit260.JavaCadets.view;
 
-import byui.cit260.JavaCadets.exceptions.ManageTheCropsException;
-
 /**
  *
  * @author Steven
@@ -18,16 +16,17 @@ public class ManageTheCrops extends View {
 
         String[] inputs = new String[1];
 
-        System.out.println(" ********************** ");
-        System.out.println(" * Manage Your Crops * ");
-        System.out.println(" ********************** ");
-        System.out.println();
-        System.out.println("A - Buy Land");
-        System.out.println("B - Sell Land");
-        System.out.println("C - Feed Population");
-        System.out.println("D - Plant Crops");
-        System.out.println("E - Pay Tithes and Offerings");
-        System.out.println("Q - Quit");
+        this.console.println(" ********************** ");
+        this.console.println(" * Manage Your Crops * ");
+        this.console.println(" ********************** ");
+        this.console.println();
+        this.console.println("B - Buy Land");
+        this.console.println("S - Sell Land");
+        this.console.println("F - Feed Population");
+        this.console.println("P - Plant Crops");
+        this.console.println("T - Pay Tithes and Offerings");
+        this.console.println("M - Make and Sell Bread");
+        this.console.println("Q - Quit");
 
         String cropsInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = cropsInput;
@@ -41,27 +40,32 @@ public class ManageTheCrops extends View {
 
         switch (menuItem) {
 
-            case "A": {
+            case "B": {
                 BuyLand();
             }
             break;
 
-            case "B": {
-                SellLand();
-            }
-            break;
-
-            case "C": {
+            case "F": {
                 feedPopulation();
             }
             break;
 
-            case "D": {
+            case "M": {
+                makeBread();
+            }
+            break;
+            
+            case "S": {
+                SellLand();
+            }
+            break;
+
+            case "P": {
                 plantCrops();
             }
             break;
 
-            case "E": {
+            case "T": {
                 payTithesAndOfferings();
             }
             break;
@@ -69,7 +73,7 @@ public class ManageTheCrops extends View {
                 return true;
 
             default: {
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
             }
             break;
         }
@@ -101,5 +105,9 @@ public class ManageTheCrops extends View {
         payTithesAndOfferings.display();
     }
 
-    
+    private void makeBread() {
+        MakeAndSellBreadView makeBread = new MakeAndSellBreadView();
+        makeBread.display();
+    }
+
 }

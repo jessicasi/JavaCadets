@@ -14,7 +14,6 @@ import byui.cit260.JavaCadets.model.ItemType;
 import byui.cit260.JavaCadets.model.Map;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.model.Question;
-import byui.cit260.JavaCadets.view.ErrorView;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -155,9 +154,7 @@ public class GameControl {
             out.flush();
         } catch (IOException ex) {
             throw new IOException(" I/O Error");
-          //ErrorView.display(this.getClass().getName(), ex.getMessage());
-
-            //System.out.println("I/O Error" + ex.getMessage());
+     
         }
         }   
     public static  Game getGame(){

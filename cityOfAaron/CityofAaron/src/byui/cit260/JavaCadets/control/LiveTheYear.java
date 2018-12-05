@@ -37,7 +37,7 @@ public class LiveTheYear {
 //The number of people that move into the city.  
         GrowPopulation growPopulation = new GrowPopulation();
         int newPeople = growPopulation.growPopulation(game);
-        System.out.println(newPeople);
+        
 
         return yearlyReport;
     }

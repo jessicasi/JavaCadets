@@ -20,14 +20,14 @@ public class MainMenuView extends View {
     public String[] getInputs() {
         String[] inputs = new String[1];
 
-        System.out.println(" ************** ");
-        System.out.println("   Main Menu");
-        System.out.println(" ************** ");
-        System.out.println();
-        System.out.println("N - Start new game");
-        System.out.println("R - Restart exisiting game");
-        System.out.println("H - Get help on how to play the game");
-        System.out.println("E - Exit");
+        this.console.println(" ************** ");
+        this.console.println("   Main Menu");
+        this.console.println(" ************** ");
+        this.console.println();
+        this.console.println("N - Start new game");
+        this.console.println("R - Restart exisiting game");
+        this.console.println("H - Get help on how to play the game");
+        this.console.println("E - Exit");
 
         String mainMenuInput = this.getInput("\nMake a selection from the Main Menu");
         inputs[0] = mainMenuInput;
@@ -46,7 +46,7 @@ public class MainMenuView extends View {
             try {
                 startNewGame();
             } catch (MapControlException | GameControlException ex) {
-                System.out.println(ex.getMessage());
+                this.console.println(ex.getMessage());
             }
             }
             break;
@@ -62,7 +62,7 @@ public class MainMenuView extends View {
                 return true;
 
             default: {
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
             }
             break;
         }

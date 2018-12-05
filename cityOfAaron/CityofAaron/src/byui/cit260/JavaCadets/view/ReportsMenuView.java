@@ -9,10 +9,7 @@ import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.ReportsControl;
 import byui.cit260.JavaCadets.exceptions.ReportsControlException;
 import byui.cit260.JavaCadets.model.InventoryItem;
-import byui.cit260.JavaCadets.model.ItemType;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -25,18 +22,18 @@ public class ReportsMenuView extends View {
     
     String[] inputs = new String[1];
     
-     System.out.println(" ********************** ");
-        System.out.println(" * Reports Menu * ");
-        System.out.println(" ********************** ");
-        System.out.println();
-        System.out.println("A - View the Animals in the StoreHouse ");
-        System.out.println("B - View the Tools in the StoreHouse ");
-        System.out.println("C - View the Provisions in the StoreHouse ");
-        System.out.println("D - View the Authors of the Game ");
-        System.out.println("I - View total cost of items in Inventory");
-        System.out.println("J - View Average of items in Inventory");
-        System.out.println("V - View sorted items in Inventory");
-        System.out.println("Q - Quit");
+        this.console.println(" ********************** ");
+        this.console.println(" * Reports Menu * ");
+        this.console.println(" ********************** ");
+        this.console.println();
+        this.console.println("A - View the Animals in the StoreHouse ");
+        this.console.println("B - View the Tools in the StoreHouse ");
+        this.console.println("C - View the Provisions in the StoreHouse ");
+        this.console.println("D - View the Authors of the Game ");
+        this.console.println("I - View total cost of items in Inventory");
+        this.console.println("J - View Average of items in Inventory");
+        this.console.println("V - View sorted items in Inventory");
+        this.console.println("Q - Quit");
         
         String reportsInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = reportsInput;
@@ -86,7 +83,7 @@ public class ReportsMenuView extends View {
                 return true;
 
             default: {
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
             }
             break;
         }
@@ -94,19 +91,19 @@ public class ReportsMenuView extends View {
     }        
 
     private void Animals() {
-        System.out.println("Aminals in StoreHouse Was Called");
+        this.console.println("Aminals in StoreHouse Was Called");
     }
 
     private void Tools() {
-        System.out.println("Tools in StoreHouse Was Called");
+        this.console.println("Tools in StoreHouse Was Called");
     }
 
     private void Provisions() {
-        System.out.println("Provisions in StoreHouse Was Called");
+        this.console.println("Provisions in StoreHouse Was Called");
     }
 
     private void Authors() {
-        System.out.println("Authors Was Called");
+        this.console.println("Authors Was Called");
     }
 
     private void getInventoryTotal() {
@@ -116,14 +113,14 @@ public class ReportsMenuView extends View {
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
             
             int totalCost = reportsControl.quantityCost(items);
-            for(int i = 0; i < items.length; i++){
-                if (items[i]==null){
+            for (InventoryItem item : items) {
+                if (item == null) {
                     continue;
                 }
             }
-            System.out.println("Total cost of all inventory items: " + totalCost);
+            this.console.println("Total cost of all inventory items: " + totalCost);
         } catch (ReportsControlException ex) {
-            Logger.getLogger(ReportsMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
     }
 
@@ -144,9 +141,9 @@ public class ReportsMenuView extends View {
                 average = sum / items.length;
                 
             }
-            System.out.println("Average of Items in Inventory:" + average);
+            this.console.println("Average of Items in Inventory:" + average);
         } catch (ReportsControlException ex) {
-            Logger.getLogger(ReportsMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
     }
     
@@ -157,16 +154,16 @@ public class ReportsMenuView extends View {
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
             
             int totalList = reportsControl.quantityCost(items);
-            System.out.println("Items in Inventory:");
-            for(int i = 0; i < items.length; i++){
-                if (items[i]==null){
+            this.console.println("Items in Inventory:");
+            for (InventoryItem item : items) {
+                if (item == null) {
                     continue;
                 }
-                System.out.println(items[i].getItemType());
+                this.console.println(item.getItemType());
             }
         
         } catch (ReportsControlException ex) {
-            Logger.getLogger(ReportsMenuView.class.getName()).log(Level.SEVERE, null, ex);
+                   ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
     }
 

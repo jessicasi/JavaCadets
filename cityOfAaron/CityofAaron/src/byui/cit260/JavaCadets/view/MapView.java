@@ -7,8 +7,7 @@ import byui.cit260.JavaCadets.exceptions.MapControlException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 
 /**
@@ -25,10 +24,10 @@ public class  MapView extends View {
         
         String[] inputs = new String[1];
 
-        System.out.println(" ********************** ");
-        System.out.println(" * Move Locations * ");
-        System.out.println(" ********************** ");
-        System.out.println();
+        this.console.println(" ********************** ");
+        this.console.println(" * Move Locations * ");
+        this.console.println(" ********************** ");
+        this.console.println();
 
         
 //        String mapOption = this.getInput("\nEnter Desired Location: ");
@@ -53,14 +52,14 @@ public class  MapView extends View {
                         try {
                             MapControl.movePlayer(map, row, column);
                         } catch (MapControlException ex) {
-                            Logger.getLogger(MapView.class.getName()).log(Level.SEVERE, null, ex);
+                                            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
                         }
                          return true;
                     }
                  }
             }
      }
-     System.out.println("\n*** Invalid selection *** Try Again later");
+     this.console.println("\n*** Invalid selection *** Try Again later");
      return false;
    }
 

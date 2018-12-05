@@ -21,11 +21,11 @@ public class StartExistingGameView extends View {
         String[] inputs = new String[1];
 
         this.console.println(" ********************** ");
-        System.out.println(" * Load Save Game * ");
-        System.out.println(" ********************** ");
-        System.out.println();
-        System.out.println("L: - Load Save");
-        System.out.println("Q - Quit without saving");
+        this.console.println(" * Load Save Game * ");
+        this.console.println(" ********************** ");
+        this.console.println();
+        this.console.println("L: - Load Save");
+        this.console.println("Q - Quit without saving");
 
         String existingGameInput = this.getInput("\nMake a selection from the Game Menu");
         
@@ -49,7 +49,7 @@ public class StartExistingGameView extends View {
                 return true;
 
             default: {
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
             }
             break;
         }
@@ -60,7 +60,7 @@ public class StartExistingGameView extends View {
     private void LoadGame() {
       String selection = null;
         try {
-            System.out.println("Enter the name of thee the file the game will Load From");
+            this.console.println("Enter the name of thee the file the game will Load From");
 
           selection = this.keyboard.readLine();
 //        String filename = inFile.nextLine();
@@ -74,7 +74,7 @@ public class StartExistingGameView extends View {
                         continue;
                     }
                                                         
-                    System.out.println("Success! Your game has been Loaded!");
+                    this.console.println("Success! Your game has been Loaded!");
                     valid = true;
                 }
                         } catch (IOException ex) {

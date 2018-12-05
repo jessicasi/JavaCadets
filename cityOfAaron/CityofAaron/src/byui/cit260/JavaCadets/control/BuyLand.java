@@ -62,7 +62,6 @@ public class BuyLand {
         int peopleNeeded = landToBuy / 10;
 
         if (peopleLeft < peopleNeeded) {
-            System.out.println("You don't have enough people to tend the land. Enter a lower number");
             return false;
         }
         return true;

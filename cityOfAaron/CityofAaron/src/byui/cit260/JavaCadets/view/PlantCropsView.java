@@ -8,8 +8,6 @@ import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.PlantCrops;
 import byui.cit260.JavaCadets.exceptions.PlantCropsException;
 import byui.cit260.JavaCadets.model.Game;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 
 /**

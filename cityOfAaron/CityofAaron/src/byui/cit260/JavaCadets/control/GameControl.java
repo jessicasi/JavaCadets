@@ -131,7 +131,6 @@ public class GameControl {
     }
 
     public static Question[] createQuestion() {
-        //System.out.println("Lovely Questions For Later to Create becasue of Crazy Week 10 ");
         return null;
     }
 
@@ -158,7 +157,7 @@ public class GameControl {
         }
         }   
     public static  Game getGame(){
-        //System.out.println("GET GAME");
+
         Game game = null;
         return game;
     }       

@@ -21,7 +21,7 @@ public class QuestionLocation extends Location{
     }
     
      public void setQuestions(ArrayList<Question> questionsInLocation) {
-       System.out.println("Lovely setQuestions");
+      
     }
 
     @Override

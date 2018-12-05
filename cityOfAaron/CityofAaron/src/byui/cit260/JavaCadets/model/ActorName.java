@@ -34,12 +34,9 @@ public enum ActorName {
         Point point = new Point();
         point.setRow(row);
         point.setColumn(column);
-      //  System.out.println("Got to this point" + point);
-        return point;
+            return point;
     }
     
-//    public Point getCoordinates() {
-//        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+   }
     
     

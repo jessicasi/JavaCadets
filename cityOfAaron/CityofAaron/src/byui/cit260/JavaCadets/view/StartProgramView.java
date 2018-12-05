@@ -25,13 +25,13 @@ public class StartProgramView extends View {
         String[] inputs = new String[1];
 
         //Display a description of the view
-        System.out.println("*********************************");
-        System.out.println("* WELCOME TO THE CITY OF AARON  *");
-        System.out.println("* In this game you will be the  *");
-        System.out.println("* ruler of a city for 7 years.  *");
-        System.out.println("* Learn to care for your people *");
-        System.out.println("* to win the Game!              *");
-        System.out.println("*********************************");
+        this.console.println("*********************************");
+        this.console.println("* WELCOME TO THE CITY OF AARON  *");
+        this.console.println("* In this game you will be the  *");
+        this.console.println("* ruler of a city for 7 years.  *");
+        this.console.println("* Learn to care for your people *");
+        this.console.println("* to win the Game!              *");
+        this.console.println("*********************************");
 
         String playersName = this.getInput("\nPlease enter your name: ");
             inputs[0] = playersName;
@@ -48,19 +48,19 @@ public class StartProgramView extends View {
         try {
             player = GameControl.savePlayer(playersName);
         } catch (GameControlException ex) {
-            System.out.println(ex.getMessage());
+            this.console.println(ex.getMessage());
         }
 
         if (player == null) {
-            System.out.println("Could not create the player. "
+           this.console.println("Could not create the player. "
                     + "Enter a different name.");
             return false;
         }
 
-        System.out.println("************************************************");
-        System.out.println("* Welcome to the game " + playersName + "*");
-        System.out.println("* We hope you enjoy it!                        *");
-        System.out.println("************************************************");
+        this.console.println("************************************************");
+        this.console.println("* Welcome to the game " + playersName + "*");
+        this.console.println("* We hope you enjoy it!                        *");
+        this.console.println("************************************************");
 
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();

@@ -7,14 +7,12 @@ package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.LiveTheYear;
-import byui.cit260.JavaCadets.exceptions.GameControlException;
 import byui.cit260.JavaCadets.exceptions.GrowPopulationException;
 import byui.cit260.JavaCadets.exceptions.HarvestCropsException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -26,16 +24,16 @@ public class GameMenuView extends View {
     public String[] getInputs() {
         String[] inputs = new String[1];
 
-        System.out.println(" *************** ");
-        System.out.println(" *  Game Menu  * ");
-        System.out.println(" *************** ");
-        System.out.println("V - View the Map ");
-        System.out.println("M - Move to a new Location");
-        System.out.println("C - Manage the Crops");
-        System.out.println("L - Live the year");
-        System.out.println("R - Reports Menu");
-        System.out.println("S - Save Game");
-        System.out.println("Q - Return to Main Menu");
+        this.console.println(" *************** ");
+        this.console.println(" *  Game Menu  * ");
+        this.console.println(" *************** ");
+        this.console.println("V - View the Map ");
+        this.console.println("M - Move to a new Location");
+        this.console.println("C - Manage the Crops");
+        this.console.println("L - Live the year");
+        this.console.println("R - Reports Menu");
+        this.console.println("S - Save Game");
+        this.console.println("Q - Return to Main Menu");
 
         String gameInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = gameInput;
@@ -91,7 +89,7 @@ public class GameMenuView extends View {
                 return true;
 
             default: {
-                System.out.println("Invalid menu item");
+                this.console.println("Invalid menu item");
             }
             break;
         }
@@ -105,15 +103,15 @@ public class GameMenuView extends View {
         Map map = game.getTheMap(); // retreive the map from game
         Location[][] locations = map.getLocations(); // retreive the locations from map
         // Build the heading of the map
-        System.out.print("  |");
+        this.console.print("  |");
         for (int column = 0; column < locations[0].length; column++) {
             // print col numbers to side of map
-            System.out.print("  " + column + " |");
+            this.console.print("  " + column + " |");
         }
         // Now build the map.  For each row, show the column information
-        System.out.println();
+        this.console.println();
         for (int row = 0; row < locations.length; row++) {
-            System.out.print(row + " "); // print row numbers to side of map
+            this.console.print(row + " "); // print row numbers to side of map
             for (int column = 0; column < locations[row].length; column++) {
                 // set default indicators as blanks
                 leftIndicator = " ";
@@ -127,23 +125,21 @@ public class GameMenuView extends View {
                     leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                     rightIndicator = "<"; // same as above
                 }
-                System.out.print("|"); // start map with a |
+                this.console.print("|"); // start map with a |
                 if (locations[row][column].getScene() == null) {
                     // No scene assigned here so use ?? for the symbol
-                    System.out.print(leftIndicator + "??" + rightIndicator);
+                    this.console.print(leftIndicator + "??" + rightIndicator);
                 } else {
-                    System.out.print(leftIndicator
+                    this.console.print(leftIndicator
                             + locations[row][column].getScene().getMapSymbol()
                             + rightIndicator);
                 }
             }
-            System.out.println("|");
+            this.console.println("|");
         }
     }
 
     private void moveLocations() {
-//        MapView mapView = new MapView();
-//        mapView.display();
         MovePlayer moveplayer = new MovePlayer();
         moveplayer.display();
     }

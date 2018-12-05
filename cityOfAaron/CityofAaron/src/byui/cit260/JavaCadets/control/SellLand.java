@@ -18,16 +18,10 @@ public class SellLand {
     public int SellLand (Game game, int acres, int price) throws SellLandException{
         
        
-        
-        //TODO: Change this to call getWheatAvailable and getAcresAvailable() from the Game class
         int currentWheat = game.getWheatInStorage();
         int currentAcres = game.getAcresOwned();
         int totalPrice = 0;
-        
-       // System.out.println("1 acre of land sells for " + price + " wheat.");
-        
-       
-       
+
             if (acres <= 0) {
                throw new SellLandException("Looks like you chose to not sell any land");
             }
@@ -46,11 +40,6 @@ public class SellLand {
                 game.setWheatInStorage(game.getWheatInStorage() + totalPrice);
 
 
-            
-            //TODO: Call setAcresAvailable() from the Game class
-          
-        
-            //Should never reach this point
             return totalPrice;
         
     }

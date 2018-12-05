@@ -9,9 +9,6 @@ import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -33,7 +30,7 @@ public abstract class View implements ViewInterface {
             String[] selections = this.getInputs();
             //no selections were entered OR the first selection is Q
                     if (selections.length < 1 || selections[0].equals("Q")){
-                        System.out.println("Progam end"); 
+                        this.console.println("Progam end"); 
                         endOfView = true;
                     }
 
@@ -55,7 +52,7 @@ public abstract class View implements ViewInterface {
              try {
                  while (!valid ){
                  //Display the prompt message
-                 System.out.println(promptMessage);
+                 this.console.println(promptMessage);
                  
                  //Get the value entered from the keyboard
 //               Scanner inFile;

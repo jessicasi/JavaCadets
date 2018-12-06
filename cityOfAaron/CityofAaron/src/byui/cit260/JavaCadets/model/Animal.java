@@ -15,11 +15,11 @@ import java.util.Objects;
 public class Animal implements Serializable {
     
     private String name;
-    private int age;
+    private int quantity;
 
     public Animal() {
     }
-    
+
     public String getName() {
         return name;
     }
@@ -28,19 +28,21 @@ public class Animal implements Serializable {
         this.name = name;
     }
 
-    public int getAge() {
-        return age;
+   
+
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 59 * hash + Objects.hashCode(this.name);
-        hash = 59 * hash + this.age;
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.name);
+        hash = 79 * hash + this.quantity;
         return hash;
     }
 
@@ -56,7 +58,7 @@ public class Animal implements Serializable {
             return false;
         }
         final Animal other = (Animal) obj;
-        if (this.age != other.age) {
+        if (this.quantity != other.quantity) {
             return false;
         }
         if (!Objects.equals(this.name, other.name)) {
@@ -64,10 +66,16 @@ public class Animal implements Serializable {
         }
         return true;
     }
-    
+
     @Override
     public String toString() {
-        return "Animal{" + "name=" + name + ", age=" + age + '}';
+        return "Animal{" + "name=" + name + ", quantity=" + quantity + '}';
     }
+
+   
+    
+    
+
+
     
 }

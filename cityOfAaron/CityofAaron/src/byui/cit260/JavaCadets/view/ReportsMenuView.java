@@ -4,24 +4,30 @@
  * and open the template in the editor.
  */
 package byui.cit260.JavaCadets.view;
+
 import byui.cit260.JavaCadets.exceptions.ReportsMenuViewException;
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.ReportsControl;
 import byui.cit260.JavaCadets.exceptions.ReportsControlException;
+import byui.cit260.JavaCadets.model.Animal;
 import byui.cit260.JavaCadets.model.InventoryItem;
-
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Arrays;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Steven
  */
 public class ReportsMenuView extends View {
-    
+
     @Override
-    public String[] getInputs(){
-    
-    String[] inputs = new String[1];
-    
+    public String[] getInputs() {
+
+        String[] inputs = new String[1];
+
         this.console.println(" ********************** ");
         this.console.println(" * Reports Menu * ");
         this.console.println(" ********************** ");
@@ -34,13 +40,13 @@ public class ReportsMenuView extends View {
         this.console.println("J - View Average of items in Inventory");
         this.console.println("V - View sorted items in Inventory");
         this.console.println("Q - Quit");
-        
+
         String reportsInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = reportsInput;
 
         return inputs;
-    }    
-            
+    }
+
     @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
@@ -48,37 +54,42 @@ public class ReportsMenuView extends View {
         switch (menuItem) {
 
             case "A": {
-                Animals();
+                try {
+                    getAnimalReport();
+                } catch (ReportsControlException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+                }
             }
             return true;
-            
-            case "B":{
+
+            case "B": {
                 Tools();
             }
             return true;
-            
-            case "C":{
+
+            case "C": {
                 Provisions();
             }
             return true;
-            
-            case "D":{
+
+            case "D": {
                 Authors();
             }
             return true;
-                         
-            case "I" :
+
+            case "I":
                 getInventoryTotal();
-            return true;
-            
+                return true;
+
             case "J":
                 getInventoryAverage();
-            break;
-            
+                break;
+
             case "V":
                 getInventorySorted();
-            break;
-                
+                break;
+
             case "Q":
                 return true;
 
@@ -88,10 +99,54 @@ public class ReportsMenuView extends View {
             break;
         }
         return false;
-    }        
+    }
 
-    private void Animals() {
-        this.console.println("Aminals in StoreHouse Was Called");
+    private void getAnimalReport() throws ReportsControlException {
+
+        ReportsControl reportsControl = new ReportsControl();
+        InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
+
+        Animal[] animals = reportsControl.getAnimalReport(items);
+
+        String filePath = this.getInput("Enter the file path where you would like the report printed:\n");
+        try {
+            printAnimalReport(filePath, animals);
+        } catch (IOException ex) {
+             ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+        }
+
+    }
+    
+     private void printAnimalReport(String filePath, Animal[] animals) throws ReportsControlException, IOException {
+         
+         if (filePath == null)
+             throw new ReportsControlException("FilePath is empty");
+         if (animals == null)
+             throw new ReportsControlException("No animals in Inventory to display");
+         
+        try ( 
+                FileWriter outFile = new FileWriter(filePath)) {
+            
+            //write information to file
+            outFile.write("\n\t\tAnimals In Inventory\n\n");
+            outFile.write("\tAnimal Type\tQuantity In Stock\n\n");
+            
+            for(Animal animal : animals){
+                if (animal == null)
+                    continue;
+                outFile.write("\t" + animal.getName() + "\t\t\t" + animal.getQuantity() + "\n");
+                
+            }
+            
+            outFile.flush();
+            
+        } catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+        }
+        
+        this.console.println("\n\nFile Sucessfully Saved");
+         
     }
 
     private void Tools() {
@@ -107,11 +162,11 @@ public class ReportsMenuView extends View {
     }
 
     private void getInventoryTotal() {
-        
+
         try {
             ReportsControl reportsControl = new ReportsControl();
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
-            
+
             int totalCost = reportsControl.quantityCost(items);
             for (InventoryItem item : items) {
                 if (item == null) {
@@ -120,39 +175,37 @@ public class ReportsMenuView extends View {
             }
             this.console.println("Total cost of all inventory items: " + totalCost);
         } catch (ReportsControlException ex) {
-                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
     }
 
     private void getInventoryAverage() {
-        
+
         try {
             ReportsControl reportsControl = new ReportsControl();
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
-            
-            
+
             int average = reportsControl.quantityCost(items);
             int sum = 0;
-            for (int i = 0; i < items.length; i++){
-                if(items[i] == null){
+            for (InventoryItem item : items) {
+                if (item == null) {
                     continue;
                 }
-                sum = sum + items[i].getPricePerUnit();
+                sum = sum + item.getPricePerUnit();
                 average = sum / items.length;
-                
             }
             this.console.println("Average of Items in Inventory:" + average);
         } catch (ReportsControlException ex) {
-                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
     }
-    
+
     private void getInventorySorted() {
-        
+
         try {
             ReportsControl reportsControl = new ReportsControl();
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
-            
+
             int totalList = reportsControl.quantityCost(items);
             this.console.println("Items in Inventory:");
             for (InventoryItem item : items) {
@@ -161,10 +214,12 @@ public class ReportsMenuView extends View {
                 }
                 this.console.println(item.getItemType());
             }
-        
+
         } catch (ReportsControlException ex) {
-                   ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
     }
 
-    }
+   
+
+}

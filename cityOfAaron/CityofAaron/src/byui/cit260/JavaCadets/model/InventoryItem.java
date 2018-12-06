@@ -15,6 +15,7 @@ import java.util.Objects;
 public class InventoryItem implements Serializable{
     
         private String itemType;
+        private String itemName;
         private int quantity;
         private String condition;
         private int pricePerUnit;
@@ -98,10 +99,27 @@ public class InventoryItem implements Serializable{
         this.itemType = itemType;
     }
 
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 7;
+        int hash = 3;
         hash = 37 * hash + Objects.hashCode(this.itemType);
+        hash = 37 * hash + Objects.hashCode(this.itemName);
         hash = 37 * hash + this.quantity;
         hash = 37 * hash + Objects.hashCode(this.condition);
         hash = 37 * hash + this.pricePerUnit;
@@ -129,13 +147,23 @@ public class InventoryItem implements Serializable{
         if (!Objects.equals(this.itemType, other.itemType)) {
             return false;
         }
-        return Objects.equals(this.condition, other.condition);
+        if (!Objects.equals(this.itemName, other.itemName)) {
+            return false;
+        }
+        if (!Objects.equals(this.condition, other.condition)) {
+            return false;
+        }
+        return true;
     }
 
     @Override
     public String toString() {
-        return "InventoryItem{" + "itemType=" + itemType + ", quantity=" + quantity + ", condition=" + condition + ", pricePerUnit=" + pricePerUnit + '}';
+        return "InventoryItem{" + "itemType=" + itemType + ", itemName=" + itemName + ", quantity=" + quantity + ", condition=" + condition + ", pricePerUnit=" + pricePerUnit + '}';
     }
+    
+    
+
+   
 
     
     

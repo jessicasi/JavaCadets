@@ -20,7 +20,6 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-import static java.lang.System.out;
 
 /**
  *
@@ -76,15 +75,35 @@ public class GameControl {
         InventoryItem[] items = new InventoryItem[12];
 
         InventoryItem item = new InventoryItem();
-        item.setItemType("chicken");
-        item.setQuantityInStock(2);
+        item.setItemName("chicken");
+        item.setItemType("animal");
+        item.setQuantityInStock(3);
         item.setCondition("Good");
         item.setPricePerUnit(ItemType.chicken.getCost());
         //item.setRequiredAmount(~);
         items[ItemType.chicken.ordinal()] = item;
+        
+        item = new InventoryItem();
+        item.setItemName("horse");
+        item.setItemType("animal");
+        item.setQuantityInStock(1);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.horse.getCost());
+        //item.setRequiredAmount(~);
+        items[ItemType.horse.ordinal()] = item;
+        
+        item = new InventoryItem();
+        item.setItemName("pig");
+        item.setItemType("animal");
+        item.setQuantityInStock(2);
+        item.setCondition("Good");
+        item.setPricePerUnit(ItemType.pig.getCost());
+        //item.setRequiredAmount(~);
+        items[ItemType.pig.ordinal()] = item;
 
         item = new InventoryItem();
-        item.setItemType("feed");
+        item.setItemName("feed");
+        item.setItemType("provisions");
         item.setQuantityInStock(4);
         item.setCondition("Good");
         item.setPricePerUnit(ItemType.feed.getCost());
@@ -92,7 +111,8 @@ public class GameControl {
         items[ItemType.feed.ordinal()] = item;
 
         item = new InventoryItem();
-        item.setItemType("bow");
+        item.setItemName("bow");
+        item.setItemType("tool");
         item.setQuantityInStock(2);
         item.setCondition("Good");
         item.setPricePerUnit(ItemType.bow.getCost());
@@ -100,7 +120,8 @@ public class GameControl {
         items[ItemType.bow.ordinal()] = item;
 
         item = new InventoryItem();
-        item.setItemType("cart");
+        item.setItemName("cart");
+        item.setItemType("tool");
         item.setQuantityInStock(1);
         //item.setRequiredAmount(~);
         item.setCondition("Good");
@@ -108,7 +129,8 @@ public class GameControl {
         items[ItemType.cart.ordinal()] = item;
 
         item = new InventoryItem();
-        item.setItemType("hoe");
+        item.setItemName("hoe");
+        item.setItemType("tool");
         item.setQuantityInStock(1);
         item.setCondition("Good");
         item.setPricePerUnit(ItemType.hoe.getCost());
@@ -116,7 +138,8 @@ public class GameControl {
         items[ItemType.hoe.ordinal()] = item;
 
         item = new InventoryItem();
-        item.setItemType("scyth");
+        item.setItemName("scyth");
+        item.setItemType("tool");
         item.setQuantityInStock(1);
         item.setCondition("Good");
         item.setPricePerUnit(ItemType.scyth.getCost());
@@ -124,7 +147,8 @@ public class GameControl {
         items[ItemType.scyth.ordinal()] = item;
 
         item = new InventoryItem();
-        item.setItemType("wheat");
+        item.setItemName("wheat");
+        item.setItemType("provisions");
         item.setQuantityInStock(500);
         item.setCondition("Good");
         item.setPricePerUnit(ItemType.wheat.getCost());

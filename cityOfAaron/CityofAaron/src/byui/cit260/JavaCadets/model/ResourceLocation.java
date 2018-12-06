@@ -5,6 +5,7 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -13,7 +14,7 @@ import java.util.Objects;
  *
  * @author Steven
  */
-public class ResourceLocation extends Location {
+public class ResourceLocation extends Location implements Serializable {
     private InventoryItem inventoryitem;
     private int amountAvailable;
     private int amountUsed;

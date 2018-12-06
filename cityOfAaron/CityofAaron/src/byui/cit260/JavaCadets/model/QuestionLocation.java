@@ -5,6 +5,7 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Objects;
 
@@ -14,7 +15,7 @@ import java.util.Objects;
  *
  * @author Steven
  */
-public class QuestionLocation extends Location{
+public class QuestionLocation extends Location implements Serializable{
     private Question question;
 
     public QuestionLocation() {

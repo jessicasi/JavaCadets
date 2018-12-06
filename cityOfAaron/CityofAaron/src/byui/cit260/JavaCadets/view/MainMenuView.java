@@ -44,18 +44,18 @@ public class MainMenuView extends View {
 
             case "N": {
             try {
-                startNewGame();
+                this.startNewGame();
             } catch (MapControlException | GameControlException ex) {
                 this.console.println(ex.getMessage());
             }
             }
             break;
             case "R": {
-                restartGame();
+                this.restartGame();
             }
             break;
             case "H": {
-                getHelp();
+                this.getHelp();
             }
             break;
             case "E":
@@ -79,8 +79,10 @@ public class MainMenuView extends View {
     }
 
     private void restartGame() {
+        this.console.println("restartGame called");
         StartExistingGameView startExistingGameView = new StartExistingGameView();
-        startExistingGameView.display();
+        startExistingGameView.display()
+                ;
     }
 
     private void getHelp() {

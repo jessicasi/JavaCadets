@@ -14,9 +14,13 @@ import byui.cit260.JavaCadets.model.ItemType;
 import byui.cit260.JavaCadets.model.Map;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.model.Question;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import static java.lang.System.out;
 
 /**
  *
@@ -143,23 +147,44 @@ public class GameControl {
     public static void movePlayerToStartingLocation(Map map) throws MapControlException {
         MapControl.movePlayer(map, 0, 0);
     }
-    
-    public static void saveGame (Game game, String filePath) throws GameControlException, IOException{
-        if(game == null || filePath == null || filePath.length() < 1)
-            throw new GameControlException("File Path invaild");
-        
-        try ( ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
-            out.writeObject(game);
-            out.flush();
-        } catch (IOException ex) {
-            throw new IOException(" I/O Error");
-     
-        }
-        }   
-    public static  Game getGame(){
 
-        Game game = null;
+    
+    public static void saveGame(Game game, String filePath) throws GameControlException, IOException {
+        if (game == null || filePath == null || filePath.length() < 1) {
+            throw new GameControlException("File Path invaild");
+        }
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream(filePath))) {
+            out.writeObject(game);
+
+        } catch (IOException ex){
+            throw new IOException("Out object didn't write");
+        }
+
+        }
+
+            
+
+    public static Game getGame(String fileName) throws GameControlException, FileNotFoundException, IOException, ClassNotFoundException {
+
+        if (fileName == null) {
+            throw new GameControlException("Empty Filename");
+        }
+
+        Game game;
+        //game = new Game();
+        try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))) {
+            game = (Game) in.readObject();
+        }
+
+        if (game == null) {
+            throw new IOException(" I/O Error");
+        }
+        CityofAaron.setCurrentGame(game);
+        CityofAaron.setPlayer(game.getThePlayer());
+
         return game;
-    }       
-      
+        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
 }

@@ -5,13 +5,14 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author jessicasi
  */
-public class InventoryItem {
+public class InventoryItem implements Serializable{
     
         private String itemType;
         private int quantity;
@@ -128,10 +129,7 @@ public class InventoryItem {
         if (!Objects.equals(this.itemType, other.itemType)) {
             return false;
         }
-        if (!Objects.equals(this.condition, other.condition)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.condition, other.condition);
     }
 
     @Override

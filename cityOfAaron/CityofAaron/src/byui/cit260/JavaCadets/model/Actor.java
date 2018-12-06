@@ -5,13 +5,14 @@
  */
 package byui.cit260.JavaCadets.model;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 /**
  *
  * @author jessicasi
  */
-public class Actor {
+public class Actor implements Serializable{
     
     
     private String name;

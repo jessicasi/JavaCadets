@@ -174,11 +174,13 @@ public class ReportsMenuView extends View {
                 }
             }
             this.console.println("Total cost of all inventory items: " + totalCost);
+            
         } catch (ReportsControlException ex) {
             ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
-    }
-
+    }    
+    
+    
     private void getInventoryAverage() {
 
         try {

@@ -18,11 +18,11 @@ public class CurrentAnnualReportView extends View{
        //eventually hook up to variables
        Game game = CityofAaron.getCurrentGame();
        
-       this.console.println("Year Number: \n");
+       this.console.println("Year Number: " + game.getYear());
        
        this.console.println("# of people who starved: " + game.getPopulationMortality());
        
-       this.console.println("# of people who moved in: ");
+       this.console.println("# of people who moved in: " + game.getNewPopulation());
        
        this.console.println("Current Population: " + game.getCurrentPopulation());
        
@@ -30,9 +30,9 @@ public class CurrentAnnualReportView extends View{
        
        this.console.println("# of bushels of wheat paid in offerings: " + game.getTithingPaid());
        
-       this.console.println("# of bushels of wheat eaten by rats: ");
+       this.console.println("# of bushels of wheat eaten by rats: " + game.getRatWheat());
        
-       this.console.println("# of bushles of wheat in storehouse: " + game.getWheatInStorage());
+       this.console.println("# of bushels of wheat in storehouse: " + game.getWheatInStorage() + "\n\n");
     }
 
     @Override

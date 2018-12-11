@@ -70,7 +70,7 @@ public class MapControl {
         // Create a location and assign it to its position in the locations array
         //Location 1
         Location locations = new Location();
-        locations.setLocationType("Neighbor");
+        locations.setLocationType("The Neighbor's House");
         location[0][0] = locations;
         locations.setRow(0);
         locations.setColumn(0);
@@ -90,7 +90,7 @@ public class MapControl {
 
         //Location 3
         locations = new Location();
-        locations.setLocationType("Waters Of Mormon");
+        locations.setLocationType("The Waters Of Mormon");
         location[0][2] = locations;
         locations.setRow(0);
         locations.setColumn(2);
@@ -101,7 +101,7 @@ public class MapControl {
 
         //Location 4
         ResourceLocation resourceLocation = new ResourceLocation();
-        resourceLocation.setLocationType("Market");
+        resourceLocation.setLocationType("The Market");
         location[0][3] = resourceLocation;
         resourceLocation.setRow(0);
         resourceLocation.setColumn(3);
@@ -116,7 +116,7 @@ public class MapControl {
         //Location 5
         QuestionLocation questionLocation = new QuestionLocation();
         //locations = new QuestionLocation();
-        questionLocation.setLocationType("Inn");
+        questionLocation.setLocationType("The Inn");
         location[0][4] = questionLocation;
         questionLocation.setRow(0);
         questionLocation.setColumn(4);
@@ -153,7 +153,7 @@ public class MapControl {
 
         //Location 8
         questionLocation = new QuestionLocation();
-        questionLocation.setLocationType("Road");
+        questionLocation.setLocationType("The Road");
         location[1][2] = questionLocation;
         questionLocation.setRow(1);
         questionLocation.setColumn(2);
@@ -165,7 +165,7 @@ public class MapControl {
 
         //Location 9
         locations = new Location();
-        locations.setLocationType("Field");
+        locations.setLocationType("The Field");
         location[1][3] = locations;
         locations.setRow(1);
         locations.setColumn(3);
@@ -187,7 +187,7 @@ public class MapControl {
 
         //Location 11
         locations = new Location();
-        locations.setLocationType("Farm");
+        locations.setLocationType("The Farm");
         location[2][0] = locations;
         locations.setRow(2);
         locations.setColumn(0);
@@ -198,7 +198,7 @@ public class MapControl {
 
         //Location 12
         questionLocation = new QuestionLocation();
-        questionLocation.setLocationType("Temple");
+        questionLocation.setLocationType("The Temple");
         location[2][1] = questionLocation;
         questionLocation.setRow(2);
         questionLocation.setColumn(1);
@@ -222,7 +222,7 @@ public class MapControl {
 
         //Location 14
         questionLocation = new QuestionLocation();
-        questionLocation.setLocationType("Church");
+        questionLocation.setLocationType("The Church");
         location[2][3] = questionLocation;
         questionLocation.setRow(2);
         questionLocation.setColumn(3);
@@ -234,7 +234,7 @@ public class MapControl {
 
         //Location 15
         locations = new Location();
-        locations.setLocationType("Bakery");
+        locations.setLocationType("The Bakery");
         location[2][4] = locations;
         locations.setRow(2);
         locations.setColumn(4);
@@ -244,7 +244,7 @@ public class MapControl {
 
         //Location 16
        resourceLocation = new ResourceLocation();
-        resourceLocation.setLocationType("Barn");
+        resourceLocation.setLocationType("The Barn");
         location[3][0] = resourceLocation;
         resourceLocation.setRow(3);
         resourceLocation.setColumn(0);
@@ -256,7 +256,7 @@ public class MapControl {
 
         //Location 17
         resourceLocation = new ResourceLocation();
-        resourceLocation.setLocationType("Storehouse");
+        resourceLocation.setLocationType("The Storehouse");
         location[3][1] = locations;
         resourceLocation.setRow(3);
         resourceLocation.setColumn(1);
@@ -270,7 +270,7 @@ public class MapControl {
 
         //Location 18
         locations = new Location();
-        locations.setLocationType("Bathhouse");
+        locations.setLocationType("The Bathhouse");
         location[3][2] = locations;
         locations.setRow(3);
         locations.setColumn(2);
@@ -280,7 +280,7 @@ public class MapControl {
 
         //Location 19
         locations = new Location();
-        locations.setLocationType("Forest");
+        locations.setLocationType("The Forest");
         location[3][3] = locations;
         locations.setRow(3);
         locations.setColumn(3);
@@ -290,7 +290,7 @@ public class MapControl {
 
         //Location 20
         locations = new Location();
-        locations.setLocationType("Undeveloped Land");
+        locations.setLocationType("Some Undeveloped Land");
         location[3][4] = locations;
         locations.setRow(3);
         locations.setColumn(4);
@@ -340,7 +340,7 @@ public class MapControl {
 
         //Location 25
         locations = new Location();
-        locations.setLocationType("Lamanites BorderLand");
+        locations.setLocationType("The Lamanites BorderLand");
         location[4][4] = locations;
         locations.setRow(4);
         locations.setColumn(4);

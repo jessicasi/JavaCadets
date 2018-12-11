@@ -142,6 +142,8 @@ public class GameMenuView extends View {
     private void moveLocations() {
         MovePlayer moveplayer = new MovePlayer();
         moveplayer.display();
+        
+       
     }
 
     private void manageCrops() {

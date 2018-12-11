@@ -14,7 +14,7 @@ import java.util.Objects;
  */
 public class Question implements Serializable{
     
-    private String question;
+    private String questions;
     private String answer1;
     private String answer2;
     private String answer3;
@@ -24,15 +24,63 @@ public class Question implements Serializable{
     public Question() {
     }
 
+    public String getQuestions() {
+        return questions;
+    }
+
+    public void setQuestions(String question) {
+        this.questions = question;
+    }
+
+    public String getAnswer1() {
+        return answer1;
+    }
+
+    public void setAnswer1(String answer1) {
+        this.answer1 = answer1;
+    }
+
+    public String getAnswer2() {
+        return answer2;
+    }
+
+    public void setAnswer2(String answer2) {
+        this.answer2 = answer2;
+    }
+
+    public String getAnswer3() {
+        return answer3;
+    }
+
+    public void setAnswer3(String answer3) {
+        this.answer3 = answer3;
+    }
+
+    public String getAnswer4() {
+        return answer4;
+    }
+
+    public void setAnswer4(String answer4) {
+        this.answer4 = answer4;
+    }
+
+    public boolean isCorrectAnswer() {
+        return correctAnswer;
+    }
+
+    public void setCorrectAnswer(boolean correctAnswer) {
+        this.correctAnswer = correctAnswer;
+    }
+
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 89 * hash + Objects.hashCode(this.question);
-        hash = 89 * hash + Objects.hashCode(this.answer1);
-        hash = 89 * hash + Objects.hashCode(this.answer2);
-        hash = 89 * hash + Objects.hashCode(this.answer3);
-        hash = 89 * hash + Objects.hashCode(this.answer4);
-        hash = 89 * hash + Objects.hashCode(this.correctAnswer);
+        int hash = 5;
+        hash = 79 * hash + Objects.hashCode(this.questions);
+        hash = 79 * hash + Objects.hashCode(this.answer1);
+        hash = 79 * hash + Objects.hashCode(this.answer2);
+        hash = 79 * hash + Objects.hashCode(this.answer3);
+        hash = 79 * hash + Objects.hashCode(this.answer4);
+        hash = 79 * hash + (this.correctAnswer ? 1 : 0);
         return hash;
     }
 
@@ -48,7 +96,10 @@ public class Question implements Serializable{
             return false;
         }
         final Question other = (Question) obj;
-        if (!Objects.equals(this.question, other.question)) {
+        if (this.correctAnswer != other.correctAnswer) {
+            return false;
+        }
+        if (!Objects.equals(this.questions, other.questions)) {
             return false;
         }
         if (!Objects.equals(this.answer1, other.answer1)) {
@@ -63,17 +114,18 @@ public class Question implements Serializable{
         if (!Objects.equals(this.answer4, other.answer4)) {
             return false;
         }
-        if (!Objects.equals(this.correctAnswer, other.correctAnswer)) {
-            return false;
-        }
         return true;
     }
 
     @Override
     public String toString() {
-        return "Question{" + "question=" + question + ", answer1=" + answer1 + ", answer2=" + answer2 + ", answer3=" + answer3 + ", answer4=" + answer4 + ", correctAnswer=" + correctAnswer + '}';
+        return "Question{" + "question=" + questions + ", answer1=" + answer1 + ", answer2=" + answer2 + ", answer3=" + answer3 + ", answer4=" + answer4 + ", correctAnswer=" + correctAnswer + '}';
     }
     
+
+    
+
+   
     
     
 }

@@ -73,6 +73,10 @@ public class MainMenuView extends View {
         //Create a new Game
         GameControl.createNewGame(CityofAaron.getPlayer());
        
+        this.console.println("\n\tCurrent Annual Report: \n");
+        CurrentAnnualReportView currentReport = new CurrentAnnualReportView();
+        
+        currentReport.displayCurrentAnnualReportView();
         GameMenuView gameMenuView = new GameMenuView();
         gameMenuView.display();
 

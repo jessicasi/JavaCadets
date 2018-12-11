@@ -17,6 +17,7 @@ public class Scene implements Serializable{
     private String name;
     private String description;
     private Question question;
+    private Question [] questions;
     private InventoryItem item;
     private Location location;
     private String mapSymbol;
@@ -24,9 +25,6 @@ public class Scene implements Serializable{
     public Scene() {
 
     }
-    
-    
-    
 
     public String getName() {
         return name;

@@ -48,17 +48,28 @@ public class GameControl {
         Game game = new Game();
         game.setThePlayer(player);
         CityofAaron.setCurrentGame(game);
-        game.setCurrentPopulation(5);
+        game.setCurrentPopulation(100);
+        game.setPopulationMortality(0);
         // call setter to assign an actor to the player
         // Create the lists of weapons used in the game
         InventoryItem[] items = createItems();
-
         game.setInventory(items);
+        
         game.setWheatInStorage(items[ItemType.wheat.ordinal()].getQuantityInStock());
-        game.setAcresOwned(50);
-        Question[] question = createQuestion();
-        game.setQuestion(question);
-
+        
+        game.setAcresOwned(1000);
+        
+        game.setWheatInStorage(2700);
+        
+        Question[] questions = createQuestion();
+        game.setQuestion(questions);
+        
+        game.setTithingPaid(300);
+        
+        game.setRatWheat(0);
+        
+        game.setNewPopulation(5);
+        
         int noOfRows = 5;
         int noOfColumns = 5;
 
@@ -149,7 +160,7 @@ public class GameControl {
         item = new InventoryItem();
         item.setItemName("wheat");
         item.setItemType("provisions");
-        item.setQuantityInStock(500);
+        item.setQuantityInStock(3000);
         item.setCondition("Good");
         item.setPricePerUnit(ItemType.wheat.getCost());
         //item.setRequiredAmount(~);
@@ -159,7 +170,46 @@ public class GameControl {
     }
 
     public static Question[] createQuestion() {
-        return null;
+        
+        Question[] questions = new Question[5];
+        
+        Question question = new Question();
+        question.setQuestions("Would you like to buy any land?");
+        question.setAnswer1("Yes");
+        question.setAnswer1("No");
+        question.setAnswer1("Quit");
+        questions[0] = question;
+        
+        question = new Question();
+        question.setQuestions("Would you like to sell any land?");
+        question.setAnswer1("Yes");
+        question.setAnswer1("No");
+        question.setAnswer1("Quit");
+        questions[1] = question;
+        
+        question = new Question();
+        question.setQuestions("Would you like to feed your people?");
+        question.setAnswer1("Yes");
+        question.setAnswer1("No");
+        question.setAnswer1("Quit");
+        questions[2] = question;
+        
+        question = new Question();
+        question.setQuestions("Would you like to plant crops?");
+        question.setAnswer1("Yes");
+        question.setAnswer1("No");
+        question.setAnswer1("Quit");
+        questions[3] = question;
+        
+        question = new Question();
+        question.setQuestions("Would you like to pay tithing?");
+        question.setAnswer1("Yes");
+        question.setAnswer1("No");
+        question.setAnswer1("Quit");
+        questions[4] = question;
+        
+        
+        return questions;
     }
 
     public static Map createMap(Game game, int noOfRows, int noOfColumns) {
@@ -196,7 +246,6 @@ public class GameControl {
         }
 
         Game game;
-        //game = new Game();
         try (ObjectInputStream in = new ObjectInputStream(new FileInputStream(fileName))) {
             game = (Game) in.readObject();
         }
@@ -208,7 +257,6 @@ public class GameControl {
         CityofAaron.setPlayer(game.getThePlayer());
 
         return game;
-        // throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

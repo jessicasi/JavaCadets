@@ -10,7 +10,8 @@ import byui.cit260.JavaCadets.control.FeedThePeople;
 import byui.cit260.JavaCadets.exceptions.FeedThePeopleException;
 import byui.cit260.JavaCadets.model.Game;
 import java.io.IOException;
-
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -22,7 +23,7 @@ public class FeedThePeopleView extends View {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-        
+
         this.console.println(" *********************** ");
         this.console.println(" *** Feed Population *** ");
         this.console.println(" *********************** ");
@@ -32,10 +33,10 @@ public class FeedThePeopleView extends View {
 
         String feedInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = feedInput;
-        
+
         return inputs;
     }
-    
+
     @Override
     public boolean doAction(String[] inputs) {
         String menuItem = inputs[0].toUpperCase();
@@ -43,12 +44,43 @@ public class FeedThePeopleView extends View {
         switch (menuItem) {
 
             case "F": {
-            try {
-                feedThePeople();
-            } catch (FeedThePeopleException ex) {
-                this.console.println(ex.getMessage());            }
-            }
+
+                Game game = CityofAaron.getCurrentGame();
+
+                // FeedThePeople feedThePeople = new FeedThePeople();
+                //feedThePeople
+                this.console.println("Your population consists of " + game.getCurrentPopulation()
+                        + " people across " + game.getAcresOwned() + " acre(s) of land.");
+                this.console.println("It takes 2 bushels of wheat to feed each person.");
+                this.console.println("You have " + game.getWheatInStorage() + " wheat remaining.");
+                this.console.println("To feed everyone will require " + game.getCurrentPopulation() * 2 + " wheat.");
+                this.console.println();
+                this.console.println("How much wheat will you give to the people?\n");
+
+                //Get User Input
+                String selection = null;
+                try {
+                    selection = this.keyboard.readLine();
+                } catch (IOException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+                }
+                int wheatFeed = 0;
+                try {
+                    wheatFeed = Integer.parseInt(selection);
+                } catch (NumberFormatException nf) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + nf.getMessage());
+                }
+                int peopleFed = 0;
+                try {
+                    peopleFed = FeedThePeople.feedThePeople(game, wheatFeed);
+                } catch (FeedThePeopleException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+                }
+
+                this.console.println("\nGreat Work! You fed " + peopleFed + " people and have " + game.getWheatInStorage() + " wheat left");
+
                 break;
+            }
 
             case "Q":
                 return true;
@@ -61,37 +93,5 @@ public class FeedThePeopleView extends View {
         return false;
     }
 
-
-    private void feedThePeople() throws FeedThePeopleException {
-
-        try {
-            Game game = CityofAaron.getCurrentGame();
-            
-            FeedThePeople feedThePeople = new FeedThePeople();
-            //feedThePeople
-            this.console.println("Your population consists of " + game.getCurrentPopulation() +
-                    " people across " + game.getAcresOwned() + " acre(s) of land.");
-            this.console.println("It takes 2 bushels of wheat to feed each person.");
-            this.console.println("You have " + game.getWheatInStorage() + " wheat remaining.");
-            this.console.println("To feed everyone will require " + game.getCurrentPopulation() * 2 + " wheat.");
-            this.console.println();
-            this.console.println("How much wheat will you give to the people?\n");
-            
-            //Get User Input
-         
-            String selection = null;
-            
-            selection = this.keyboard.readLine();
-            
-            int wheatFeed = Integer.parseInt(selection);
-            int peopleFed = feedThePeople.feedThePeople(game, wheatFeed);
-            
-            this.console.println("\nGreat Work! You fed " + peopleFed + " people and have " + game.getWheatInStorage() + " wheat left");        
-        } catch (IOException ex) {
-           ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
-        }
-     
-    }
-    
-    
+//    
 }

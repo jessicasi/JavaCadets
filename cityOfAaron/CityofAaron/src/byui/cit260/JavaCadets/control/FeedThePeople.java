@@ -14,7 +14,7 @@ import byui.cit260.JavaCadets.model.Game;
  */
 public class FeedThePeople {
 
-    public int feedThePeople(Game game, int userWheat) throws FeedThePeopleException {
+    public static int feedThePeople(Game game, int userWheat) throws FeedThePeopleException {
 
 //        
         int wheatNeeded = game.getCurrentPopulation() * 2;

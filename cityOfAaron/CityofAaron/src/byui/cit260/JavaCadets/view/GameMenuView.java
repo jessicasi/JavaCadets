@@ -30,7 +30,6 @@ public class GameMenuView extends View {
         this.console.println("V - View the Map ");
         this.console.println("M - Move to a new Location");
         this.console.println("C - Manage the Crops");
-        this.console.println("L - Live the year");
         this.console.println("R - Reports Menu");
         this.console.println("S - Save Game");
         this.console.println("Q - Return to Main Menu");
@@ -58,17 +57,6 @@ public class GameMenuView extends View {
             break;
             case "C": {
                 this.manageCrops();
-            }
-            break;
-
-            case "L": {
-                try {
-                    liveTheYear();
-                } catch (HarvestCropsException ex) {
-                    this.console.println(ex.getMessage());
-                } catch (GrowPopulationException ex) {
-                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
-                }
             }
             break;
             case "R": {
@@ -151,11 +139,7 @@ public class GameMenuView extends View {
         manageCrops.display();
     }
 
-    private void liveTheYear() throws HarvestCropsException, GrowPopulationException {
-        LiveTheYear liveTheYear = new LiveTheYear();
-        String[] yearlyReport = liveTheYear.liveTheYear();
-    }
-
+ 
     private void saveGame() {
         SaveGameMenuView saveGame = new SaveGameMenuView();
         saveGame.display();

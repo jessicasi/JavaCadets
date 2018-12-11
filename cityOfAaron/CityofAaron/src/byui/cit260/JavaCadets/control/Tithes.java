@@ -25,6 +25,8 @@ public class Tithes{
                 }
                
                game.setTithingPaid(tithes);
+               int paid = game.getWheatInStorage() * (tithes/100);
+               game.setWheatInStorage(game.getWheatInStorage() - paid);
         return true;
 }
 }

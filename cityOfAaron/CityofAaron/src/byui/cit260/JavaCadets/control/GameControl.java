@@ -258,5 +258,12 @@ public class GameControl {
 
         return game;
     }
+    
+    public static void resetYear(Game game) {
+        game.setRatWheat(0);
+        game.setTithingPaid(0);
+        game.setMonths(0);
+        game.setPopulationMortality(0);
+    }
 
 }

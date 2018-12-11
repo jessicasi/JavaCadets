@@ -8,6 +8,8 @@ package byui.cit260.JavaCadets.view;
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.MapControl;
 import static byui.cit260.JavaCadets.control.MapControl.movePlayer;
+import byui.cit260.JavaCadets.exceptions.GrowPopulationException;
+import byui.cit260.JavaCadets.exceptions.HarvestCropsException;
 import byui.cit260.JavaCadets.exceptions.MapControlException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
@@ -15,6 +17,8 @@ import byui.cit260.JavaCadets.model.Map;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.model.Scene;
 import static java.lang.Integer.parseInt;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -90,7 +94,12 @@ public class MovePlayer extends View {
         game.setCurrentLocation(newLocation);
         
         LocationView locationView = new LocationView();
-        locationView.displayLocationView();
+        try {
+            locationView.displayLocationView();
+        } catch (HarvestCropsException | GrowPopulationException ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+        }
         
 //        Location[][] locations = map.getLocations(); // retreive the locations from map
 //        for (int i = 0; i < locations.length; i++) {

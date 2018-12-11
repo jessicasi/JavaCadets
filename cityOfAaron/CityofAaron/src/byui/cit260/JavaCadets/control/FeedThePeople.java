@@ -41,6 +41,7 @@ public class FeedThePeople {
             int wheatLeft = game.getWheatInStorage() - userWheat;
             game.setWheatInStorage(wheatLeft);
             game.setPopulationMortality(peopleDied);
+            game.setTotalDied(game.getPopulationMortality() + peopleDied);
             game.setCurrentPopulation(game.getCurrentPopulation() - peopleDied);
             
            

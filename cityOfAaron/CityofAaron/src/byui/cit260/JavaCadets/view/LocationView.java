@@ -6,6 +6,9 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.control.LiveTheYear;
+import byui.cit260.JavaCadets.exceptions.GrowPopulationException;
+import byui.cit260.JavaCadets.exceptions.HarvestCropsException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Question;
@@ -17,19 +20,25 @@ import byui.cit260.JavaCadets.model.Scene;
  */
 public class LocationView extends View {
 
- public void displayLocationView() {
-     Game game = CityofAaron.getCurrentGame();
-     Location location = game.getCurrentLocation();
-     Scene scene = location.getScene();
-     Question question = scene.getQuestion();
-     
-     this.console.println("\nWelcome to " + location.getLocationType() + "\n");
-     this.console.println(question.getQuestions());
-     
-     game.setMonths(game.getMonths() + 3);
- }
-    
-    
+    public void displayLocationView() throws HarvestCropsException, GrowPopulationException {
+        Game game = CityofAaron.getCurrentGame();
+        Location location = game.getCurrentLocation();
+        Scene scene = location.getScene();
+        Question question = scene.getQuestion();
+        LiveTheYear year = new LiveTheYear();
+
+        this.console.println("\nWelcome to " + location.getLocationType() + "\n");
+        this.console.println(question.getQuestions());
+
+        if (game.getMonths() == 12) {
+            year.liveTheYear();
+            CurrentAnnualReportView currentReport = new CurrentAnnualReportView();
+            currentReport.displayCurrentAnnualReportView();
+        } else {
+            game.setMonths(game.getMonths() + 3);
+        }
+    }
+
     @Override
     public String[] getInputs() {
         String[] inputs = new String[1];
@@ -41,5 +50,3 @@ public class LocationView extends View {
         return false;
     }
 }
-
-

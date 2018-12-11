@@ -16,30 +16,25 @@ import byui.cit260.JavaCadets.model.Game;
  */
 public class LiveTheYear {
 
-    public String[] liveTheYear() throws HarvestCropsException, GrowPopulationException {
+    public void liveTheYear() throws HarvestCropsException, GrowPopulationException {
 
-        String[] yearlyReport = null;
         HarvestCrops harvestCrops = new HarvestCrops();
         Game game = CityofAaron.getCurrentGame();
 
         int cropsHarvested = harvestCrops.harvestCrops(game);
 
-//The number of bushels of wheat paid in offerings.
-        int tithingPaid = game.getTithingPaid();
 //The total number of bushels of wheat in store after adding the harvest and subtracting the wheat paid in offerings.
-
-        int wheatInStore = (game.getWheatInStorage() + cropsHarvested) - tithingPaid;
+        game.setWheatInStorage(game.getWheatInStorage() + cropsHarvested);
 //The number of bushels of wheat in store eaten by rats. This value is subtracted from the wheat in store.
-
-//The number of people that starve because they don’t have enough wheat.
-        int populationMortality = game.getPopulationMortality();
-
+        EatenByRats rats = new EatenByRats();
+        int ratWheat = rats.eatenByRats();
+        game.setRatWheat(ratWheat);
+        game.setWheatInStorage(game.getWheatInStorage() - ratWheat);
 //The number of people that move into the city.  
         GrowPopulation growPopulation = new GrowPopulation();
         int newPeople = growPopulation.growPopulation(game);
-        
+        game.setNewPopulation(newPeople);
 
-        return yearlyReport;
     }
 
 }

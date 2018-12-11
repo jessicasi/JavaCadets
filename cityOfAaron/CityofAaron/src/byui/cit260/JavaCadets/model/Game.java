@@ -28,11 +28,20 @@ public class Game implements Serializable{
     private int year;
     private int newPopulation;
     private int ratWheat;
+    private int peopleFed;
+    private int totalDied;
     private Location currentLocation;
     private InventoryItem[] inventory;
     private Question[] question;
-    
 
+    public int getPeopleFed() {
+        return peopleFed;
+    }
+
+    public void setPeopleFed(int peopleFed) {
+        this.peopleFed = peopleFed;
+    }
+    
     public Question getQuestion(int i) {
         return question[i];
     }
@@ -113,7 +122,7 @@ public class Game implements Serializable{
     }
 
     public int getPopulationMortality() {
-        return populationMortality;
+        return currentPopulation - peopleFed;
     }
 
     public void setPopulationMortality(int populationMortality) {
@@ -159,25 +168,34 @@ public class Game implements Serializable{
     public void setCurrentLocation(Location currentLocation) {
         this.currentLocation = currentLocation;
     }
+    
+    public int getTotalDied() {
+        return totalDied;
+    }
+    
+    public void setTotalDied(int i) {
+        this.totalDied += i;
+    }
 
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 67 * hash + Objects.hashCode(this.thePlayer);
-        hash = 67 * hash + Objects.hashCode(this.theMap);
-        hash = 67 * hash + Objects.hashCode(this.theStorehouse);
-        hash = 67 * hash + this.currentPopulation;
-        hash = 67 * hash + this.populationMortality;
-        hash = 67 * hash + this.acresOwned;
-        hash = 67 * hash + this.wheatInStorage;
-        hash = 67 * hash + this.tithingPaid;
-        hash = 67 * hash + this.months;
-        hash = 67 * hash + this.year;
-        hash = 67 * hash + this.newPopulation;
-        hash = 67 * hash + this.ratWheat;
-        hash = 67 * hash + Objects.hashCode(this.currentLocation);
-        hash = 67 * hash + Arrays.deepHashCode(this.inventory);
-        hash = 67 * hash + Arrays.deepHashCode(this.question);
+        int hash = 3;
+        hash = 71 * hash + Objects.hashCode(this.thePlayer);
+        hash = 71 * hash + Objects.hashCode(this.theMap);
+        hash = 71 * hash + Objects.hashCode(this.theStorehouse);
+        hash = 71 * hash + this.currentPopulation;
+        hash = 71 * hash + this.populationMortality;
+        hash = 71 * hash + this.acresOwned;
+        hash = 71 * hash + this.wheatInStorage;
+        hash = 71 * hash + this.tithingPaid;
+        hash = 71 * hash + this.months;
+        hash = 71 * hash + this.year;
+        hash = 71 * hash + this.newPopulation;
+        hash = 71 * hash + this.ratWheat;
+        hash = 71 * hash + this.peopleFed;
+        hash = 71 * hash + Objects.hashCode(this.currentLocation);
+        hash = 71 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 71 * hash + Arrays.deepHashCode(this.question);
         return hash;
     }
 
@@ -220,6 +238,9 @@ public class Game implements Serializable{
         if (this.ratWheat != other.ratWheat) {
             return false;
         }
+        if (this.peopleFed != other.peopleFed) {
+            return false;
+        }
         if (!Objects.equals(this.thePlayer, other.thePlayer)) {
             return false;
         }
@@ -243,8 +264,12 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", populationMortality=" + populationMortality + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", months=" + months + ", year=" + year + ", newPopulation=" + newPopulation + ", ratWheat=" + ratWheat + ", currentLocation=" + currentLocation + ", inventory=" + inventory + ", question=" + question + '}';
+        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", populationMortality=" + populationMortality + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", months=" + months + ", year=" + year + ", newPopulation=" + newPopulation + ", ratWheat=" + ratWheat + ", peopleFed=" + peopleFed + ", currentLocation=" + currentLocation + ", inventory=" + inventory + ", question=" + question + '}';
     }
+
+
+
+   
     
    
 }

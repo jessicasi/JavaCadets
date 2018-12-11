@@ -10,8 +10,7 @@ import byui.cit260.JavaCadets.control.FeedThePeople;
 import byui.cit260.JavaCadets.exceptions.FeedThePeopleException;
 import byui.cit260.JavaCadets.model.Game;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 
 /**
  *
@@ -77,6 +76,7 @@ public class FeedThePeopleView extends View {
                     ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
                 }
 
+                game.setPeopleFed(peopleFed);
                 this.console.println("\nGreat Work! You fed " + peopleFed + " people and have " + game.getWheatInStorage() + " wheat left");
 
                 break;

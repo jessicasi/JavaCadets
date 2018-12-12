@@ -6,9 +6,12 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.exceptions.EndGameException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -50,7 +53,10 @@ public class GameMenuView extends View {
             break;
             case "M": {
                 this.moveLocations();
-            }
+                 Game game = CityofAaron.getCurrentGame();
+                  if(!game.isValid())
+                        return true;
+                    }
             break;
             case "C": {
                 this.manageCrops();
@@ -125,7 +131,6 @@ public class GameMenuView extends View {
     private void moveLocations() {
         MovePlayer moveplayer = new MovePlayer();
         moveplayer.display();
-        
        
     }
 

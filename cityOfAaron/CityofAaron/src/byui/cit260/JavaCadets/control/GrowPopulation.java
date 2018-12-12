@@ -27,7 +27,7 @@ public class GrowPopulation {
         if (growthRate < 1) {
             throw new GrowPopulationException("Your growth rate is less than 0 - that's not growth, try again!");
         }
-        if (growthRate > 5) {
+        if (growthRate > 6) {
             throw new GrowPopulationException("Your growth rate is too high, keep it 4 or under");
         }
         

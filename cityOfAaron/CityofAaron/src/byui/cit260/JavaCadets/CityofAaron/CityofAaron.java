@@ -10,6 +10,7 @@ import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.view.StartProgramView;
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
@@ -39,10 +40,8 @@ public class CityofAaron {
         StartProgramView startProgramView = new StartProgramView();
         startProgramView.display();
         
-    } catch (Throwable ie){
+    } catch (FileNotFoundException ie){
         System.out.println(ie.getMessage());
-        ie.printStackTrace();
-        return;     
     }
        finally {
            try {

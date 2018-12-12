@@ -14,11 +14,12 @@ import byui.cit260.JavaCadets.model.Game;
  */
 public class EatenByRats {
     
-    public int eatenByRats() {
+    public static void eatenByRats() {
  
    int fate = (int) (Math.random() * (100 - 1) + 1);
-   if(fate < 30)
-       return 0;
+   if(fate > 30){
+       
+   
     Game game = CityofAaron.getCurrentGame();
     int ratWheat = 0;
     float percent = 0;
@@ -42,7 +43,10 @@ public class EatenByRats {
             ratWheat = (int) (percent * game.getWheatInStorage());  
         }
     
-    return ratWheat;
+   game.setRatWheat(ratWheat);
+   game.setWheatInStorage(game.getWheatInStorage() - ratWheat);
+
        }
    
+}
 }

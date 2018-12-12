@@ -33,7 +33,17 @@ public class Game implements Serializable{
     private Location currentLocation;
     private InventoryItem[] inventory;
     private Question[] question;
+    private boolean valid;
 
+    public boolean isValid() {
+        return valid;
+    }
+
+    public void setValid(boolean valid) {
+        this.valid = valid;
+    }
+
+   
     public int getPeopleFed() {
         return peopleFed;
     }
@@ -179,23 +189,25 @@ public class Game implements Serializable{
 
     @Override
     public int hashCode() {
-        int hash = 3;
-        hash = 71 * hash + Objects.hashCode(this.thePlayer);
-        hash = 71 * hash + Objects.hashCode(this.theMap);
-        hash = 71 * hash + Objects.hashCode(this.theStorehouse);
-        hash = 71 * hash + this.currentPopulation;
-        hash = 71 * hash + this.populationMortality;
-        hash = 71 * hash + this.acresOwned;
-        hash = 71 * hash + this.wheatInStorage;
-        hash = 71 * hash + this.tithingPaid;
-        hash = 71 * hash + this.months;
-        hash = 71 * hash + this.year;
-        hash = 71 * hash + this.newPopulation;
-        hash = 71 * hash + this.ratWheat;
-        hash = 71 * hash + this.peopleFed;
-        hash = 71 * hash + Objects.hashCode(this.currentLocation);
-        hash = 71 * hash + Arrays.deepHashCode(this.inventory);
-        hash = 71 * hash + Arrays.deepHashCode(this.question);
+        int hash = 7;
+        hash = 47 * hash + Objects.hashCode(this.thePlayer);
+        hash = 47 * hash + Objects.hashCode(this.theMap);
+        hash = 47 * hash + Objects.hashCode(this.theStorehouse);
+        hash = 47 * hash + this.currentPopulation;
+        hash = 47 * hash + this.populationMortality;
+        hash = 47 * hash + this.acresOwned;
+        hash = 47 * hash + this.wheatInStorage;
+        hash = 47 * hash + this.tithingPaid;
+        hash = 47 * hash + this.months;
+        hash = 47 * hash + this.year;
+        hash = 47 * hash + this.newPopulation;
+        hash = 47 * hash + this.ratWheat;
+        hash = 47 * hash + this.peopleFed;
+        hash = 47 * hash + this.totalDied;
+        hash = 47 * hash + Objects.hashCode(this.currentLocation);
+        hash = 47 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 47 * hash + Arrays.deepHashCode(this.question);
+        hash = 47 * hash + (this.valid ? 1 : 0);
         return hash;
     }
 
@@ -241,6 +253,12 @@ public class Game implements Serializable{
         if (this.peopleFed != other.peopleFed) {
             return false;
         }
+        if (this.totalDied != other.totalDied) {
+            return false;
+        }
+        if (this.valid != other.valid) {
+            return false;
+        }
         if (!Objects.equals(this.thePlayer, other.thePlayer)) {
             return false;
         }
@@ -264,13 +282,11 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", populationMortality=" + populationMortality + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", months=" + months + ", year=" + year + ", newPopulation=" + newPopulation + ", ratWheat=" + ratWheat + ", peopleFed=" + peopleFed + ", currentLocation=" + currentLocation + ", inventory=" + inventory + ", question=" + question + '}';
+        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", populationMortality=" + populationMortality + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", months=" + months + ", year=" + year + ", newPopulation=" + newPopulation + ", ratWheat=" + ratWheat + ", peopleFed=" + peopleFed + ", totalDied=" + totalDied + ", currentLocation=" + currentLocation + ", inventory=" + inventory + ", question=" + question + ", valid=" + valid + '}';
     }
 
-
-
-   
     
+  
    
 }
     

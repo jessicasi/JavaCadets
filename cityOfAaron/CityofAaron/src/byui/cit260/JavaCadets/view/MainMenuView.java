@@ -10,8 +10,7 @@ import byui.cit260.JavaCadets.control.GameControl;
 import byui.cit260.JavaCadets.exceptions.GameControlException;
 import byui.cit260.JavaCadets.exceptions.MapControlException;
 import byui.cit260.JavaCadets.exceptions.PopulationMortalityException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import byui.cit260.JavaCadets.model.Game;
 
 /**
  *
@@ -56,7 +55,12 @@ public class MainMenuView extends View {
             }
             break;
             case "R": {
+            try {
                 this.restartGame();
+            } catch (PopulationMortalityException | GameControlException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+            }
             }
             break;
             case "H": {
@@ -71,7 +75,9 @@ public class MainMenuView extends View {
             }
             break;
         }
-        return false;
+        
+        Game game = CityofAaron.getCurrentGame();
+        return game.getYear() >= 5;
     }
 
     private void startNewGame() throws MapControlException, GameControlException, PopulationMortalityException {
@@ -87,7 +93,10 @@ public class MainMenuView extends View {
 
     }
 
-    private void restartGame() {
+    private void restartGame() throws PopulationMortalityException, GameControlException {
+         this.console.println("\n\tCurrent Annual Report: \n");
+        CurrentAnnualReportView currentReport = new CurrentAnnualReportView();
+        currentReport.displayCurrentAnnualReportView();
         StartExistingGameView startExistingGameView = new StartExistingGameView();
         startExistingGameView.display()
                 ;

@@ -64,12 +64,13 @@ public class GameControl {
         Question[] questions = createQuestion();
         game.setQuestion(questions);
         
-        game.setTithingPaid(10);
+        game.setTithingPaid(0);
         game.setMonths(0);
         
         game.setRatWheat(0);
         
         game.setNewPopulation(0);
+        game.setValid(true);
         
         int noOfRows = 5;
         int noOfColumns = 5;

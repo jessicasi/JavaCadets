@@ -18,8 +18,9 @@ public class LiveTheYear {
 
     public void liveTheYear() throws HarvestCropsException, GrowPopulationException {
 
-        HarvestCrops harvestCrops = new HarvestCrops();
         Game game = CityofAaron.getCurrentGame();
+        HarvestCrops harvestCrops = new HarvestCrops();
+        
 
         int cropsHarvested = harvestCrops.harvestCrops(game);
 
@@ -31,9 +32,12 @@ public class LiveTheYear {
         game.setRatWheat(ratWheat);
         game.setWheatInStorage(game.getWheatInStorage() - ratWheat);
 //The number of people that move into the city.  
-        GrowPopulation growPopulation = new GrowPopulation();
-        int newPeople = growPopulation.growPopulation(game);
-        game.setNewPopulation(newPeople);
+        //GrowPopulation growPopulation = new GrowPopulation();
+        GrowPopulation.growPopulation(game);
+
+        
+        //Advance the game by a year
+        game.setYear(game.getYear() + 1);
 
     }
 

@@ -19,7 +19,7 @@ public class FeedThePeople {
 //        
         int wheatNeeded = game.getCurrentPopulation() * 2;
         int peopleFed = 0;
-        int peopleDied = 0;
+    
 
         //Checks to see if user entered 0 or a negative number
         if (userWheat <= 0) {
@@ -37,12 +37,13 @@ public class FeedThePeople {
         } else {
 
             peopleFed = userWheat / 2;
-            peopleDied = game.getCurrentPopulation() - peopleFed;
+            game.setPeopleFed(peopleFed);
+            //peopleDied = game.getCurrentPopulation() - peopleFed;
             int wheatLeft = game.getWheatInStorage() - userWheat;
             game.setWheatInStorage(wheatLeft);
-            game.setPopulationMortality(peopleDied);
-            game.setTotalDied(game.getPopulationMortality() + peopleDied);
-            game.setCurrentPopulation(game.getCurrentPopulation() - peopleDied);
+           // game.setPopulationMortality(peopleDied);
+            //game.setTotalDied(game.getPopulationMortality() + peopleDied);
+            //game.setCurrentPopulation(game.getCurrentPopulation() - peopleDied);
             
            
         }

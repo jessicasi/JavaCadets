@@ -9,6 +9,9 @@ import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.control.GameControl;
 import byui.cit260.JavaCadets.exceptions.GameControlException;
 import byui.cit260.JavaCadets.exceptions.MapControlException;
+import byui.cit260.JavaCadets.exceptions.PopulationMortalityException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -21,7 +24,7 @@ public class MainMenuView extends View {
         String[] inputs = new String[1];
 
         this.console.println(" ************** ");
-        this.console.println("   Main Menu");
+        this.console.println(" * Main Menu  *");
         this.console.println(" ************** ");
         this.console.println();
         this.console.println("N - Start new game");
@@ -47,6 +50,8 @@ public class MainMenuView extends View {
                 this.startNewGame();
             } catch (MapControlException | GameControlException ex) {
                 this.console.println(ex.getMessage());
+            } catch (PopulationMortalityException ex) {
+               ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
             }
             }
             break;
@@ -69,7 +74,7 @@ public class MainMenuView extends View {
         return false;
     }
 
-    private void startNewGame() throws MapControlException, GameControlException {
+    private void startNewGame() throws MapControlException, GameControlException, PopulationMortalityException {
         //Create a new Game
         GameControl.createNewGame(CityofAaron.getPlayer());
        
@@ -83,7 +88,6 @@ public class MainMenuView extends View {
     }
 
     private void restartGame() {
-        this.console.println("restartGame called");
         StartExistingGameView startExistingGameView = new StartExistingGameView();
         startExistingGameView.display()
                 ;

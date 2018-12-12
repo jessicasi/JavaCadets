@@ -14,11 +14,11 @@ import byui.cit260.JavaCadets.model.Game;
  */
 public class GrowPopulation {
     
-    public int growPopulation(Game game) throws GrowPopulationException{
+    public static void growPopulation(Game game) throws GrowPopulationException{
         
         int population = game.getCurrentPopulation();
         int range = 5;
-        int growthRate =  (int) (Math.random() * range) + 1;
+        float growthRate = (float) ((Math.random() * range) + 1);
         
         if (population < 1) {
             throw new GrowPopulationException("All of your people are gone!");
@@ -34,15 +34,15 @@ public class GrowPopulation {
         
         
         growthRate = growthRate/100;
-        int newPopulation = population * growthRate;
+        int newPopulation = (int) (population * growthRate);
         
         if (newPopulation == 0) {
             newPopulation = 1;
         }
         
-        population += newPopulation;
+        game.setNewPopulation(newPopulation);
+        game.setCurrentPopulation(population + newPopulation);
 
-        return population;
        
     
     }

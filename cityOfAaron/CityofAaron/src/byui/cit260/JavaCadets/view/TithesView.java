@@ -72,7 +72,7 @@ public class TithesView extends View {
                 }
                 this.console.println("Thank you for paying your tithing");
             }
-            break;
+            return true;
 
             case "Q":
                 return true;

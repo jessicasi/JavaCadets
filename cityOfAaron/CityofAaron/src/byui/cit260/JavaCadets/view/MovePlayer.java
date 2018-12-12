@@ -6,11 +6,13 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
-import byui.cit260.JavaCadets.control.MapControl;
+import byui.cit260.JavaCadets.control.LiveTheYear;
 import static byui.cit260.JavaCadets.control.MapControl.movePlayer;
+import byui.cit260.JavaCadets.exceptions.GameControlException;
 import byui.cit260.JavaCadets.exceptions.GrowPopulationException;
 import byui.cit260.JavaCadets.exceptions.HarvestCropsException;
 import byui.cit260.JavaCadets.exceptions.MapControlException;
+import byui.cit260.JavaCadets.exceptions.PopulationMortalityException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
@@ -19,6 +21,7 @@ import byui.cit260.JavaCadets.model.Scene;
 import static java.lang.Integer.parseInt;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 
 /**
  *
@@ -69,6 +72,7 @@ public class MovePlayer extends View {
         Scene scene = new Scene();
         scene.setDescription(newLocation.getDescription());
         scene.setMapSymbol(newLocation.getDisplaySymbol());
+         LiveTheYear year = new LiveTheYear();
         int months = game.getMonths();
 
         switch (months) {
@@ -94,11 +98,27 @@ public class MovePlayer extends View {
         game.setCurrentLocation(newLocation);
         
         LocationView locationView = new LocationView();
-        try {
-            locationView.displayLocationView();
-        } catch (HarvestCropsException | GrowPopulationException ex) {
-            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+        //try {
+            locationView.display();
+        //} catch (HarvestCropsException | GrowPopulationException ex) {
+       //     ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
 
+       // }
+         if (game.getMonths() == 12) {
+            try {
+                year.liveTheYear();
+            } catch (HarvestCropsException | GrowPopulationException ex) {
+                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            }
+            CurrentAnnualReportView currentReport = new CurrentAnnualReportView();
+            try {
+                currentReport.displayCurrentAnnualReportView();
+            } catch (PopulationMortalityException | GameControlException ex) {
+                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+            }
+        } else {
+            game.setMonths(game.getMonths() + 3);
         }
         
 //        Location[][] locations = map.getLocations(); // retreive the locations from map

@@ -6,7 +6,10 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
+import byui.cit260.JavaCadets.control.PopulationMortality;
 import byui.cit260.JavaCadets.exceptions.CurrentAnnualReportException;
+import byui.cit260.JavaCadets.exceptions.GameControlException;
+import byui.cit260.JavaCadets.exceptions.PopulationMortalityException;
 import byui.cit260.JavaCadets.model.Game;
 
 /**
@@ -14,11 +17,14 @@ import byui.cit260.JavaCadets.model.Game;
  * @author Jessica
  */
 public class CurrentAnnualReportView extends View{
-   public void displayCurrentAnnualReportView() {
+   public void displayCurrentAnnualReportView() throws PopulationMortalityException, GameControlException {
        //eventually hook up to variables
        Game game = CityofAaron.getCurrentGame();
        
        this.console.println("Year Number: " + game.getYear());
+       
+       if(game.getMonths() == 12)
+        PopulationMortality.populationMortality(game);
        
        this.console.println("# of people who starved: " + game.getPopulationMortality());
        
@@ -28,7 +34,7 @@ public class CurrentAnnualReportView extends View{
        
        this.console.println("# of acres of crop land owned: " + game.getAcresOwned());
        
-       this.console.println("# of bushels of wheat paid in offerings: " + game.getTithingPaid());
+       this.console.println("% of bushels of wheat paid in tithing: " + game.getTithingPaid());
        
        this.console.println("# of bushels of wheat eaten by rats: " + game.getRatWheat());
        

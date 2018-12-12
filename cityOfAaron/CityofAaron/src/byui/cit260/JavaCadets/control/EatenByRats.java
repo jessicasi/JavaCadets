@@ -17,29 +17,29 @@ public class EatenByRats {
     public int eatenByRats() {
  
    int fate = (int) (Math.random() * (100 - 1) + 1);
-   if(fate > 30)
+   if(fate < 30)
        return 0;
     Game game = CityofAaron.getCurrentGame();
     int ratWheat = 0;
-    int percent = 0;
+    float percent = 0;
     int range = 0;
     int tithes = game.getTithingPaid();
     
    if (tithes > 12) {
             range = 3;
-            percent = (int) (Math.random() * range) + 3;
-            ratWheat = percent * game.getWheatInStorage(); 
+            percent = (float) ((Math.random() * range) + 3)/100;
+            ratWheat = (int) (percent * game.getWheatInStorage()); 
         }
         else if (tithes >= 8 && percent <12) {
        
             range = 5;
-             percent = (int) (Math.random() * range) + 3;
-            ratWheat = percent * game.getWheatInStorage(); 
+             percent = (float)( (Math.random() * range) + 3) / 100;
+            ratWheat = (int) (percent * game.getWheatInStorage()); 
         }
         else {
             range = 5;
-             percent = (int) (Math.random() * range) + 6;
-            ratWheat = percent * game.getWheatInStorage();  
+             percent = (float) ((Math.random() * range) + 6) / 100;
+            ratWheat = (int) (percent * game.getWheatInStorage());  
         }
     
     return ratWheat;

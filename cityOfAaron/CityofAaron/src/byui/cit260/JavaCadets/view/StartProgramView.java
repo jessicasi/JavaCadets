@@ -28,7 +28,7 @@ public class StartProgramView extends View {
         this.console.println("*********************************");
         this.console.println("* WELCOME TO THE CITY OF AARON  *");
         this.console.println("* In this game you will be the  *");
-        this.console.println("* ruler of a city for 7 years.  *");
+        this.console.println("* ruler of a city for 5 years.  *");
         this.console.println("* Learn to care for your people *");
         this.console.println("* to win the Game!              *");
         this.console.println("*********************************");
@@ -57,10 +57,10 @@ public class StartProgramView extends View {
             return false;
         }
 
-        this.console.println("************************************************");
-        this.console.println("* Welcome to the game " + playersName + "*");
-        this.console.println("* We hope you enjoy it!                        *");
-        this.console.println("************************************************");
+        this.console.println("******************************************");
+        this.console.println("* Welcome to the game " + playersName + " *");
+        this.console.println("* We hope you enjoy it!                  *");
+        this.console.println("******************************************");
 
         MainMenuView mainMenuView = new MainMenuView();
         mainMenuView.display();

@@ -29,7 +29,7 @@ public class BuyLandView extends View {
         this.console.println("B - Buy Land");
         this.console.println("Q - Quit Buying Land");
 
-        String buyInput = this.getInput("\nMake a selection from the Game Menu");
+        String buyInput = this.getInput("\nMake a selection from the Buy Land Menu");
         inputs[0] = buyInput;
 
         return inputs;
@@ -76,6 +76,7 @@ public class BuyLandView extends View {
                             this.console.println("You must enter a value");
                             continue;
                         }
+                       
                     } catch (IOException ex) {
                         ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
                         continue;

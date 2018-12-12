@@ -122,11 +122,11 @@ public class Game implements Serializable{
     }
 
     public int getPopulationMortality() {
-        return currentPopulation - peopleFed;
+        return populationMortality;
     }
 
     public void setPopulationMortality(int populationMortality) {
-        this.populationMortality += populationMortality;
+        this.populationMortality = populationMortality;
     }
 
     public int getMonths() {

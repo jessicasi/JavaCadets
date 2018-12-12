@@ -8,7 +8,6 @@ package byui.cit260.JavaCadets.control;
 import byui.cit260.JavaCadets.exceptions.BuyLandException;
 import byui.cit260.JavaCadets.model.Game;
 
-
 /**
  *
  * @author skylerfoxx
@@ -16,46 +15,34 @@ import byui.cit260.JavaCadets.model.Game;
 public class BuyLand {
 
     public boolean BuyLand(Game game, int landToBuy, int price) throws BuyLandException {
-        
-        
+
         boolean valid = false;
         int wheatNeeded = landToBuy * price;
         int currentWheat = game.getWheatInStorage();
         if (landToBuy <= 0) {
             throw new BuyLandException("You chose not to buy any land");
-        }
-        
-        else if (wheatNeeded > currentWheat) {
+        } else if (wheatNeeded > currentWheat) {
             throw new BuyLandException("You don't have enough wheat to buy that much land");
         }
-        
-        else {
-            currentWheat -= wheatNeeded;
-            game.setWheatInStorage(currentWheat);
-            int userAcres = game.getAcresOwned();
-            userAcres += landToBuy;
-            game.setAcresOwned(userAcres);
-        }
-        
-        if(!calculatePeople(game,landToBuy)){
-            throw new BuyLandException("You don't have enough people to buy that much land");
-        }
-        
-        else {
-            
-            valid = true;
-        }
-        
-        return valid;
 
+        if (!calculatePeople(game, landToBuy)) {
+            throw new BuyLandException("You don't have enough people to buy that much land");
+        } 
+
+        currentWheat -= wheatNeeded;
+        game.setWheatInStorage(currentWheat);
+        int userAcres = game.getAcresOwned();
+        userAcres += landToBuy;
+        game.setAcresOwned(userAcres);
+
+       valid = true;
+        return valid;
 
     }
 
     private boolean calculatePeople(Game game, int landToBuy) {
 
-        //TODO: get number of people from Game class
         int people = game.getCurrentPopulation();
-        //TODO: get land already owned from Game Class
         int land = game.getAcresOwned();
 
         int peopleLeft = people - (land / 10);

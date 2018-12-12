@@ -6,9 +6,6 @@
 package byui.cit260.JavaCadets.view;
 
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
-import byui.cit260.JavaCadets.control.LiveTheYear;
-import byui.cit260.JavaCadets.exceptions.GrowPopulationException;
-import byui.cit260.JavaCadets.exceptions.HarvestCropsException;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.Map;
@@ -100,27 +97,25 @@ public class GameMenuView extends View {
         this.console.println();
         for (int row = 0; row < locations.length; row++) {
             this.console.print(row + " "); // print row numbers to side of map
-            for (int column = 0; column < locations[row].length; column++) {
+            for (Location location : locations[row]) {
                 // set default indicators as blanks
                 leftIndicator = " ";
                 rightIndicator = " ";
-                if (locations[row][column] == map.getLocation()) {
+                if (location == map.getLocation()) {
                     // Set star indicators to show this is the current location.
                     leftIndicator = "*";
                     rightIndicator = "*";
-                } else if (locations[row][column].isVisited()) {
+                } else if (location.isVisited()) {
                     // Set < > indicators to show this location has been visited.
                     leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
                     rightIndicator = "<"; // same as above
                 }
                 this.console.print("|"); // start map with a |
-                if (locations[row][column].getScene() == null) {
+                if (location.getScene() == null) {
                     // No scene assigned here so use ?? for the symbol
                     this.console.print(leftIndicator + "??" + rightIndicator);
                 } else {
-                    this.console.print(leftIndicator
-                            + locations[row][column].getScene().getMapSymbol()
-                            + rightIndicator);
+                    this.console.print(leftIndicator + location.getScene().getMapSymbol() + rightIndicator);
                 }
             }
             this.console.println("|");

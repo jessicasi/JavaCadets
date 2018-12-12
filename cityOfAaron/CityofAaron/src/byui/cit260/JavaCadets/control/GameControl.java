@@ -50,25 +50,26 @@ public class GameControl {
         CityofAaron.setCurrentGame(game);
         game.setCurrentPopulation(100);
         game.setPopulationMortality(0);
-        // call setter to assign an actor to the player
-        // Create the lists of weapons used in the game
+
+        //create start of game positions and items
         InventoryItem[] items = createItems();
         game.setInventory(items);
         
         game.setWheatInStorage(items[ItemType.wheat.ordinal()].getQuantityInStock());
         
-        game.setAcresOwned(1000);
+        game.setAcresOwned(750);
         
         game.setWheatInStorage(2700);
         
         Question[] questions = createQuestion();
         game.setQuestion(questions);
         
-        game.setTithingPaid(300);
+        game.setTithingPaid(10);
+        game.setMonths(0);
         
         game.setRatWheat(0);
         
-        game.setNewPopulation(5);
+        game.setNewPopulation(0);
         
         int noOfRows = 5;
         int noOfColumns = 5;
@@ -176,36 +177,36 @@ public class GameControl {
         Question question = new Question();
         question.setQuestions("Would you like to buy any land?");
         question.setAnswer1("Yes");
-        question.setAnswer1("No");
-        question.setAnswer1("Quit");
+        question.setAnswer2("No");
+        question.setAnswer3("Quit");
         questions[0] = question;
         
         question = new Question();
         question.setQuestions("Would you like to sell any land?");
         question.setAnswer1("Yes");
-        question.setAnswer1("No");
-        question.setAnswer1("Quit");
+        question.setAnswer2("No");
+        question.setAnswer3("Quit");
         questions[1] = question;
         
         question = new Question();
         question.setQuestions("Would you like to feed your people?");
         question.setAnswer1("Yes");
-        question.setAnswer1("No");
-        question.setAnswer1("Quit");
+        question.setAnswer2("No");
+        question.setAnswer3("Quit");
         questions[2] = question;
         
         question = new Question();
         question.setQuestions("Would you like to plant crops?");
         question.setAnswer1("Yes");
-        question.setAnswer1("No");
-        question.setAnswer1("Quit");
+        question.setAnswer2("No");
+        question.setAnswer3("Quit");
         questions[3] = question;
         
         question = new Question();
         question.setQuestions("Would you like to pay tithing?");
         question.setAnswer1("Yes");
-        question.setAnswer1("No");
-        question.setAnswer1("Quit");
+        question.setAnswer2("No");
+        question.setAnswer3("Quit");
         questions[4] = question;
         
         
@@ -264,6 +265,7 @@ public class GameControl {
         game.setTithingPaid(0);
         game.setMonths(0);
         game.setPopulationMortality(0);
+        game.setNewPopulation(0);
     }
 
 }

@@ -20,6 +20,8 @@ import byui.cit260.JavaCadets.model.Map;
 import byui.cit260.JavaCadets.model.Player;
 import byui.cit260.JavaCadets.model.Scene;
 import static java.lang.Integer.parseInt;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 
@@ -98,11 +100,46 @@ public class MovePlayer extends View {
         newLocation.setScene(scene);
         game.setCurrentLocation(newLocation);
         
+      if("questionLocation".equals(newLocation.getLocationType())){
+          
+          QuestionLocationView questionView = new QuestionLocationView();
+          questionView.display();
+          
+      }
+      else if("resourceLocation".equals(newLocation.getLocationType())){
+          
+          ResourceLocationView resourceView = new ResourceLocationView();
+          resourceView.display();
+          
+      }else {
         LocationView locationView = new LocationView();
         
-            locationView.display();
+            try {
+                locationView.displayLocationView();
+            } catch (HarvestCropsException | GrowPopulationException ex) {
+                ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+      
+            }
+      }
      
          if (game.getMonths() == 12) {
+             this.console.println("Another year is over! Let's make sure you've had a chance to take care of business!");
+             BuyLandView buyLand = new BuyLandView();
+             buyLand.display();
+             
+             SellLandView sellLand = new SellLandView();
+             sellLand.display();
+             
+             FeedThePeopleView feedPeople = new FeedThePeopleView();
+             feedPeople.display();
+             
+             PlantCropsView planting = new PlantCropsView();
+             planting.display();
+             
+             TithesView tithing = new TithesView();
+             tithing.display();
+             
             try {
                 year.liveTheYear();
             } catch (HarvestCropsException | GrowPopulationException | PopulationMortalityException | GameControlException ex) {

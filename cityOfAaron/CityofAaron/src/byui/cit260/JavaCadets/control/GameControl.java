@@ -68,6 +68,7 @@ public class GameControl {
         game.setMonths(0);
         
         game.setRatWheat(0);
+        game.setMarks(0);
         
         game.setNewPopulation(0);
         game.setValid(true);
@@ -176,45 +177,50 @@ public class GameControl {
         Question[] questions = new Question[5];
         
         Question question = new Question();
-        question.setQuestions("Would you like to buy any land?");
-        question.setAnswer1("Yes");
-        question.setAnswer2("No");
-        question.setAnswer3("Quit");
+        question.setQuestions("How many pecks of wheat are in a bushel?");
+        question.setAnswer1("4");
+        question.setAnswer2("3");
+        question.setAnswer3("2");
+        question.setAnswer("A");
         questions[0] = question;
         
         question = new Question();
-        question.setQuestions("Would you like to sell any land?");
-        question.setAnswer1("Yes");
-        question.setAnswer2("No");
-        question.setAnswer3("Quit");
+        question.setQuestions("How many times a year do you need to shear a sheep?");
+        question.setAnswer1("5-6");
+        question.setAnswer2("3-4");
+        question.setAnswer3("1-2");
+        question.setAnswer("C");
         questions[1] = question;
         
         question = new Question();
-        question.setQuestions("Would you like to feed your people?");
-        question.setAnswer1("Yes");
-        question.setAnswer2("No");
-        question.setAnswer3("Quit");
+        question.setQuestions("How many pounds of feed does a pig eat per day?");
+        question.setAnswer1("4-6");
+        question.setAnswer2("6-8");
+        question.setAnswer3("8-10");
+        question.setAnswer("B");
         questions[2] = question;
         
         question = new Question();
-        question.setQuestions("Would you like to plant crops?");
-        question.setAnswer1("Yes");
-        question.setAnswer2("No");
-        question.setAnswer3("Quit");
+        question.setQuestions("How old are chickens before they start laying eggs?");
+        question.setAnswer1("6 months");
+        question.setAnswer2("9 months");
+        question.setAnswer3("12 months");
+        question.setAnswer("A");
         questions[3] = question;
         
         question = new Question();
-        question.setQuestions("Would you like to pay tithing?");
-        question.setAnswer1("Yes");
-        question.setAnswer2("No");
-        question.setAnswer3("Quit");
+        question.setQuestions("How long do donkeys live?");
+        question.setAnswer1("15-20 years");
+        question.setAnswer2("20-25 years");
+        question.setAnswer3("25-30 years");
+        question.setAnswer("B");
         questions[4] = question;
         
         
         return questions;
     }
 
-    public static Map createMap(Game game, int noOfRows, int noOfColumns) {
+    public static Map createMap(Game game, int noOfRows, int noOfColumns) throws MapControlException {
         Map map = MapControl.createMap(game, noOfRows, noOfColumns);
 
         return map;

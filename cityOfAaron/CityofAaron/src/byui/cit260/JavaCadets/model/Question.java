@@ -18,7 +18,7 @@ public class Question implements Serializable{
     private String answer1;
     private String answer2;
     private String answer3;
-    private String answer4;
+    private String answer;
     private boolean correctAnswer;
 
     public Question() {
@@ -56,12 +56,12 @@ public class Question implements Serializable{
         this.answer3 = answer3;
     }
 
-    public String getAnswer4() {
-        return answer4;
+    public String getAnswer() {
+        return answer;
     }
 
-    public void setAnswer4(String answer4) {
-        this.answer4 = answer4;
+    public void setAnswer(String answer4) {
+        this.answer = answer4;
     }
 
     public boolean isCorrectAnswer() {
@@ -79,7 +79,7 @@ public class Question implements Serializable{
         hash = 79 * hash + Objects.hashCode(this.answer1);
         hash = 79 * hash + Objects.hashCode(this.answer2);
         hash = 79 * hash + Objects.hashCode(this.answer3);
-        hash = 79 * hash + Objects.hashCode(this.answer4);
+        hash = 79 * hash + Objects.hashCode(this.answer);
         hash = 79 * hash + (this.correctAnswer ? 1 : 0);
         return hash;
     }
@@ -111,7 +111,7 @@ public class Question implements Serializable{
         if (!Objects.equals(this.answer3, other.answer3)) {
             return false;
         }
-        if (!Objects.equals(this.answer4, other.answer4)) {
+        if (!Objects.equals(this.answer, other.answer)) {
             return false;
         }
         return true;
@@ -119,7 +119,7 @@ public class Question implements Serializable{
 
     @Override
     public String toString() {
-        return "Question{" + "question=" + questions + ", answer1=" + answer1 + ", answer2=" + answer2 + ", answer3=" + answer3 + ", answer4=" + answer4 + ", correctAnswer=" + correctAnswer + '}';
+        return "Question{" + "question=" + questions + ", answer1=" + answer1 + ", answer2=" + answer2 + ", answer3=" + answer3 + ", answer4=" + answer + ", correctAnswer=" + correctAnswer + '}';
     }
     
 

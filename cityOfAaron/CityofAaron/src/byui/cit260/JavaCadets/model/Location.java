@@ -93,6 +93,9 @@ public class Location implements Serializable {
         this.actorName = actorName;
     }
 
+   public ActorName getActor() {
+       return actorName;
+    }
     public void setActorCoordinates(Point coordinates) {
         actor.setCoordinates(coordinates);
 

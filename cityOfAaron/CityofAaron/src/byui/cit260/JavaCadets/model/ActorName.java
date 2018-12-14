@@ -10,33 +10,45 @@ package byui.cit260.JavaCadets.model;
  * @author Steven
  */
 public enum ActorName {
-    moses (2,1), 
-    Aaron (3,3), 
-    father (3,2), 
-    mother (2,4), 
-    sister (1,2), 
-    brother (4,4),
-    nephi (2,3),
-    innkeeper (0,4),
-    fieldworker (3,4),
-    villager (0,0),
-    king (2,2);
+    Villager(0, 0),
+    Moroni(0, 1),
+    Joseph(0, 2),
+    Abraham(0, 3),
+    Innkeeper(0, 4),
+    Isaac(1, 0),
+    Jacob(1, 1),
+    Sister(1, 2),
+    Micah(1, 3),
+    Isaiah(1, 4),
+    Luke(2, 0),
+    Moses(2, 1),
+    King(2, 2),
+    Nephi(2, 3),
+    Mother(2, 4),
+    Matthew(3, 0),
+    Mark(3, 1), 
+    Father(3, 2),
+    Aaron(3, 3),
+    Fieldworker(3, 4),
+    John(4,0),
+    Samuel(4,1),
+    Lehi(4,2),
+    Sarah(4,3),
+    Brother(4, 4);
 
     private final int row;
     private final int column;
-    
-    ActorName(int row, int column){
+
+    ActorName(int row, int column) {
         this.row = row;
         this.column = column;
     }
-    
+
     public Point getCoordinates() {
         Point point = new Point();
         point.setRow(row);
         point.setColumn(column);
-            return point;
+        return point;
     }
-    
-   }
-    
-    
+
+}

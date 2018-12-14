@@ -30,10 +30,19 @@ public class Game implements Serializable{
     private int ratWheat;
     private int peopleFed;
     private int totalDied;
+    private int marks;
     private Location currentLocation;
     private InventoryItem[] inventory;
     private Question[] question;
     private boolean valid;
+
+    public int getMarks() {
+        return marks;
+    }
+
+    public void setMarks(int marks) {
+        this.marks = marks;
+    }
 
     public boolean isValid() {
         return valid;
@@ -190,24 +199,25 @@ public class Game implements Serializable{
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 47 * hash + Objects.hashCode(this.thePlayer);
-        hash = 47 * hash + Objects.hashCode(this.theMap);
-        hash = 47 * hash + Objects.hashCode(this.theStorehouse);
-        hash = 47 * hash + this.currentPopulation;
-        hash = 47 * hash + this.populationMortality;
-        hash = 47 * hash + this.acresOwned;
-        hash = 47 * hash + this.wheatInStorage;
-        hash = 47 * hash + this.tithingPaid;
-        hash = 47 * hash + this.months;
-        hash = 47 * hash + this.year;
-        hash = 47 * hash + this.newPopulation;
-        hash = 47 * hash + this.ratWheat;
-        hash = 47 * hash + this.peopleFed;
-        hash = 47 * hash + this.totalDied;
-        hash = 47 * hash + Objects.hashCode(this.currentLocation);
-        hash = 47 * hash + Arrays.deepHashCode(this.inventory);
-        hash = 47 * hash + Arrays.deepHashCode(this.question);
-        hash = 47 * hash + (this.valid ? 1 : 0);
+        hash = 97 * hash + Objects.hashCode(this.thePlayer);
+        hash = 97 * hash + Objects.hashCode(this.theMap);
+        hash = 97 * hash + Objects.hashCode(this.theStorehouse);
+        hash = 97 * hash + this.currentPopulation;
+        hash = 97 * hash + this.populationMortality;
+        hash = 97 * hash + this.acresOwned;
+        hash = 97 * hash + this.wheatInStorage;
+        hash = 97 * hash + this.tithingPaid;
+        hash = 97 * hash + this.months;
+        hash = 97 * hash + this.year;
+        hash = 97 * hash + this.newPopulation;
+        hash = 97 * hash + this.ratWheat;
+        hash = 97 * hash + this.peopleFed;
+        hash = 97 * hash + this.totalDied;
+        hash = 97 * hash + this.marks;
+        hash = 97 * hash + Objects.hashCode(this.currentLocation);
+        hash = 97 * hash + Arrays.deepHashCode(this.inventory);
+        hash = 97 * hash + Arrays.deepHashCode(this.question);
+        hash = 97 * hash + (this.valid ? 1 : 0);
         return hash;
     }
 
@@ -256,6 +266,9 @@ public class Game implements Serializable{
         if (this.totalDied != other.totalDied) {
             return false;
         }
+        if (this.marks != other.marks) {
+            return false;
+        }
         if (this.valid != other.valid) {
             return false;
         }
@@ -282,7 +295,7 @@ public class Game implements Serializable{
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", populationMortality=" + populationMortality + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", months=" + months + ", year=" + year + ", newPopulation=" + newPopulation + ", ratWheat=" + ratWheat + ", peopleFed=" + peopleFed + ", totalDied=" + totalDied + ", currentLocation=" + currentLocation + ", inventory=" + inventory + ", question=" + question + ", valid=" + valid + '}';
+        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", populationMortality=" + populationMortality + ", acresOwned=" + acresOwned + ", wheatInStorage=" + wheatInStorage + ", tithingPaid=" + tithingPaid + ", months=" + months + ", year=" + year + ", newPopulation=" + newPopulation + ", ratWheat=" + ratWheat + ", peopleFed=" + peopleFed + ", totalDied=" + totalDied + ", marks=" + marks + ", currentLocation=" + currentLocation + ", inventory=" + inventory + ", question=" + question + ", valid=" + valid + '}';
     }
 
     

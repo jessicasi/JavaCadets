@@ -65,7 +65,7 @@ public abstract class View implements ViewInterface {
                  //IF length of the value < 1 then
                  // Display "You must enter a non-blank value”
                  if (selection.equals("")){
-                     ErrorView.display(this.getClass().getName(), "You must ender a Name:" );
+                     ErrorView.display(this.getClass().getName(), "You must ender a Value:" );
                      continue;
                  }
                  valid = true;

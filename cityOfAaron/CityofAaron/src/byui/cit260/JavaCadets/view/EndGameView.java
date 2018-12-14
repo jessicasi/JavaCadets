@@ -26,6 +26,10 @@ public class EndGameView extends View{
             this.console.println(game.getPopulationMortality() + " people have died under your watch. That is too many - GAME OVER");
             game.setValid(false);
         }
+        else if(game.getMarks() == 3){
+            this.console.println("Oh! Too many questions answered wrong - GAME OVER");
+            game.setValid(false);
+        }
         else if(game.getYear() >= 5){
             this.console.println("Your term in office is over - Good Work"); 
             game.setValid(false);

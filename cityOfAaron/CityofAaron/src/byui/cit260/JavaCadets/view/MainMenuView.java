@@ -26,11 +26,13 @@ public class MainMenuView extends View {
         this.console.println(" * Main Menu  *");
         this.console.println(" ************** ");
         this.console.println();
+        this.console.println("*******************************************");
         this.console.println("N - Start new game");
         this.console.println("R - Restart exisiting game");
         this.console.println("H - Get help on how to play the game");
         this.console.println("E - Exit");
-
+        this.console.println("*******************************************");
+        
         String mainMenuInput = this.getInput("\nMake a selection from the Main Menu");
         inputs[0] = mainMenuInput;
 

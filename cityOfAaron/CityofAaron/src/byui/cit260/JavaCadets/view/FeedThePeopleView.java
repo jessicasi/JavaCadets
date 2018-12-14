@@ -48,8 +48,7 @@ public class FeedThePeopleView extends View {
 
                 // FeedThePeople feedThePeople = new FeedThePeople();
                 //feedThePeople
-                this.console.println("Your population consists of " + game.getCurrentPopulation()
-                        + " people across " + game.getAcresOwned() + " acre(s) of land.");
+                this.console.println("Your population consists of " + game.getCurrentPopulation() + " people across " + game.getAcresOwned() + " acre(s) of land.");
                 this.console.println("It takes 2 bushels of wheat to feed each person.");
                 this.console.println("You have " + game.getWheatInStorage() + " wheat remaining.");
                 this.console.println("To feed everyone will require " + game.getCurrentPopulation() * 2 + " wheat.");

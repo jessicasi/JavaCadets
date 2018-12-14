@@ -21,7 +21,6 @@ public class CurrentAnnualReportView extends View{
        
        this.console.println("Year Number: " + game.getYear());
            
-       
        this.console.println("# of people who starved: " + game.getPopulationMortality());
        
        this.console.println("# of people who moved in: " + game.getNewPopulation());

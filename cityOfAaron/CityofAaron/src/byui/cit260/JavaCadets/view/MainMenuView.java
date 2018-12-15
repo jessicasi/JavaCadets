@@ -27,10 +27,10 @@ public class MainMenuView extends View {
         this.console.println(" ************** ");
         this.console.println();
         this.console.println("*******************************************");
-        this.console.println("N - Start new game");
-        this.console.println("R - Restart exisiting game");
-        this.console.println("H - Get help on how to play the game");
-        this.console.println("E - Exit");
+        this.console.println("➤ N - Start new game");
+        this.console.println("➤ R - Restart exisiting game");
+        this.console.println("➤ H - Get help on how to play the game");
+        this.console.println("➤ E - Exit");
         this.console.println("*******************************************");
         
         String mainMenuInput = this.getInput("\nMake a selection from the Main Menu");
@@ -86,7 +86,7 @@ public class MainMenuView extends View {
         //Create a new Game
         GameControl.createNewGame(CityofAaron.getPlayer());
        
-        this.console.println("\n\tCurrent Annual Report: \n");
+//        this.console.println("\n\tCurrent Annual Report: \n");
         CurrentAnnualReportView currentReport = new CurrentAnnualReportView();
         
         currentReport.displayCurrentAnnualReportView();
@@ -96,7 +96,7 @@ public class MainMenuView extends View {
     }
 
     private void restartGame() throws PopulationMortalityException, GameControlException {
-         this.console.println("\n\tCurrent Annual Report: \n");
+//         this.console.println("\n\tCurrent Annual Report: \n");
         CurrentAnnualReportView currentReport = new CurrentAnnualReportView();
         currentReport.displayCurrentAnnualReportView();
         StartExistingGameView startExistingGameView = new StartExistingGameView();

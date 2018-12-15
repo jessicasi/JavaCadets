@@ -27,8 +27,8 @@ public class TithesView extends View {
         this.console.println(" * Tithes & Offerings * ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("T - Pay Tithes & Offerings");
-        this.console.println("Q - Quit");
+        this.console.println("➤ T - Pay Tithes & Offerings");
+        this.console.println("➤ Q - Quit");
 
         String tithesInput = this.getInput("\nMake a selection from the Tithes Menu");
         inputs[0] = tithesInput;
@@ -51,8 +51,9 @@ public class TithesView extends View {
                 String selection = null;
 
                 while (!valid) {
+                    this.console.println("\n"+"══════════════════════════════════════════");
                     this.console.println("What percentage of your harvest do you want to pay in tithes & offerings?");
-
+                    this.console.println("══════════════════════════════════════════");
                     try {
                         selection = this.keyboard.readLine();
                         selection = selection.trim();
@@ -70,7 +71,7 @@ public class TithesView extends View {
                     }
 
                 }
-                this.console.println("Thank you for paying your tithing");
+                this.console.println("➤ Thank you for paying your tithing" + "\n");
             }
             return true;
 

@@ -21,14 +21,16 @@ public class BuyLandView extends View {
     public String[] getInputs() {
 
         String[] inputs = new String[1];
-
+        
         this.console.println(" ********************** ");
         this.console.println(" ***   Buy Land   *** ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("B - Buy Land");
-        this.console.println("Q - Quit Buying Land");
-
+        this.console.println("***********************");
+        this.console.println("➤ B - Buy Land");
+        this.console.println("➤ Q - Quit Buying Land");
+        this.console.println("***********************");
+        this.console.println();
         String buyInput = this.getInput("\nMake a selection from the Buy Land Menu");
         inputs[0] = buyInput;
 
@@ -60,13 +62,14 @@ public class BuyLandView extends View {
                 }
                 //get current wheat in storage
                 int currentWheat = game.getWheatInStorage();
-
-                this.console.println("1 acre of land costs " + price + " wheat.\n");
-                this.console.println("You currently have " + currentWheat + " wheat.");
-
+                this.console.println("\n"+"══════════════════════════════");
+                this.console.println("➤ 1 acre of land costs " + price + " wheat.");
+                this.console.println("➤ You currently have " + currentWheat + " wheat.");
+                this.console.println("══════════════════════════════");
+                
                 //get number of Acres user wants to buy
                 while (!valid) {
-                    this.console.println("How many acres do you want to buy?");
+                    this.console.println("\n"+"How many acres do you want to buy?");
 
                     try {
                         selection = this.keyboard.readLine();
@@ -95,9 +98,10 @@ public class BuyLandView extends View {
                     }
 
                 }
+                this.console.println("\n"+"═════════════════════════════════");
                 this.console.println("You now have " + game.getAcresOwned() + " total acres.");
                 this.console.println("You have " + game.getWheatInStorage() + " wheat remaining.");
-
+                this.console.println("═════════════════════════════════");    
         
                 return true;
             }

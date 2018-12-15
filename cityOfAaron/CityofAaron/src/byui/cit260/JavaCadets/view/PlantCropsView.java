@@ -25,8 +25,8 @@ public class PlantCropsView extends View {
         this.console.println(" ***  Plant Crops  *** ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("P - Plant Crops");
-        this.console.println("Q - Quit Plant Crops");
+        this.console.println("➤ P - Plant Crops");
+        this.console.println("➤ Q - Quit Plant Crops");
 
         String plantInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = plantInput;
@@ -49,11 +49,12 @@ public class PlantCropsView extends View {
                  int currentWheat = game.getWheatInStorage();
                  int acresToPlant = 0;
                  
-                 this.console.println(" You currently have " + currentAcres + " acres of land and " 
-                         + currentWheat + " bushels of wheat\n");
-                 this.console.println("It takes 10 bushels of wheat to plant 1 acre of land\n");
+                 this.console.println("════════════════════════════════════════════════════════════");
+                 this.console.println("➤ You currently have " + currentAcres + " acres of land and " + currentWheat + " bushels of wheat");
+                 this.console.println("➤ It takes 10 bushels of wheat to plant 1 acre of land");
+                 this.console.println("════════════════════════════════════════════════════════════"+"\n");
                  
-                 String selection = this.getInput("\nHow many acres would you like to plant?");
+                 String selection = this.getInput("\n ➤ How many acres would you like to plant?");
                  acresToPlant = Integer.parseInt(selection);
                  
             try {
@@ -61,7 +62,9 @@ public class PlantCropsView extends View {
             } catch (PlantCropsException ex) {
                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
             }
-                 this.console.println("You have sucessfully planted " + acresToPlant + " acres of wheat");
+                this.console.println("════════════════════════════════════════"); 
+                this.console.println("➤ You have sucessfully planted " + acresToPlant + " acres of wheat");
+                this.console.println("════════════════════════════════════════");
 
             }
                 return true;

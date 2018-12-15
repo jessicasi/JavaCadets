@@ -21,12 +21,12 @@ public class HelpMenuView extends View{
         this.console.println("   Help Menu");
         this.console.println(" ************** ");
         this.console.println();
-        this.console.println("G - What is the goal of the game?");
-        this.console.println("M - How do I move?");
-        this.console.println("E - How do I estimate the number of resources?");
-        this.console.println("H - How do I Harvest Resources?");
-        this.console.println("D - How to Deliver resources to the warehouse?");
-        this.console.println("Q - Quit");
+        this.console.println("➤ G - What is the goal of the game?");
+        this.console.println("➤ M - How do I move?");
+        this.console.println("➤ E - How do I estimate the number of resources?");
+        this.console.println("➤ H - How do I Harvest Resources?");
+        this.console.println("➤ D - How to Deliver resources to the warehouse?");
+        this.console.println("➤ Q - Quit");
         
          String helpInput = this.getInput("\nMake a selection from the Help Menu");
             inputs[0] = helpInput;

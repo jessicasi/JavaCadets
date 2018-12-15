@@ -57,7 +57,7 @@ public class StartProgramView extends View {
         }
 
         this.console.println("******************************************");
-        this.console.println("* Welcome to the game " + playersName + " *");
+        this.console.println("* Welcome to the game " + playersName + "              *");
         this.console.println("* We hope you enjoy it!                  *");
         this.console.println("******************************************");
 

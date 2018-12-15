@@ -32,14 +32,14 @@ public class ReportsMenuView extends View {
         this.console.println(" * Reports Menu * ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("A - View the Animals in the StoreHouse ");
-        this.console.println("B - View the Tools in the StoreHouse ");
-        this.console.println("C - View the Provisions in the StoreHouse ");
-        this.console.println("D - View the Authors of the Game ");
-        this.console.println("I - View total cost of items in Inventory");
-        this.console.println("J - View Average of items in Inventory");
-        this.console.println("V - View sorted items in Inventory");
-        this.console.println("Q - Quit");
+        this.console.println("➤ A - View the Animals in the StoreHouse ");
+        this.console.println("➤ B - View the Tools in the StoreHouse ");
+        this.console.println("➤ C - View the Provisions in the StoreHouse ");
+        this.console.println("➤ D - View the Authors of the Game ");
+        this.console.println("➤ I - View total cost of items in Inventory");
+        this.console.println("➤ J - View Average of items in Inventory");
+        this.console.println("➤ V - View sorted items in Inventory");
+        this.console.println("➤ Q - Quit");
 
         String reportsInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = reportsInput;

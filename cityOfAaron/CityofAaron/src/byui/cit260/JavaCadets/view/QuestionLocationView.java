@@ -31,9 +31,9 @@ class QuestionLocationView extends View {
         this.console.println(location.getDescription() + "\n");
 
         this.console.println(question.getQuestions() + "\n");
-        this.console.println("A - " + question.getAnswer1() + "\n");
-        this.console.println("B - " + question.getAnswer2() + "\n");
-        this.console.println("C - " + question.getAnswer3() + "\n");
+        this.console.println("➤ A - " + question.getAnswer1() + "\n");
+        this.console.println("➤ B - " + question.getAnswer2() + "\n");
+        this.console.println("➤ C - " + question.getAnswer3() + "\n");
 
         String answer = this.getInput("Which is the correct answer? ");
         inputs[0] = answer;
@@ -51,14 +51,18 @@ class QuestionLocationView extends View {
         Question question = scene.getQuestion();
 
         if (answer.equals(question.getAnswer())) {
+            this.console.println("══════════════════════════════════════════════════");
             this.console.println("Congratulations! You picked the right answer - you get to continue your quest - ");
             this.console.println("Your stay here has advanced you by 3 months");
+            this.console.println("══════════════════════════════════════════════════");
             return true;
         }
 
         game.setMarks(game.getMarks() + 1);
+        this.console.println("══════════════════════════════════════════════════");
         this.console.println("Oh, bummer - you got it wrong! That is " + game.getMarks() + " marks against you.");
         this.console.println("If you get 3 marks against you, you're fired!");
+        this.console.println("══════════════════════════════════════════════════");
 
         if (game.getMarks() == 3) {
 

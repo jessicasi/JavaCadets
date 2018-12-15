@@ -36,10 +36,14 @@ public class MovePlayer extends View {
     public String[] getInputs() {
         String[] inputs = new String[2];
         
-        String input1 = getInput("Enter Row Number");
+        this.console.println("\n"+"═══════════");
+        String input1 = getInput("➤ Enter Row Number");
+        this.console.println("═══════════");
         inputs[0] = input1;
 
-        String input2 = getInput("Enter Column Number");
+        this.console.println("\n"+"═════════════");
+        String input2 = getInput("➤ Enter Column Number");
+        this.console.println("═════════════");
         inputs[1] = input2;
         return inputs;
     }
@@ -124,7 +128,9 @@ public class MovePlayer extends View {
       }
      
          if (game.getMonths() == 12) {
+             this.console.println("\n"+"════════════════════════════════════════════════");
              this.console.println("Another year is over! Let's make sure you've had a chance to take care of business!");
+             this.console.println("════════════════════════════════════════════════");
              BuyLandView buyLand = new BuyLandView();
              buyLand.display();
              

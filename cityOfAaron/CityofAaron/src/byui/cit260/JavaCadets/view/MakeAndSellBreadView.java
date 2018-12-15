@@ -27,8 +27,8 @@ public class MakeAndSellBreadView extends View {
         this.console.println(" * Make & Sell Bread  * ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("M - Make Bread");
-        this.console.println("Q - Quit");
+        this.console.println("➤ M - Make Bread");
+        this.console.println("➤ Q - Quit");
 
         String breadInput = this.getInput("\nMake your selection");
         inputs[0] = breadInput;

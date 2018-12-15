@@ -28,8 +28,8 @@ public class StartExistingGameView extends View {
         this.console.println(" * Load Save Game * ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("L: - Load Save");
-        this.console.println("Q - Quit without saving");
+        this.console.println("➤ L: - Load Save");
+        this.console.println("➤ Q - Quit without saving");
 
         String existingGameInput = this.getInput("\nMake a selection from the Game Menu");
 

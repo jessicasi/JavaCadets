@@ -27,12 +27,12 @@ public class GameMenuView extends View {
         this.console.println(" *************** ");
         this.console.println(" *  Game Menu  * ");
         this.console.println(" *************** ");
-        this.console.println("V - View the Map ");
-        this.console.println("M - Move to a new Location");
-        this.console.println("C - Manage the Crops");
-        this.console.println("R - Reports Menu");
-        this.console.println("S - Save Game");
-        this.console.println("Q - Return to Main Menu");
+        this.console.println("➤ V - View the Map ");
+        this.console.println("➤ M - Move to a new Location");
+        this.console.println("➤ C - Manage the Crops");
+        this.console.println("➤ R - Reports Menu");
+        this.console.println("➤ S - Save Game");
+        this.console.println("➤ Q - Return to Main Menu");
 
         String gameInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = gameInput;

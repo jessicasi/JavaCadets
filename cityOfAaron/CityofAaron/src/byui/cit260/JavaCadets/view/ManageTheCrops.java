@@ -20,13 +20,13 @@ public class ManageTheCrops extends View {
         this.console.println(" * Manage Your Crops * ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("B - Buy Land");
-        this.console.println("S - Sell Land");
-        this.console.println("F - Feed Population");
-        this.console.println("P - Plant Crops");
-        this.console.println("T - Pay Tithes and Offerings");
-        this.console.println("M - Make and Sell Bread");
-        this.console.println("Q - Quit");
+        this.console.println("➤ B - Buy Land");
+        this.console.println("➤ S - Sell Land");
+        this.console.println("➤ F - Feed Population");
+        this.console.println("➤ P - Plant Crops");
+        this.console.println("➤ T - Pay Tithes and Offerings");
+        this.console.println("➤ M - Make and Sell Bread");
+        this.console.println("➤ Q - Quit");
 
         String cropsInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = cropsInput;

@@ -25,8 +25,8 @@ public class SellLandView extends View {
         this.console.println(" ***   Sell Land   *** ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("S - Sell Land");
-        this.console.println("Q - Quit Selling Land");
+        this.console.println("➤ S - Sell Land");
+        this.console.println("➤ Q - Quit Selling Land");
 
         String sellInput = this.getInput("\nMake a selection from the Game Menu");
         inputs[0] = sellInput;

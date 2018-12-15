@@ -28,8 +28,8 @@ public class SaveGameMenuView extends View{
         this.console.println(" * Save Game * ");
         this.console.println(" ********************** ");
         this.console.println();
-        this.console.println("S - Save Game");
-        this.console.println("Q - Quit without saving");
+        this.console.println("➤ S - Save Game");
+        this.console.println("➤ Q - Quit without saving");
         
        String input1 = getInput("\nMake a selection from the menu");
        

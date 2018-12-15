@@ -53,22 +53,25 @@ public class MakeAndSellBreadView extends View {
                 int wheatNeeded = 0;
                 int sale = 0;
                 String profit = null;
-
-                this.console.println("A loaf of bread takes 5 wheat to make. \n");
-                this.console.println("Bread can make the user between 3-8 wheat per loaf\n");
+                
+                this.console.println("\n"+"══════════════════════════════════");
+                this.console.println("A loaf of bread takes 5 wheat to make.");
+                this.console.println("Bread can make the user between 3-8 wheat per loaf.");
+                this.console.println("══════════════════════════════════\n");
 
                 while (!valid) {
-                    String loavesToMake = this.getInput("How many loves of bread would you like to make?");
+                    String loavesToMake = this.getInput("➤ How many loves of bread would you like to make?");
                     loaves = Integer.parseInt(loavesToMake);
                     wheatNeeded = 5 * loaves;
-                    this.console.println("It will take " + wheatNeeded + " wheat to make that much bread.\n");
+                    this.console.println('\n'+"══════════════════════════════════");
+                    this.console.println("➤ It will take " + wheatNeeded + " wheat to make that much bread.\n");
 
                     try {
                         valid = makeBread.MakeBread(game, loaves);
                     } catch (MakeBreadException ex) {
                         ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
                     }
-                    this.console.println("You successfully made " + loaves + " loaves of bread\n");
+                    this.console.println("➤ You successfully made " + loaves + " loaves of bread\n");
                 }
 
                 try {
@@ -77,9 +80,10 @@ public class MakeAndSellBreadView extends View {
                     ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
                 }
                 
-                this.console.println("You sold your loaves for " + sale/loaves + " wheat a piece\n");
+                this.console.println("➤ You sold your loaves for " + sale/loaves + " wheat a piece\n");
                 
-                this.console.println("You made " + (sale - wheatNeeded) + " wheat\n");
+                this.console.println("➤ You made " + (sale - wheatNeeded) + " wheat\n");
+                this.console.println("══════════════════════════════════\n");
             }
             break;
             case "Q":

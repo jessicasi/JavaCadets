@@ -17,9 +17,9 @@ public class HelpMenuView extends View{
     public String[] getInputs() {
         String[] inputs = new String[1];
 
-        this.console.println(" ************** ");
-        this.console.println("   Help Menu");
-        this.console.println(" ************** ");
+        this.console.println("*******************");
+        this.console.println("**   Help Menu   **");
+        this.console.println("*******************");
         this.console.println();
         this.console.println("➤ G - What is the goal of the game?");
         this.console.println("➤ M - How do I move?");
@@ -44,12 +44,17 @@ public class HelpMenuView extends View{
         
         case "G":
         {   
-            this.console.println("The goal of the game is to win of course!");
+            this.console.println("\n"+"══════════════════════════════════════════════════════════════════");
+            this.console.println("The goal of the game is to live though 5 years and keep your people alive and answer the questions correctly.");
+            this.console.println("You cant let more than 100 people die and you cant get more than 3 questions wrong otherwise you lose.");
+            this.console.println("══════════════════════════════════════════════════════════════════");
         }
                     break;
         case "M": 
         {
-            this.console.println("You move by pressing the M key");
+            this.console.println("\n"+"══════════════════════════════════════════════════════════════════════════════════════");
+            this.console.println("➤ You move by pressing the M key and entering the first row number and then the second row number that you would like to move to on the map.");
+            this.console.println("══════════════════════════════════════════════════════════════════════════════════════");
         }
                     break;
         case "E": 

@@ -8,10 +8,9 @@ package byui.cit260.JavaCadets.view;
 import byui.cit260.JavaCadets.CityofAaron.CityofAaron;
 import byui.cit260.JavaCadets.model.Game;
 import byui.cit260.JavaCadets.model.InventoryItem;
-import byui.cit260.JavaCadets.model.Location;
 import byui.cit260.JavaCadets.model.ResourceLocation;
 import java.util.ArrayList;
-import java.util.Iterator;
+
 
 /**
  *
@@ -29,10 +28,13 @@ class ResourceLocationView extends View {
         this.console.println("\nHi - my name is " + location.getActor());
         this.console.println(location.getDescription());
         this.console.println("This location has the following resource(s):");
+        char x = 'A';
         for (InventoryItem item : itemsInLocation) {
-            char x = 'A';
-            this.console.println(x + " - " + item);
-            x += 1;
+            if (item != null) {
+                this.console.println(x + " - " + item.getItemName());
+                x += 1;
+            }
+
         }
 
         String answer = this.getInput("Choose one item that you would like");
@@ -50,39 +52,40 @@ class ResourceLocationView extends View {
 
         switch (answer) {
             case "A":
-                x = 1;
+                x = 0;
                 break;
             case "B":
-                x = 2;
+                x = 1;
                 break;
             case "C":
-                x = 3;
+                x = 2;
                 break;
             case "D":
-                x = 4;
+                x = 3;
                 break;
             case "E":
-                x = 5;
+                x = 4;
                 break;
             default:
-                 this.console.println("Invalid menu item");
-                 return false;
+                this.console.println("Invalid menu item");
+                return false;
 
         }
-        
-        String item = itemsInLocation.get(x).getItemType().toLowerCase();
-        InventoryItem [] inventory = game.getInventory();
-        
-        for(int i = 0; inventory.length >= i; i++) {
-            
-         if(inventory[i].getItemName().equals(item)) 
-             inventory[i].setQuantity(inventory[i].getQuantity() + 1);
-             
+
+        String item = itemsInLocation.get(x).getItemName();
+        InventoryItem[] inventory = game.getInventory();
+
+        for (int i = 0; inventory.length >= i; i++) {
+
+            if (inventory[i] != null && inventory[i].getItemName().equals(item)) {
+                inventory[i].setQuantity(inventory[i].getQuantity() + 1);
+                break;
+            }
+
         }
         this.console.println("You chose a(n) " + item);
         this.console.println("1 has been added to your inventory");
-        this.console.println("Oh, and 3 months have gont by!");
-        
+        this.console.println("Oh, and 3 months have gone by!");
 
         return true;
     }

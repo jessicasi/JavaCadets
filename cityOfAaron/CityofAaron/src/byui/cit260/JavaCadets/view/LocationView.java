@@ -23,10 +23,11 @@ public class LocationView extends View {
         Game game = CityofAaron.getCurrentGame();
         Location location = game.getCurrentLocation();
         
-        this.console.println("\nHi - my name is " + location.getActor());
+        this.console.println('\n'+"════════════════════════════════════");
+        this.console.println("Hi - my name is " + location.getActor());
         this.console.println(location.getDescription());
         this.console.println("There isn't much to do here, but 3 months have gone by anyway!");
-
+        this.console.println("════════════════════════════════════");
     }
 
     @Override

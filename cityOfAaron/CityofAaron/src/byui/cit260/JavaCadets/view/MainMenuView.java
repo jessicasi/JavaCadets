@@ -96,9 +96,6 @@ public class MainMenuView extends View {
     }
 
     private void restartGame() throws PopulationMortalityException, GameControlException {
-//         this.console.println("\n\tCurrent Annual Report: \n");
-        //CurrentAnnualReportView currentReport = new CurrentAnnualReportView();
-        //currentReport.displayCurrentAnnualReportView();
         StartExistingGameView startExistingGameView = new StartExistingGameView();
         startExistingGameView.display()
                 ;

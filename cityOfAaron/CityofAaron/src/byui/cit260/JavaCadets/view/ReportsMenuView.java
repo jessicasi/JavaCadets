@@ -11,6 +11,7 @@ import byui.cit260.JavaCadets.control.ReportsControl;
 import byui.cit260.JavaCadets.exceptions.ReportsControlException;
 import byui.cit260.JavaCadets.model.Animal;
 import byui.cit260.JavaCadets.model.InventoryItem;
+import byui.cit260.JavaCadets.model.Author;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Arrays;
@@ -64,12 +65,22 @@ public class ReportsMenuView extends View {
             return true;
 
             case "B": {
-                Tools();
+                try {
+                    getTools();
+                } catch (ReportsControlException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+                }
             }
             return true;
 
             case "C": {
-                Provisions();
+                try {
+                    getProvisions();
+                } catch (ReportsControlException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+                }
             }
             return true;
 
@@ -78,13 +89,25 @@ public class ReportsMenuView extends View {
             }
             return true;
 
-            case "I":
-                getInventoryTotal();
-                return true;
+            case "I": {
+                try {
+                    getInventoryTotal();
+                } catch (ReportsControlException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
 
-            case "J":
-                getInventoryAverage();
-                break;
+                }
+            }
+            return true;
+
+            case "J": {
+                try {
+                    getInventoryAverage();
+                } catch (ReportsControlException ex) {
+                    ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+
+                }
+            }
+            return true;
 
             case "V":
                 try {
@@ -130,7 +153,7 @@ public class ReportsMenuView extends View {
              throw new ReportsControlException("No animals in Inventory to display");
          
         try ( 
-                FileWriter outFile = new FileWriter(filePath)) {
+            FileWriter outFile = new FileWriter(filePath)) {
             
             //write information to file
             outFile.write("\n\t\tAnimals In Inventory\n\n");
@@ -140,7 +163,6 @@ public class ReportsMenuView extends View {
                 if (animal == null)
                     continue;
                 outFile.write("\t" + animal.getName() + "\t\t\t" + animal.getQuantity() + "\n");
-                
             }
             
             outFile.flush();
@@ -149,63 +171,205 @@ public class ReportsMenuView extends View {
             ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
 
         }
-        
         this.console.println("\n\nFile Sucessfully Saved");
          
     }
+    
+    private void getTools() throws ReportsControlException {
 
-    private void Tools() {
-        this.console.println("Tools in StoreHouse Was Called");
-    }
-
-    private void Provisions() {
-        this.console.println("Provisions in StoreHouse Was Called");
-        
-    }
-
-    private void Authors() {
-        this.console.println("Authors Was Called");
-    }
-
-    private void getInventoryTotal() {
-
-        try {
             ReportsControl reportsControl = new ReportsControl();
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
 
-            int totalCost = reportsControl.quantityCost(items);
+            int toolsList = reportsControl.quantityCost(items);
+
+            String filePath = this.getInput("Enter the file path where you would like the report printed:\n");
+            try {
+                printTools(filePath, items);
+            } catch (IOException ex) {
+                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            }
+        }
+    
+    private void printTools(String filePath, InventoryItem[] items) throws ReportsControlException, IOException {
+
+        if (filePath == null)
+             throw new ReportsControlException("FilePath is empty");
+         if (items == null)
+             throw new ReportsControlException("No tools in Inventory to display");
+        
+        try ( 
+            FileWriter outFile = new FileWriter(filePath)) {
+            
+            //write information to file
+            outFile.write("\n\t\tTools In Inventory\n\n");
+            outFile.write("\tTools\tQuantity In Stock\n\n");
+            
             for (InventoryItem item : items) {
                 if (item == null) {
                     continue;
                 }
+                if (item.getItemType().equals("tool")) {
+                    String toolName = item.getItemName();
+                    this.console.println("" + toolName + "");
+                    outFile.write("\t" + toolName + "\t" + item.getQuantityInStock() + "\r\n");
+                }
             }
-            this.console.println("Total cost of all inventory items: " + totalCost);
-            
-        } catch (ReportsControlException ex) {
+            outFile.flush();
+        } catch (IOException ex) {
             ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
-    }    
+        this.console.println("\n\nFile Sucessfully Saved");
+    }
     
-    private void getInventoryAverage() {
+        private void getProvisions() throws ReportsControlException {
 
-        try {
             ReportsControl reportsControl = new ReportsControl();
             InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
 
-            int average = reportsControl.quantityCost(items);
-            int sum = 0;
+            int provisionsList = reportsControl.quantityCost(items);
+
+            String filePath = this.getInput("Enter the file path where you would like the report printed:\n");
+            try {
+                printProvisions(filePath, items);
+            } catch (IOException ex) {
+                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            }
+        }
+    
+    private void printProvisions(String filePath, InventoryItem[] items) throws ReportsControlException, IOException {
+
+        if (filePath == null)
+             throw new ReportsControlException("FilePath is empty");
+         if (items == null)
+             throw new ReportsControlException("No provisions in Inventory to display");
+        
+        try ( 
+            FileWriter outFile = new FileWriter(filePath)) {
+            
+            //write information to file
+            outFile.write("\n\t\tProvisions In Inventory\n\n");
+            outFile.write("\tProvisions\tQuantity In Stock\n\n");
+            
+            for (InventoryItem item : items) {
+                if (item == null) {
+                    continue;
+                }
+                if (item.getItemType().equals("provisions")) {
+                    String provisionName = item.getItemName();
+                    this.console.println("" + provisionName + "");
+                    outFile.write("\t" + provisionName + "\t" + item.getQuantityInStock() + "\r\n");
+                }
+            }
+            outFile.flush();
+        } catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+        }
+        this.console.println("\n\nFile Sucessfully Saved");
+    }
+
+    private void Authors() {
+        this.console.println("****************");
+        this.console.println("Authors:");
+        this.console.println("Jessica Ingebrigtsen");
+        this.console.println("Steven Weber");
+        this.console.println("Skyler Foxx");
+        this.console.println("****************");
+    }
+
+    
+    
+    
+    private void getInventoryTotal() throws ReportsControlException {
+
+            ReportsControl reportsControl = new ReportsControl();
+            InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
+
+            String filePath = this.getInput("Enter the file path where you would like the report printed:\n");
+            try {
+                printInventoryTotal(filePath, items);
+            } catch (IOException ex) {
+                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            }
+        }
+    
+    private void printInventoryTotal(String filePath, InventoryItem[] items) throws ReportsControlException, IOException {
+
+        if (filePath == null)
+             throw new ReportsControlException("FilePath is empty");
+         if (items == null)
+             throw new ReportsControlException("No Items in Inventory to display");
+        
+        ReportsControl reportsControl = new ReportsControl();
+
+        int totalCost = reportsControl.quantityCost(items);
+         
+        try ( 
+            FileWriter outFile = new FileWriter(filePath)) {
+            
+            //write information to file
+            outFile.write("\n\t\tCost of Items in Inventory\n\n");
+            
+            for (InventoryItem item : items) {
+                if (item == null) {
+                    continue;
+                }
+                this.console.println("Total cost of all inventory items: " + totalCost);
+                outFile.write("\t" + item.getItemName() + "\t" + totalCost + "\r\n");
+            }
+            outFile.flush();
+        } catch (IOException ex) {
+            ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+        }
+        this.console.println("\n\nFile Sucessfully Saved");
+    }
+    
+    private void getInventoryAverage() throws ReportsControlException {
+
+            ReportsControl reportsControl = new ReportsControl();
+            InventoryItem[] items = CityofAaron.getCurrentGame().getInventory();
+
+            String filePath = this.getInput("Enter the file path where you would like the report printed:\n");
+            try {
+                printInventoryAverage(filePath, items);
+            } catch (IOException ex) {
+                 ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
+            }
+        }
+    
+    private void printInventoryAverage(String filePath, InventoryItem[] items) throws ReportsControlException, IOException {
+
+        if (filePath == null)
+             throw new ReportsControlException("FilePath is empty");
+         if (items == null)
+             throw new ReportsControlException("No items in Inventory to display");
+        
+        ReportsControl reportsControl = new ReportsControl();
+
+        int average = reportsControl.quantityCost(items);
+        int sum = 0;
+         
+        try ( 
+            FileWriter outFile = new FileWriter(filePath)) {
+            
+            //write information to file
+            outFile.write("\n\t\tAverage of Items in Inventory\n\n");
+            
             for (InventoryItem item : items) {
                 if (item == null) {
                     continue;
                 }
                 sum = sum + item.getPricePerUnit();
                 average = sum / items.length;
+                this.console.println(average);
+                outFile.write("\t" + item.getItemName() + "\t" + average + "\r\n");
             }
-            this.console.println("Average of Items in Inventory:" + average);
-        } catch (ReportsControlException ex) {
+            outFile.flush();
+        } catch (IOException ex) {
             ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
         }
+        this.console.println("\n\nFile Sucessfully Saved");
     }
+    
     
     private void getInventorySorted() throws ReportsControlException {
 
@@ -235,7 +399,7 @@ public class ReportsMenuView extends View {
             
             //write information to file
             outFile.write("\n\t\tItems sorted In Inventory\n\n");
-            outFile.write("\tIte Type\tQuantity In Stock\n\n");
+            outFile.write("\tItem Type\tQuantity In Stock\n\n");
             
             for (InventoryItem item : items) {
                 if (item == null) {
@@ -244,14 +408,10 @@ public class ReportsMenuView extends View {
                 this.console.println(item.getItemType());
                 outFile.write("\t" + item.getItemType() + "\t" + item.getQuantityInStock() + "\r\n");
             }
-            
             outFile.flush();
-
         } catch (IOException ex) {
             ErrorView.display(this.getClass().getName(), "Error reading Input:" + ex.getMessage());
-
         }
-        
         this.console.println("\n\nFile Sucessfully Saved");
     }
    

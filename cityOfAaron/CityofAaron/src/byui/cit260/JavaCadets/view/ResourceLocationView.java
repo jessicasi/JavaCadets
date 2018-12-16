@@ -25,9 +25,12 @@ class ResourceLocationView extends View {
         ResourceLocation location = (ResourceLocation) game.getCurrentLocation();
         ArrayList<InventoryItem> itemsInLocation = location.getItems();
 
-        this.console.println("\nHi - my name is " + location.getActor());
+        this.console.println("\n"+"══════════════════════════════");
+        this.console.println("Hi - my name is " + location.getActor());
         this.console.println(location.getDescription());
-        this.console.println("This location has the following resource(s):");
+        this.console.println("══════════════════════════════ \n");
+        
+        this.console.println("➤ This location has the following resource(s):");
         char x = 'A';
         for (InventoryItem item : itemsInLocation) {
             if (item != null) {
@@ -37,7 +40,7 @@ class ResourceLocationView extends View {
 
         }
 
-        String answer = this.getInput("Choose one item that you would like");
+        String answer = this.getInput("\n➤ Choose one item that you would like");
         inputs[0] = answer;
         return inputs;
     }
@@ -83,9 +86,11 @@ class ResourceLocationView extends View {
             }
 
         }
+        this.console.println("\n"+"══════════════════════════════");
         this.console.println("You chose a(n) " + item);
         this.console.println("1 has been added to your inventory");
         this.console.println("Oh, and 3 months have gone by!");
+        this.console.println("══════════════════════════════ \n");
 
         return true;
     }

@@ -109,12 +109,12 @@ public class GameMenuView extends View {
                 rightIndicator = " ";
                 if (location == map.getLocation()) {
                     // Set star indicators to show this is the current location.
-                    leftIndicator = "*";
-                    rightIndicator = "*";
+                    leftIndicator = "▲";
+                    rightIndicator = "▲";
                 } else if (location.isVisited()) {
                     // Set < > indicators to show this location has been visited.
-                    leftIndicator = ">"; // can be stars or whatever these are indicators showing visited
-                    rightIndicator = "<"; // same as above
+                    leftIndicator = "►"; // can be stars or whatever these are indicators showing visited
+                    rightIndicator = "◄"; // same as above
                 }
                 this.console.print("|"); // start map with a |
                 if (location.getScene() == null) {

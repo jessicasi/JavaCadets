@@ -160,6 +160,7 @@ public class ReportsMenuView extends View {
 
     private void Provisions() {
         this.console.println("Provisions in StoreHouse Was Called");
+        
     }
 
     private void Authors() {
@@ -241,7 +242,7 @@ public class ReportsMenuView extends View {
                     continue;
                 }
                 this.console.println(item.getItemType());
-                outFile.write("\t" + item.getItemType() + "\n");
+                outFile.write("\t" + item.getItemType() + "\t" + item.getQuantityInStock() + "\r\n");
             }
             
             outFile.flush();

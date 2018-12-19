@@ -72,7 +72,10 @@ public class HelpMenuView extends View{
             this.console.println("Deliver resources through the D Key");
         }
                     break;
-        case "Q": return true;
+        case "Q":
+        {
+            return true;
+        }
         
         default: 
         {
